@@ -3241,7 +3241,7 @@ a {
 
     /* Contact Media Query */
 
-    @media screen and (max-width: 980px;) {
+    @media screen and (max-width: 980px) {
         .contact-form {
         width: -webkit-fill-available;
         margin-left: 5%;
