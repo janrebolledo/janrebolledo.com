@@ -2152,7 +2152,6 @@ body {
     color: #000;
     font-size: 16px;
     line-height: 20px;
-    overflow: scroll;
 }
 
 h1 {
@@ -3160,7 +3159,6 @@ a {
     }
 
     .body {
-        overflow: hidden;
     }
 
     .hamburger-menu {
