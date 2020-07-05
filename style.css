@@ -358,7 +358,6 @@ html[data-w-dynpage] [data-w-cloak] {
     text-transform: inherit;
     list-style-type: disc;
     text-shadow: none;
-    font-smoothing: auto;
     vertical-align: baseline;
     cursor: inherit;
     white-space: inherit;
@@ -548,7 +547,6 @@ label {
     font-size: 14px;
     line-height: 1.42857143;
     color: #333333;
-    vertical-align: middle;
     background-color: #ffffff;
     border:1px solid #cccccc
 }
@@ -1066,7 +1064,6 @@ textarea.w-input, textarea.w-select {
 }
 
 .w-widget-map label {
-    width: auto;
     display:inline
 }
 
@@ -1256,7 +1253,6 @@ textarea.w-input, textarea.w-select {
     background: #dddddd;
     clear: both;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    tap-highlight-color:rgba(0, 0, 0, 0)
 }
 
 .w-slider-mask {
@@ -1292,7 +1288,6 @@ textarea.w-input, textarea.w-select {
     height: 40px;
     text-align: center;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    tap-highlight-color:rgba(0, 0, 0, 0)
 }
 
 .w-slider-nav.w-round > div {
@@ -1351,7 +1346,6 @@ textarea.w-input, textarea.w-select {
     color: white;
     font-size: 40px;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    tap-highlight-color: rgba(0, 0, 0, 0);
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -1490,7 +1484,6 @@ textarea.w-input, textarea.w-select {
     -moz-user-select: none;
     -ms-user-select: none;
     -webkit-tap-highlight-color: transparent;
-    -webkit-transform:translate(0, 0)
 }
 
 .w-lightbox-backdrop, .w-lightbox-container {
@@ -1981,7 +1974,6 @@ textarea.w-input, textarea.w-select {
     display: none;
     cursor: pointer;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    tap-highlight-color: rgba(0, 0, 0, 0);
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -2600,10 +2592,6 @@ a {
     align-self: center;
 }
 
-.landing-page {
-    
-}
-
 .landing-page-paragraph {
     font-family: Gotham, sans-serif;
     font-size: 30px;
@@ -2863,7 +2851,7 @@ a {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    height: 88vh;
+    height: 100vh;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     -webkit-flex-direction: column;
@@ -3050,10 +3038,6 @@ a {
         margin-right: 20px;
         margin-left: 20px;
     }
-
-    .call-to-action {
-
-    }
 }
 
 @media screen and (max-width: 767px) {
@@ -3189,9 +3173,6 @@ a {
 
     .div-block-4 {
         padding-right: 0px;
-    }
-
-    .body {
     }
 
     .hamburger-menu {
