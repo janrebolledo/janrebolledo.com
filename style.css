@@ -1,6 +1,6 @@
 /* Generated on: Sun Jun 28 2020 16:15:04 GMT+0000 (Coordinated Universal Time) */
 /* ==========================================================================
-   normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css 
+   normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css
    ========================================================================== */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 html {
@@ -2811,6 +2811,7 @@ a {
     -webkit-align-self: center;
     -ms-flex-item-align: center;
     align-self: center;
+    margin-top: 120px;
 }
 
 .link-profile-text {
@@ -3365,4 +3366,3 @@ input[type=submit]:hover {
     font-weight: 700;
     font-style: normal;
 }
-
