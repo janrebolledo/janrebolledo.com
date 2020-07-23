@@ -2674,6 +2674,7 @@ a {
     background: rgb(139,17,242);
     background: linear-gradient(0deg, rgba(139,17,242,1) 0%, rgba(0,212,255,1) 100%);
     width: 50%;
+    height: 100%
 }
 
 .behance-projects-wrapper {
@@ -2691,6 +2692,7 @@ a {
     -webkit-align-items: center;
     -ms-flex-align: center;
     align-items: center;
+    padding: 0 40px 0 40px;
 }
 
 .behance-project {
@@ -2699,6 +2701,7 @@ a {
 
 .behance-project-title {
     margin-top: 10px;
+    margin-bottom: 10px;
     color: #fff;
     font-size: 30px;
     line-height: 35px;
@@ -2739,7 +2742,12 @@ a {
 }
 
 .call-to-action {
-    width: 50%;
+    width: 50vw;
+    height: 100%;
+    display: flex;
+    align-items: left;
+    justify-content: center;
+    flex-direction: column;
     padding: 0 5% 0 5%;
 }
 
@@ -2747,6 +2755,7 @@ a {
     margin-top: 10px;
     background-color: #000;
     color: #fff;
+    width: 95px;
 }
 
 /* Home Page Portfolio Section Media Query */
@@ -2967,8 +2976,8 @@ a {
     }
 
     .call-to-action-button {
-        background-color: #fff;
-        color: #000;
+        background-color: #000;
+        color: #fff;
     }
 
     .about-me-landing-page {
@@ -3346,6 +3355,31 @@ input[type=submit] {
 input[type=submit]:hover {
   background-color: #404040;
 }
+
+.page-redirect {
+  height: 88vh;
+  display: flex;
+  justify-content: center;
+  padding: 0 0 0 0;
+}
+
+.page-redirect-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: -10vh 10px 0 10px;
+}
+
+.page-redirect-container h2 {
+  text-align: center;
+  margin: 0 0 0 10;
+}
+
+.page-redirect-container p {
+  text-align: center;
+}
+
 @font-face {
     font-family: 'Sequel';
     src: url('https://uploads-ssl.webflow.com/5ef8baeb2b6e5a6e4252d54f/5ef8baeb2b6e5ac68352d569_Sequel100Black-75.ttf') format('truetype');
