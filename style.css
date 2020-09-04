@@ -242,6 +242,7 @@ html {
 body {
     margin: 0;
     min-height: 100%;
+    height: 100%;
     background-color: #fff;
     font-family: Arial, sans-serif;
     font-size: 14px;
@@ -2743,7 +2744,8 @@ a {
 
 .call-to-action {
     width: 50vw;
-    height: 100vh;
+    height: 107vh;
+    margin: 0;
     display: flex;
     align-items: left;
     justify-content: center;
@@ -2753,11 +2755,22 @@ a {
 background: linear-gradient(0deg, rgba(146,52,235,1) 0%, rgba(119,49,201,1) 100%);
 }
 
+.web-design-cta {
+  background: none;
+  color: #000;
+}
+
 .call-to-action-button {
     margin-top: 10px;
     background-color: #fff;
     color: #000;
     width: 95px;
+}
+
+.web-design-cta-btn {
+  background-color: #000;
+  color: #fff;
+  width: 205px;
 }
 
 /* Home Page Portfolio Section Media Query */
@@ -2773,8 +2786,6 @@ background: linear-gradient(0deg, rgba(146,52,235,1) 0%, rgba(119,49,201,1) 100%
         }
         .call-to-action {
             width: 100%;
-            margin-top: 80px;
-            margin-bottom: 80px;
         }
     }
 
@@ -3380,6 +3391,46 @@ input[type=submit]:hover {
 
 .page-redirect-container p {
   text-align: center;
+}
+
+.web-design-section{
+  height: 100vh;
+  display: flex;
+  width: 100vw;
+}
+
+.web-design-cta-container {
+
+}
+
+.web-design-image {
+  position: absolute;
+  left: 350px;
+  bottom: -150vh;
+  z-index: -2;
+}
+
+/** Web Design Section Media Query **/
+
+@media screen and (max-width:980px) {
+  .web-design-cta-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .web-design-cta {
+    height: auto;
+  }
+  .web-design-section {
+    align-items: center;
+    justify-content: center;
+  }
+  .web-design-image {
+    position: static;
+    left: 0;
+    bottom: 0;
+  }
 }
 
 @font-face {
