@@ -3393,21 +3393,23 @@ input[type=submit]:hover {
   text-align: center;
 }
 
-.web-design-section{
+.web-design-section {
   height: 100vh;
   display: flex;
-  width: 100vw;
+  width: 100%;
+  overflow: hidden;
 }
 
 .web-design-cta-container {
-
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
 }
 
 .web-design-image {
-  position: absolute;
-  left: 350px;
-  bottom: -150vh;
   z-index: -2;
+  width: 55%;
 }
 
 /** Web Design Section Media Query **/
@@ -3425,11 +3427,13 @@ input[type=submit]:hover {
   .web-design-section {
     align-items: center;
     justify-content: center;
+    height: auto;
   }
   .web-design-image {
     position: static;
     left: 0;
     bottom: 0;
+    width: 100%;
   }
 }
 
