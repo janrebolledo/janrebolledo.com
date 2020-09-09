@@ -2567,7 +2567,7 @@ a {
 .container-6 {
     position: relative;
     left: 0%;
-    top: -5%;
+    top: 0%;
     right: 0%;
     bottom: 0%;
     display: -webkit-box;
@@ -2628,7 +2628,9 @@ a {
 }
 
 .image-6 {
-    margin-left: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 100%;
 }
 
 .hamburger-menu-container-1 {
@@ -2964,7 +2966,7 @@ background: linear-gradient(0deg, rgba(146,52,235,1) 0%, rgba(119,49,201,1) 100%
     }
 
     .image-6 {
-        padding-left: 31px;
+
     }
 
     .hamburger-menu-container-1 {
@@ -3120,11 +3122,12 @@ background: linear-gradient(0deg, rgba(146,52,235,1) 0%, rgba(119,49,201,1) 100%
     }
 
     .landing-page-paragraph {
-        margin-left: 10px;
+        margin-left: 15px;
+        margin-right: 15px;
     }
 
     .image-6 {
-        margin-right: 10px;
+        width: 100%;
     }
 }
 
@@ -3205,8 +3208,6 @@ background: linear-gradient(0deg, rgba(146,52,235,1) 0%, rgba(119,49,201,1) 100%
 
     .container-6 {
         margin-bottom: 39px;
-        padding-right: 30px;
-        padding-left: 30px;
         -webkit-box-orient: vertical;
         -webkit-box-direction: normal;
         -webkit-flex-direction: column;
@@ -3436,6 +3437,23 @@ input[type=submit]:hover {
     bottom: 0;
     width: 100%;
   }
+}
+
+.landing-page-cta-heading {
+  font-size: 50px;
+  font-weight: bold;
+  line-height: 45px;
+}
+
+.landing-page-cta-copy {
+  font-size: 18px;
+  line-height: 25px;
+}
+
+.landing-page-cta-button {
+  padding: 9px 15px;
+  color: #fff;
+  background-color: #000;
 }
 
 @font-face {
