@@ -2632,6 +2632,11 @@ a {
     padding-right: 15px;
     width: 100%;
 }
+.image-404 {
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 60%;
+}
 
 .hamburger-menu-container-1 {
     display: -webkit-box;
@@ -2968,6 +2973,9 @@ background: linear-gradient(0deg, rgba(146,52,235,1) 0%, rgba(119,49,201,1) 100%
     .image-6 {
 
     }
+    .image-404 {
+
+    }
 
     .hamburger-menu-container-1 {
         -webkit-box-pack: start;
@@ -3128,6 +3136,9 @@ background: linear-gradient(0deg, rgba(146,52,235,1) 0%, rgba(119,49,201,1) 100%
 
     .image-6 {
         width: 100%;
+    }
+    .image-404 {
+        width: 60%;
     }
 }
 
