@@ -2992,11 +2992,11 @@ background: linear-gradient(0deg, rgba(146,52,235,1) 0%, rgba(119,49,201,1) 100%
     }
 
     .contact-call-to-action-paragraph {
-        color: #000;
+        color: #fff;
     }
 
     .contact-call-to-action-heading-copy {
-        color: #000;
+        color: #fff;
     }
 
     .call-to-action-button {
