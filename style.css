@@ -2925,7 +2925,7 @@ background: linear-gradient(0deg, rgba(146,52,235,1) 0%, rgba(119,49,201,1) 100%
         display: -webkit-box;
         display: -webkit-flex;
         display: -ms-flexbox;
-        display: flex;
+        display: flex; !important
         padding-right: 389px;
         -webkit-box-orient: vertical;
         -webkit-box-direction: normal;
@@ -2986,17 +2986,9 @@ background: linear-gradient(0deg, rgba(146,52,235,1) 0%, rgba(119,49,201,1) 100%
 
     .behance-project-title {
         margin-top: 10px;
-        color: #fff;
+        color: #000;
         font-size: 30px;
         line-height: 35px;
-    }
-
-    .contact-call-to-action-paragraph {
-        color: #fff;
-    }
-
-    .contact-call-to-action-heading-copy {
-        color: #fff;
     }
 
     .call-to-action-button {
