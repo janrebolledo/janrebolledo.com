@@ -2492,6 +2492,7 @@ a {
     -webkit-flex: 1;
     -ms-flex: 1;
     flex: 1;
+    margin-top: 55vh;
 }
 
 .link-5 {
@@ -3478,4 +3479,47 @@ input[type=submit]:hover {
     src: url('https://uploads-ssl.webflow.com/5ef8baeb2b6e5a6e4252d54f/5ef8baeb2b6e5a86f052d571_Gotham-Bold.ttf') format('truetype');
     font-weight: 700;
     font-style: normal;
+}
+
+.portfolio-image {
+	width: 500px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.portfolio-heading {
+	margin-top: 20vh;
+}
+
+.centered {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}
+
+.no-underline {
+	text-decoration: none;
+}
+
+.h2 {
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: regular;
+}
+
+@media screen and (max-width: 980px) {
+	.container {
+		padding: 0 5em;
+	}
+}
+
+@media screen and (max-width: 574px) {
+	.portfolio-image {
+		width: 100%;
+	}
 }
