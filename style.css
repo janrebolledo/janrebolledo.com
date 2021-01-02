@@ -2421,7 +2421,6 @@ a {
 
 .link-3 {
     padding-right: 10px;
-    padding-left: 10px;
     -webkit-align-self: auto;
     -ms-flex-item-align: auto;
     -ms-grid-row-align: auto;
@@ -2439,6 +2438,19 @@ a {
     line-height: 50px;
     font-weight: 700;
     text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.link-3::before {
+    content:'';
+    background: url('Assets/logo.png'); /*url of image*/
+    height: 45px; /*height of image*/
+    width: 45px;  /*width of image*/
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: block;
+    margin-right: 15px;
 }
 
 .hamburger-menu-open {
@@ -2631,7 +2643,7 @@ a {
 .image-6 {
     padding-left: 15px;
     padding-right: 15px;
-    width: 100%;
+    width: 50%;
 }
 .image-404 {
     padding-left: 15px;
@@ -2705,6 +2717,8 @@ a {
 
 .behance-project {
     width: 300px;
+    margin-bottom: 10px;
+    margin-top: 10px;
 }
 
 .behance-project-title {
@@ -2722,7 +2736,7 @@ a {
 
 .image-7 {
     display: inline-block;
-    width: 40px;
+    width: 60px;
 }
 
 .div-block-7 {
@@ -2760,8 +2774,8 @@ a {
     justify-content: center;
     flex-direction: column;
     padding: 0 5% 0 5%;
-    background: rgb(146,52,235);
-background: linear-gradient(0deg, rgba(146,52,235,1) 0%, rgba(119,49,201,1) 100%);
+    background: rgb(95,154,250);
+background: linear-gradient(90deg, rgba(95,154,250,1) 0%, rgba(236,106,168,1) 100%);
 }
 
 .web-design-cta {
@@ -2769,15 +2783,54 @@ background: linear-gradient(0deg, rgba(146,52,235,1) 0%, rgba(119,49,201,1) 100%
   color: #000;
 }
 
+.styled-underline {
+    display: flex;
+    flex-direction: column;
+}
+
+.styled-underline::after {
+    content: '.';
+    background: rgb(95,154,250);
+    background: linear-gradient(90deg, rgba(95,154,250,1) 0%, rgba(236,106,168,1) 100%);
+    width: 90%;
+    height: 18px;
+    position: relative;
+    left: 0;
+    z-index: -1;
+    color: rgba(255, 255, 255, 0);
+    margin-bottom: 10px;
+    margin-top: -20px;
+}
+
+.styled-underline-2 {
+    display: flex;
+    flex-direction: column;
+}
+
+.styled-underline-2::after {
+    content: '.';
+    background: rgb(95,154,250);
+    background: linear-gradient(90deg, rgba(95,154,250,1) 0%, rgba(236,106,168,1) 100%);
+    width: 110%;
+    height: 18px;
+    position: relative;
+    left: -5%;
+    z-index: -1;
+    color: rgba(255, 255, 255, 0);
+    margin-bottom: 10px;
+    margin-top: -20px;
+}
+
 .call-to-action-button {
     margin-top: 10px;
-    background-color: #fff;
-    color: #000;
+    background-color: rgba(255, 255, 255, 0.3);
     width: 95px;
+    backdrop-filter: blur(0px);
 }
 
 .web-design-cta-btn {
-  background-color: #000;
+  background: rgb(95,154,250);
+background: linear-gradient(90deg, rgba(95,154,250,1) 0%, rgba(236,106,168,1) 100%);
   color: #fff;
   width: 205px;
 }
@@ -2842,7 +2895,7 @@ background: linear-gradient(0deg, rgba(146,52,235,1) 0%, rgba(119,49,201,1) 100%
     -webkit-align-self: center;
     -ms-flex-item-align: center;
     align-self: center;
-    margin-top: 120px;
+    margin-top: 80px;
 }
 
 .link-profile-text {
@@ -3289,8 +3342,8 @@ background: linear-gradient(0deg, rgba(146,52,235,1) 0%, rgba(119,49,201,1) 100%
     @media screen and (min-width: 980px) {
         .contact-info {
             width: 50%;
-            background: rgb(139,17,242);
-            background: linear-gradient(0deg, rgba(146,52,235,1) 0%, rgba(119,49,201,1) 100%);
+            background: rgb(95,154,250);
+background: linear-gradient(90deg, rgba(95,154,250,1) 0%, rgba(236,106,168,1) 100%);
             height: 100vh;
             align-items: center;
             justify-content: center;
@@ -3375,6 +3428,26 @@ input[type=submit]:hover {
   background-color: #404040;
 }
 
+.page-policy {
+  height: auto;
+  min-height: 88vh;
+  display: flex;
+  justify-content: center;
+  padding: 10vh 10vw;
+}
+
+.page-policy-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: -10vh 10px 0 10px;
+}
+
+.page-policy-container h6 {
+    color: black;
+}
+
 .page-redirect {
   height: 88vh;
   display: flex;
@@ -3457,7 +3530,8 @@ input[type=submit]:hover {
 .landing-page-cta-button {
   padding: 9px 15px;
   color: #fff;
-  background-color: #000;
+  background: rgb(95,154,250);
+background: linear-gradient(90deg, rgba(95,154,250,1) 0%, rgba(236,106,168,1) 100%);
 }
 
 @font-face {
@@ -3479,6 +3553,16 @@ input[type=submit]:hover {
     src: url('https://uploads-ssl.webflow.com/5ef8baeb2b6e5a6e4252d54f/5ef8baeb2b6e5a86f052d571_Gotham-Bold.ttf') format('truetype');
     font-weight: 700;
     font-style: normal;
+}
+
+.page {
+	height: auto;
+	min-height: 100vh;
+    margin-bottom: 30px;
+}
+
+.button-2 {
+    margin-top: 25px;
 }
 
 .portfolio-image {
