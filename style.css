@@ -3572,7 +3572,15 @@ background: linear-gradient(90deg, rgba(95,154,250,1) 0%, rgba(236,106,168,1) 10
 }
 
 .portfolio-heading {
-	margin-top: 20vh;
+	padding-top: 10vh;
+    padding-bottom: 10vh;
+    background: linear-gradient(90deg, rgba(95,154,250,1) 0%, rgba(236,106,168,1) 100%);
+    width: 100%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
 .centered {
