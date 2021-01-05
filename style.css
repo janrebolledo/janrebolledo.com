@@ -2444,7 +2444,7 @@ a {
 
 .link-3::before {
     content:'';
-    background: url('Assets/logo.png'); /*url of image*/
+    background: url('Assets/Logo.png'); /*url of image*/
     height: 45px; /*height of image*/
     width: 45px;  /*width of image*/
     background-repeat: no-repeat;
