@@ -3608,9 +3608,19 @@ background: linear-gradient(90deg, rgba(95,154,250,1) 0%, rgba(236,106,168,1) 10
 	.container {
 		padding: 0 0em;
 	}
-    .centered > a,p {
-        padding: 0 3em;
+        .portfolio-heading {
+        padding-top: 10vh;
+        padding-bottom: 10vh;
     }
+    .centered > a {
+        padding-left: 3em;
+        padding-right: 3em;
+    }
+    .centered > p {
+        padding-left: 3em;
+        padding-right: 3em;
+    }
+
 }
 
 @media screen and (max-width: 574px) {
