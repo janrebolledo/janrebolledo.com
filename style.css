@@ -3606,8 +3606,11 @@ background: linear-gradient(90deg, rgba(95,154,250,1) 0%, rgba(236,106,168,1) 10
 
 @media screen and (max-width: 980px) {
 	.container {
-		padding: 0 5em;
+		padding: 0 0em;
 	}
+    .centered > a,p {
+        padding: 0 3em;
+    }
 }
 
 @media screen and (max-width: 574px) {
