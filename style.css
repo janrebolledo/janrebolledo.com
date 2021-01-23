@@ -3049,11 +3049,6 @@ background: linear-gradient(90deg, rgba(95,154,250,1) 0%, rgba(236,106,168,1) 10
         line-height: 35px;
     }
 
-    .call-to-action-button {
-        background-color: #000;
-        color: #fff;
-    }
-
     .about-me-landing-page {
         height: 95vh;
         -webkit-box-pack: center;
