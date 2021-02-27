@@ -2575,7 +2575,7 @@ a {
     -webkit-justify-content: center;
     -ms-flex-pack: center;
     justify-content: center;
-    background: linear-gradient(90deg, rgba(95,154,250,1) 0%, rgba(236,106,168,1) 100%);
+    background: linear-gradient(90deg, rgba(140,198,63,1) 0%, rgba(57,181,74,1) 100%);
 }
 
 .container-6 {
@@ -2776,7 +2776,7 @@ a {
     flex-direction: column;
     padding: 0 5% 0 5%;
     background: rgb(95,154,250);
-background: linear-gradient(90deg, rgba(95,154,250,1) 0%, rgba(236,106,168,1) 100%);
+background: linear-gradient(90deg, rgba(140,198,63,1) 0%, rgba(57,181,74,1) 100%);
 }
 
 .web-design-cta {
@@ -2791,8 +2791,7 @@ background: linear-gradient(90deg, rgba(95,154,250,1) 0%, rgba(236,106,168,1) 10
 
 .styled-underline::after {
     content: '.';
-    background: rgb(95,154,250);
-    background: linear-gradient(90deg, rgba(95,154,250,1) 0%, rgba(236,106,168,1) 100%);
+    background: linear-gradient(90deg, rgba(140,198,63,1) 0%, rgba(57,181,74,1) 100%);
     width: 90%;
     height: 18px;
     position: relative;
@@ -2811,7 +2810,7 @@ background: linear-gradient(90deg, rgba(95,154,250,1) 0%, rgba(236,106,168,1) 10
 .styled-underline-2::after {
     content: '.';
     background: rgb(95,154,250);
-    background: linear-gradient(90deg, rgba(95,154,250,1) 0%, rgba(236,106,168,1) 100%);
+    background: background: linear-gradient(90deg, rgba(140,198,63,1) 0%, rgba(57,181,74,1) 100%);
     width: 110%;
     height: 18px;
     position: relative;
@@ -2831,7 +2830,7 @@ background: linear-gradient(90deg, rgba(95,154,250,1) 0%, rgba(236,106,168,1) 10
 
 .web-design-cta-btn {
   background: rgb(95,154,250);
-background: linear-gradient(90deg, rgba(95,154,250,1) 0%, rgba(236,106,168,1) 100%);
+background: linear-gradient(90deg, rgba(140,198,63,1) 0%, rgba(57,181,74,1) 100%);
   color: #fff;
   width: 205px;
 }
@@ -3342,7 +3341,7 @@ background: linear-gradient(90deg, rgba(95,154,250,1) 0%, rgba(236,106,168,1) 10
         .contact-info {
             width: 50%;
             background: rgb(95,154,250);
-background: linear-gradient(90deg, rgba(95,154,250,1) 0%, rgba(236,106,168,1) 100%);
+background: linear-gradient(90deg, rgba(140,198,63,1) 0%, rgba(57,181,74,1) 100%);
             height: 100vh;
             align-items: center;
             justify-content: center;
@@ -3530,7 +3529,7 @@ input[type=submit]:hover {
   padding: 9px 15px;
   color: #fff;
   background: rgb(95,154,250);
-background: linear-gradient(90deg, rgba(95,154,250,1) 0%, rgba(236,106,168,1) 100%);
+background: linear-gradient(90deg, rgba(140,198,63,1) 0%, rgba(57,181,74,1) 100%);
 }
 
 @font-face {
@@ -3573,7 +3572,7 @@ background: linear-gradient(90deg, rgba(95,154,250,1) 0%, rgba(236,106,168,1) 10
 .portfolio-heading {
 	padding-top: 10vh;
     padding-bottom: 10vh;
-    background: linear-gradient(90deg, rgba(95,154,250,1) 0%, rgba(236,106,168,1) 100%);
+    background: linear-gradient(90deg, rgba(140,198,63,1) 0%, rgba(57,181,74,1) 100%);
     width: 100%;
     color: white;
     display: flex;
