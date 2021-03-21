@@ -3482,6 +3482,7 @@ input[type=submit]:hover {
     align-items: center;
     justify-content: center;
     flex-direction: row;
+    padding: 0 10%;
 }
 
 .web-design-image {
@@ -3497,6 +3498,7 @@ input[type=submit]:hover {
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    padding: 0 5%;
   }
   .web-design-cta {
     height: auto;
