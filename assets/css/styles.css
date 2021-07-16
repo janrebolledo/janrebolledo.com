@@ -195,7 +195,7 @@ nav {
     display: flex;
     height: 14vh;
     width: 100%;
-    background: #000000;
+    background: #00000080;
     align-items: center;
     justify-content: space-between;
     padding: 0 15%;
