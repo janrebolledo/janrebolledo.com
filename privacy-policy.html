@@ -12,7 +12,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&display=swap"
         rel="stylesheet">
     <link rel="icon" href="favicon.png">
-    <meta name="robots" content="noindex, nofollow" />
+    <meta name="description" content="Esports Branding & Web Development. I help esports teams create memorable brands and effective websites." />
+    <meta name="robots" content="index, follow" />
     <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-172574054-1"></script>
 <script>
@@ -32,7 +33,7 @@
     <header>
         <nav>
             <div class="logo flex">
-                <a href="index.html" class="flex align-items justify-content" href="">
+                <a href="https://janrebolledo.com/" class="flex align-items justify-content" href="">
                     <img class="header-logo" src="assets/images/Logo.png">
                 </a>
             </div>
@@ -41,8 +42,8 @@
                 ☰
             </label>
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="https://janrebolledo.com/">Home</a></li>
+                <li><a href="https://janrebolledo.com/contact">Contact</a></li>
             </ul>
         </nav>
     </header>
@@ -134,13 +135,13 @@
                 </a>
             </div>
             <div class="footer-nav">
-                <a href="index.html" class="footer-link slide-underline">
+                <a href="https://janrebolledo.com/" class="footer-link slide-underline">
                     Home
                 </a>
-                <a href="contact.html" class="footer-link slide-underline">
+                <a href="https://janrebolledo.com/contact" class="footer-link slide-underline">
                     Contact
                 </a>
-                <a href="privacy-policy.html" class="footer-link slide-underline">
+                <a href="https://janrebolledo.com/privacy-policy" class="footer-link slide-underline">
                     Privacy Policy
                 </a>
             </div>
@@ -152,22 +153,21 @@
 
     <!-- jQuery -->
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
     <!-- Header JS -->
 
-    <script>
-        $(document).on('click', '#menu-btn', function (e) {
-            var value = $('#menu-btn').is(':checked');
+<script>
+$(document).on('click', '#menu-btn', function (e) {
+    var value = $('#menu-btn').is(':checked');              
 
-            if (value) {
-                $('#menu-btn').html("<input type='checkbox' id='menu-btn' class=menu-btn'/>☰");
-            } else {
-                $('#menu-btn').html("<input type='checkbox' id='menu-btn' class='menu-btn'/>✖");
-            }
-        });
-    </script>
+    if (value) {                    
+        $('#menu-btn')("<input type='checkbox' id='menu-btn' class=menu-btn'/>☰");
+    } else {
+        $('#menu-btn')("<input type='checkbox' id='menu-btn' class='menu-btn'/>✖");
+    }
+});
+</script>
 
 </body>
 
