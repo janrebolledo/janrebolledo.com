@@ -16,7 +16,32 @@ a, p {
 
 h1, h2, h3 {
   line-height: 42px;
-  margin-bottom: 10px;
+}
+
+.hyperlink {
+    color: rgba(51,179,69,1);
+}
+
+a.hyperlink {
+    position: relative;
+    text-decoration: none;
+}
+
+a.hyperlink::before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #FFF;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+}
+
+a.hyperlink:hover:before {
+    visibility: visible;
+    width: 100%;
 }
 
 .flex {
@@ -45,6 +70,7 @@ h1, h2, h3 {
 
 section {
     height: 100vh;
+    background-color: #000000;
 }
 
 .auto {
@@ -94,7 +120,7 @@ a.slide-underline::before {
 a.slide-underline:hover:before {
     visibility: visible;
     width: 100%;
-  }
+}
 
 .desktop {
   display: initial;
@@ -113,7 +139,7 @@ a.slide-underline:hover:before {
 }
 
 .button {
-    margin: 1%;
+    margin: 16px 0;
     padding: 15px 20px;
     color: #ffffff;
     width: fit-content;
@@ -467,18 +493,20 @@ footer {
 }
   
 .contact {
+    width: 100%;
     align-items: flex-start;
-    width: 60%;
     color: #ffffff;
 }
 
 .contact-heading {
     font-size: 32px;
     font-weight: 800;
+    color: #ffffff;
 }
 
 .contact-paragraph {
     margin-top: 10px;
+    color: #ffffff;
 }
   
 form {
