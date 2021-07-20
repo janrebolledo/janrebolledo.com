@@ -160,26 +160,30 @@ a.slide-underline:hover:before {
   }
 }
 
-/* width */
+/* Scrollbar  */
+
 ::-webkit-scrollbar {
     width: 10px;
 }
   
-/* Track */
 ::-webkit-scrollbar-track {
     background-color: #1d1d1d;
 }
  
-/* Handle */
 ::-webkit-scrollbar-thumb {
     background: linear-gradient(0deg, rgba(140,198,63,1) 0%, rgba(57,181,74,1) 100%); 
     border-radius: 3px;
 }
   
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
     background: #36a630; 
 }
+
+/* Highlight */
+
+::selection {
+    background: rgba(51,179,69,1);
+  }
 
 /* Header */
 
