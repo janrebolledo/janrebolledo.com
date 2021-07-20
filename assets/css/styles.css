@@ -489,6 +489,24 @@ footer {
     width: 100%;
 }
 
+/* Services */
+
+.services-card {
+    width: 33%;
+    padding: 32px;
+    color: #ffffff;
+}
+
+.services-icon {
+    width: 45px;
+}
+
+@media screen and (max-width: 980px) {
+    .services-card {
+        width: 100%;
+    }
+}
+
 /* Contact */
 
 .contact-text {
