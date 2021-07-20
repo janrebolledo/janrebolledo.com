@@ -422,6 +422,27 @@ footer {
     font-size: 32px;
 }
 
+.typewriter {
+    color: rgba(51,179,69,1);
+}
+.typewriter-cursor {
+    display: inline-block;
+    width: 3px;
+    background-color: #ffffff;
+    margin-left: .1rem;
+    animation: blink 1s infinite;
+}
+
+.typewriter-cursor.typing {
+    animation: none;
+}
+
+@keyframes blink {
+    0% {background-color: #ffffff;}
+    50% {background-color: #ffffff00;}
+}
+
+
 .landing-image {
     width: 50%;
 }
