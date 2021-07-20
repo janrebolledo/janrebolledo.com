@@ -455,6 +455,7 @@ footer {
     margin: .7%;
     background: rgba(51,179,69,1);
     line-height: 0;
+    overflow: hidden;
 }
 
 .project-image {
@@ -462,11 +463,12 @@ footer {
     opacity: 1;
     transition: .3s;
     margin: 0;
-
+    transform: scale(1);
 }
 
 .project-image:hover {
     opacity: .5;
+    transform: scale(1.1);
 }
 
 @media screen and (max-width: 980px) {
