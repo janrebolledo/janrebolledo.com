@@ -4,10 +4,12 @@
     margin: 0%;
     box-sizing: border-box;
     font-family: Inter, Arial, sans-serif;
+    cursor: url('https://janrebolledo.com/assets/images/cursor');
 }
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 a, p {
@@ -182,7 +184,7 @@ a.slide-underline:hover:before {
 /* Highlight */
 
 ::selection {
-    background: rgba(51,179,69,1);
+    background: rgba(51,179,69,.4);
   }
 
 /* Header */
