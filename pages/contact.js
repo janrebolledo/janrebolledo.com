@@ -11,18 +11,16 @@ export default function Contact() {
         />
                 {/* Facebook Tags */}
 
-                <meta property="og:type" content="website" />
+        <meta property="og:type" content="website" />
         <meta property="og:url" content="https://janrebolledo.com/contact" />
         <meta property="og:title" content="Jan Rebolledo — Contact" />
         <meta property="og:description" content="Let's work together. Fill out this form with any inquires or a quote." />
-        <meta property="og:image" content="../public/socialpreview.png" />
 
         {/* Twitter Tags */}
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content="https://janrebolledo.com/contact" />
         <meta property="twitter:title" content="Jan Rebolledo — Contact" />
         <meta property="twitter:description" content="Let's work together. Fill out this form with any inquires or a quote." />
-        <meta property="twitter:image" content="../public/socialpreview.png" />
       </Head>
       <section className="contact-section">
         <div>

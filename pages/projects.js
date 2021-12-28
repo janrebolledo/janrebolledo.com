@@ -19,14 +19,12 @@ export default function Projects({ posts }) {
         <meta property="og:url" content="https://janrebolledo.com/projects" />
         <meta property="og:title" content="Jan Rebolledo — Projects" />
         <meta property="og:description" content="A collection of my best projects I've made." />
-        <meta property="og:image" content="../public/socialpreview.png" />
 
         {/* Twitter Tags */}
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content="https://janrebolledo.com/projects" />
         <meta property="twitter:title" content="Jan Rebolledo — Projects" />
         <meta property="twitter:description" content="A collection of my best projects I've made." />
-        <meta property="twitter:image" content="../public/socialpreview.png" />
       </Head>
       <section className="projects-section">
         <h2>Projects</h2>
