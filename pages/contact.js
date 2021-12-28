@@ -26,7 +26,7 @@ export default function Contact() {
       </Head>
       <section className="contact-section">
         <div>
-          <h1>Let's work together.</h1>
+          <h1>Let&apos;s work together.</h1>
           <p>Fill out this form with any inquires or a quote.</p>
         </div>
         <form name="contact" method="POST" data-netlify="true">

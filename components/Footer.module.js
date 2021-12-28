@@ -17,7 +17,7 @@ export default function Footer() {
                 <Link href="/projects" ><a className="footer-social-link underline">Projects</a></Link>
                 <Link href="/contact"><a className="footer-social-link underline">Contact</a></Link>
             </div>
-            <p>Copyright © 2021 <a href="/" className="underline link">Jan Rebolledo</a>. Digital Experience by <a href="/" className="underline link">Jan Rebolledo</a>.</p>
+            <p>Copyright © 2021 <Link href="/"><a className="underline link">Jan Rebolledo</a></Link>. Digital Experience by <Link href="/"><a className="underline link">Jan Rebolledo</a></Link>.</p>
         </footer>
         </>
     );
