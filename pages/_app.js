@@ -14,7 +14,7 @@ function App({ Component, pageProps }) {
         <meta name="keywords" content="Jan Rebolledo,graphic designer,motion designer,web designer,web developer" />
         <script data-host="https://microanalytics.io" data-dnt="false" src="https://microanalytics.io/js/script.js" id="ZwSg9rf6GA" async="" defer="" />
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-        <link rel="icon" src="../public/favicon.ico" />
+        <link rel="icon" src="https://janrebolledo.com/favicon.ico" />
         <meta name="theme-color" content="#36a630" />
 
         {/* Facebook Tags */}
