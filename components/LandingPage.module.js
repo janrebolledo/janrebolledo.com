@@ -6,7 +6,7 @@ export default function Landingpage() {
     <>
       <section>
         <div>
-          <h1>Hi! I&apos;m a Multifaceted Web Developer &amp; Graphic Designer.</h1>
+          <h1>Hi! I&apos;m a <span className="underline">Multifaceted Web Developer</span> &amp; <span className="underline">Graphic Designer</span>.</h1>
           <p>Making your vision a reality.</p>
           <Link href="/projects">
             <a className="button">

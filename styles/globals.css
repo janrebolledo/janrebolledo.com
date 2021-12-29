@@ -22,6 +22,11 @@ body {
   box-sizing: border-box;
 }
 
+#__next {
+  scroll-snap-type: y mandatory;
+  overflow-y: auto;
+}
+
 section {
   display: flex;
   align-items: center;
@@ -29,6 +34,8 @@ section {
   color: var(--primary);
   background: var(--background);
   min-height: 60vh;
+  scroll-snap-align: start;
+  justify-content: space-between;
 }
 
 a {
@@ -78,13 +85,13 @@ button, .button {
   color: var(--green);
 }
 
-a.underline {
+.underline {
   position: relative;
   text-decoration: none;
   cursor: pointer;
 }
 
-a.underline::before {
+.underline::before {
   content: "";
   position: absolute;
   width: 0;
@@ -96,9 +103,13 @@ a.underline::before {
   transition: all 0.2s ease-in-out;
 }
 
-a.underline:hover:before {
+.underline:hover:before {
   visibility: visible;
   width: 100%;
+}
+
+span.underline {
+  cursor: auto;
 }
 
 .img-responsive {
