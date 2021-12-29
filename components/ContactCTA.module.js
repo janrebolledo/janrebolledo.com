@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function ContactCTA() {
   return (
     <>
-      <section className="cta-section">
+      <section tabIndex="0" className="cta-section">
         <div>
           <h1>Interested in working together?</h1>
           <p>Contact me and let&apos;s get started!</p>

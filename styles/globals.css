@@ -14,6 +14,7 @@ body {
   --foreground: #212121;
   --background: #000000;
   --gradient: linear-gradient(90deg, rgba(140,198,63,1) 0%, rgba(57,181,74,1) 100%);
+  --gradient-transparent: linear-gradient(90deg, rgba(140,198,63,0.5) 0%, rgba(57,181,74,0.5) 100%);
   --padding: 0 10%;
   --green: #36a630;
 }
@@ -223,11 +224,10 @@ footer {
 }
 
 .projects-container {
-  display: flex;
-  align-items: stretch;
-  justify-content: flex-start;
-  flex-direction: row;
-  flex-wrap: wrap;
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(2, 50%);
+  gap: 12px;
 }
 
 .project-card {
@@ -235,20 +235,54 @@ footer {
   align-items: flex-start;
   justify-content: flex-start;
   flex-direction: column;
-  width: 50%;
-  padding: 12px;
+  width: 100%;
   cursor: pointer;
+  overflow-y: hidden;
 }
 
 .project-img {
   width: 100%;
+}
+
+.project-card-img-container {
+  height: 0%;
+  width: 100%;
+  position: relative;
+  opacity: 1;
+  transition: 0.3s cubic-bezier(0,1,0,1);
+}
+
+.project-card-img {
+  width: 100%;
   transform: scale(100%);
+  object-fit: contain;
+  top: 50%;
+  position: absolute;
+}
+
+.project-info {
+  position: relative;
+  padding: 8%;
+  width: 100%;
+  height: 100%;
+  transform: translate(0, 120px);
+  opacity: 0;
+  transition: 0.3s ease;
 }
 
 .project-date {
   font-size: 14px;
   margin: 0;
   color: var(--secondary);
+}
+
+.project-card:hover .project-card-img-container {
+  opacity: 0.4;
+}
+
+.project-card:hover .project-info {
+  opacity: 1;
+  transform: translate(0, 0);
 }
 
 .project-section {
@@ -344,9 +378,22 @@ form > button {
     width: 100%;
     height: 240px;
   }
+  .projects-container {
+    grid-template-columns: repeat(1, 100%);
+  }
   .project-card {
     width: 100%;
     padding: 0;
     margin-bottom: 64px;
+    background: none;
+  }
+  .project-info {
+    transition: none;
+    opacity: 1;
+    transform: none;
+    padding: 0;
+  }
+  .project-card-img {
+    position: relative;
   }
 }

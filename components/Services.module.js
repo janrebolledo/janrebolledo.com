@@ -5,10 +5,10 @@ import WebDevelopmentIcon from "../public/Web Development.png";
 export default function Services() {
   return (
     <>
-      <section className="cta-section services-section">
+      <section tabIndex="0" className="cta-section services-section">
         <h1>Services</h1>
         <div className="cards-container">
-          <div className="card">
+          <div className="card" tabIndex="0">
             <img
               alt="Graphic Design Icon"
               className="card-img"
@@ -17,7 +17,7 @@ export default function Services() {
             <h3>Graphic Design</h3>
             <p>I create attention grabbing social &amp; branding graphics.</p>
           </div>
-          <div className="card">
+          <div className="card" tabIndex="0">
             <img
               alt="Web Development Icon"
               className="card-img"
@@ -26,7 +26,7 @@ export default function Services() {
             <h3>Front-End Web Development</h3>
             <p>I create production ready e-commerce &amp; static websites.</p>
           </div>
-          <div className="card">
+          <div className="card" tabIndex="0">
             <img
               alt="Motion Graphics Icon"
               className="card-img"
