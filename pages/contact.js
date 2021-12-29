@@ -27,7 +27,7 @@ export default function Contact() {
           <h1>Let&apos;s work together.</h1>
           <p>Fill out this form with any inquires or a quote.</p>
         </div>
-        <form name="contact" method="POST" data-netlify="true">
+        <form name="contact" action="/contact/form-submitted" data-netlify="true">
           <label htmlFor="name">Name</label>
           <input name="name" type="text" placeholder="Name" />
           <label htmlFor="email">Email</label>
