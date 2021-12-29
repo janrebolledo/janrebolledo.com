@@ -8,7 +8,7 @@ cover_image: '/projects/Brand/Jan.png'
 
 ### Jan Rebolledo   
 **Date:** March, 2019  
-**Project Scope:** Brand Design
+**Project Scope:** Brand Design & Web Development
 
 **Project Overview**  
 The visual identity of my brand was made to be recognisable and simple.
