@@ -3,8 +3,14 @@ import path from "path";
 import matter from "gray-matter";
 import Post from "../components/Post.module";
 import Head from "next/head";
+import Aos from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 export default function Projects({ posts }) {
+  useEffect(() => {
+    Aos.init({ duration: 500 });
+  }, []);
   return (
     <>
       <Head>
@@ -13,18 +19,27 @@ export default function Projects({ posts }) {
           name="description"
           content="A collection of my best projects I've made."
         />
-                {/* Facebook Tags */}
+        {/* Facebook Tags */}
 
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://janrebolledo.com/projects" />
         <meta property="og:title" content="Jan Rebolledo — Projects" />
-        <meta property="og:description" content="A collection of my best projects I've made." />
+        <meta
+          property="og:description"
+          content="A collection of my best projects I've made."
+        />
 
         {/* Twitter Tags */}
         <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://janrebolledo.com/projects" />
+        <meta
+          property="twitter:url"
+          content="https://janrebolledo.com/projects"
+        />
         <meta property="twitter:title" content="Jan Rebolledo — Projects" />
-        <meta property="twitter:description" content="A collection of my best projects I've made." />
+        <meta
+          property="twitter:description"
+          content="A collection of my best projects I've made."
+        />
       </Head>
       <section className="projects-section">
         <h2>Projects</h2>

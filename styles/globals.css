@@ -26,6 +26,7 @@ body {
 #__next {
   scroll-snap-type: y mandatory;
   overflow-y: auto;
+  background-color: var(--background);
 }
 
 section {

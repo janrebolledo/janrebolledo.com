@@ -4,6 +4,9 @@ import matter from "gray-matter";
 import { marked } from "marked";
 import Link from "next/link";
 import Head from "next/head";
+import Aos from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 export default function ProjectPage({
   frontmatter: { title, date, cover_image },
@@ -11,17 +14,35 @@ export default function ProjectPage({
   excerpt,
   content,
 }) {
+  useEffect(() => {
+    Aos.init({ duration: 500 });
+  }, []);
   return (
     <section className="project-section">
       <Head>
         <title>Jan Rebolledo — {title}</title>
         <meta name="description" content={excerpt} />
       </Head>
-      <h2>{title}</h2>
-      <p className="project-date">{date}</p>
-      <img className="project-img" src={cover_image} alt="Project Image" />
-      <div className="project-content" dangerouslySetInnerHTML={{__html: marked(content)}}></div>
-      <Link href="../projects"><a className="button">Go Back <span className="material-icons">chevron_right</span></a></Link>
+      <h2 data-aos="fade-up">{title}</h2>
+      <p data-aos="fade-up" className="project-date">
+        {date}
+      </p>
+      <img
+        data-aos="fade-up"
+        className="project-img"
+        src={cover_image}
+        alt="Project Image"
+      />
+      <div
+        data-aos="fade-up"
+        className="project-content"
+        dangerouslySetInnerHTML={{ __html: marked(content) }}
+      ></div>
+      <Link href="../projects">
+        <a data-aos="fade-up" className="button">
+          Go Back <span className="material-icons">chevron_right</span>
+        </a>
+      </Link>
     </section>
   );
 }

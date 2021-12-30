@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function Post({ post }) {
   return (
     <Link href={`/projects/${post.slug}`}>
-      <a tabIndex="0">
+      <a data-aos="fade-up" tabIndex="0">
         <div className="project-card">
           <span className="project-card-img-container">
             <img

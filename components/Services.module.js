@@ -2,22 +2,26 @@ import GraphicDesignIcon from "../public/Graphic Design.png";
 import MotionGraphicsIcon from "../public/Motion Graphics.gif";
 import WebDevelopmentIcon from "../public/Web Development.png";
 
-import Photoshop from "../public/technologies-icons/photoshop.png"
-import Illustrator from "../public/technologies-icons/illustrator.png"
-import HTML3 from "../public/technologies-icons/html5.png"
-import CSS3 from "../public/technologies-icons/css3.png"
-import SASS from "../public/technologies-icons/sass.png"
-import JavaScript from "../public/technologies-icons/javascript.png"
-import TypeScript from "../public/technologies-icons/typescript.png"
-import ReactImg from "../public/technologies-icons/react.png"
-import NextJS from "../public/technologies-icons/nextjs.jpg"
-import AfterEffects from "../public/technologies-icons/after-effects.png"
-import PremierePro from "../public/technologies-icons/premiere-pro.png"
+import Photoshop from "../public/technologies-icons/photoshop.png";
+import Illustrator from "../public/technologies-icons/illustrator.png";
+import HTML3 from "../public/technologies-icons/html5.png";
+import CSS3 from "../public/technologies-icons/css3.png";
+import SASS from "../public/technologies-icons/sass.png";
+import JavaScript from "../public/technologies-icons/javascript.png";
+import TypeScript from "../public/technologies-icons/typescript.png";
+import ReactImg from "../public/technologies-icons/react.png";
+import NextJS from "../public/technologies-icons/nextjs.jpg";
+import AfterEffects from "../public/technologies-icons/after-effects.png";
+import PremierePro from "../public/technologies-icons/premiere-pro.png";
 
 export default function Services() {
   return (
     <>
-      <section tabIndex="0" className="cta-section services-section">
+      <section
+        data-aos="fade-up"
+        tabIndex="0"
+        className="cta-section services-section"
+      >
         <h1>Services</h1>
         <div className="cards-container">
           <div className="card" tabIndex="0">
@@ -30,7 +34,11 @@ export default function Services() {
             <p>I create attention grabbing social &amp; branding graphics.</p>
             <div className="card-skills">
               <img className="card-img" alt="Photoshop" src={Photoshop.src} />
-              <img className="card-img" alt="Illustrator" src={Illustrator.src} />
+              <img
+                className="card-img"
+                alt="Illustrator"
+                src={Illustrator.src}
+              />
             </div>
           </div>
           <div className="card" tabIndex="0">
@@ -58,10 +66,21 @@ export default function Services() {
               src={MotionGraphicsIcon.src}
             />
             <h3>Motion Design</h3>
-            <p>I create simple and sleek motion advertisements &amp; social media assets.</p>
+            <p>
+              I create simple and sleek motion advertisements &amp; social media
+              assets.
+            </p>
             <div className="card-skills">
-              <img className="card-img" alt="After Effects" src={AfterEffects.src} />
-              <img className="card-img" alt="Premiere Pro" src={PremierePro.src} />
+              <img
+                className="card-img"
+                alt="After Effects"
+                src={AfterEffects.src}
+              />
+              <img
+                className="card-img"
+                alt="Premiere Pro"
+                src={PremierePro.src}
+              />
             </div>
           </div>
         </div>
