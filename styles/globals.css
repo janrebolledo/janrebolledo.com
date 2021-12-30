@@ -216,6 +216,17 @@ footer {
   width: 45px;
 }
 
+.card-skills {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.card-skills > .card-img {
+  margin-right: 12px;
+}
+
 /* Projects */
 
 .projects-section {
@@ -376,7 +387,8 @@ form > button {
   }
   .card {
     width: 100%;
-    height: 240px;
+    height: auto;
+    padding: 32px 0;
   }
   .projects-container {
     grid-template-columns: repeat(1, 100%);

@@ -15,6 +15,9 @@ The visual identity of my brand was made to be recognisable and simple.
 
 ![Jan Project](/projects/Brand/Jan1.png)   
 ![Jan Project](/projects/Brand/Jan2.png)   
+
+Website built in `Next.js`   
+
 ![Jan Project](/projects/Brand/Jan3.png)   
 ![Jan Project](/projects/Brand/Jan4.png)
 ![Jan Project](/projects/Brand/Jan5.png)

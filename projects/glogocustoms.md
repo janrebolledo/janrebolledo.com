@@ -15,5 +15,8 @@ The visual identity of Glogo Customs was created to appeal to gamers across the 
 
 ![Glogo Customs](/projects/GlogoBrand/Glogo1.png)   
 ![Glogo Customs](/projects/GlogoBrand/Glogo2.png)   
+
+Website built in `Next.js`   
+
 ![Glogo Customs](/projects/GlogoBrand/Glogo3.png)   
 ![Glogo Customs](/projects/GlogoBrand/Glogo4.png)   
