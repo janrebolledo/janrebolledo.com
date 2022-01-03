@@ -40,14 +40,14 @@ export default function Footer() {
           </a>
         </div>
         <div className="footer-list">
-          <Link href="/" className="footer-social-link underline">
-            Home
+          <Link href="/">
+            <a className="footer-social-link underline">Home</a>
           </Link>
-          <Link href="projects" className="footer-social-link underline">
-            Projects
+          <Link href="/projects">
+            <a className="footer-social-link underline">Projects</a>
           </Link>
-          <Link href="contact" className="footer-social-link underline">
-            Contact
+          <Link href="/contact">
+            <a className="footer-social-link underline">Contact</a>
           </Link>
         </div>
         <p>
