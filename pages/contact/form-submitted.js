@@ -1,9 +1,9 @@
-import FormSubmitted from "../../components/FormSubmitted.module";
+import FormSubmitted from "../../components/FormSubmitted";
 
 export default function Home() {
   return (
     <>
-    <FormSubmitted />
+      <FormSubmitted />
     </>
   );
 }

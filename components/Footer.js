@@ -1,7 +1,7 @@
 import Instagram from "../public/Social-Icons/Instagram.png";
 import Twitter from "../public/Social-Icons/Twitter.png";
 import Twitch from "../public/Social-Icons/Twitch.png";
-import Link from "next/link";
+import { Link, animateScroll as scroll } from "react-scroll";
 
 export default function Footer() {
   return (
@@ -40,23 +40,39 @@ export default function Footer() {
           </a>
         </div>
         <div className="footer-list">
-          <Link href="/">
-            <a className="footer-social-link underline">Home</a>
+          <Link
+            to="home"
+            smooth={true}
+            offset={-144}
+            duration={2000}
+            className="footer-social-link underline"
+          >
+            Home
           </Link>
-          <Link href="/projects">
-            <a className="footer-social-link underline">Projects</a>
+          <Link
+            to="projects"
+            smooth={true}
+            duration={2000}
+            className="footer-social-link underline"
+          >
+            Projects
           </Link>
-          <Link href="/contact">
-            <a className="footer-social-link underline">Contact</a>
+          <Link
+            to="contact"
+            smooth={true}
+            duration={2000}
+            className="footer-social-link underline"
+          >
+            Contact
           </Link>
         </div>
         <p>
           Copyright © 2021{" "}
-          <Link href="/">
+          <Link to="home" smooth={true} offset={-144} duration={2000}>
             <a className="underline link">Jan Rebolledo</a>
           </Link>
           . Digital Experience by{" "}
-          <Link href="/">
+          <Link to="home" smooth={true} offset={-144} duration={2000}>
             <a className="underline link">Jan Rebolledo</a>
           </Link>
           .

@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
-import Post from "../components/Post.module";
+import Post from "../components/Post";
 import Head from "next/head";
 import Aos from "aos";
 import "aos/dist/aos.css";
