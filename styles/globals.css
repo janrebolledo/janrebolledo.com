@@ -348,6 +348,11 @@ form input,
 textarea {
   margin: 12px 0;
   padding: 8px 12px;
+  background-color: var(--foreground);
+  border-style: solid;
+  border-radius: 0;
+  border-color: var(--foreground);
+  color: var(--primary);
   font-family: Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
     Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }

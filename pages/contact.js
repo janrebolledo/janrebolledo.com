@@ -46,7 +46,7 @@ export default function Contact() {
           name="contact"
           action="/contact/form-submitted"
           method="POST"
-          netlify
+          data-netlify="true"
         >
           <input type="hidden" name="form-name" value="contact" />
           <label htmlFor="name">Name</label>
@@ -55,6 +55,8 @@ export default function Contact() {
           <input name="email" type="email" placeholder="example@email.com" />
           <label htmlFor="name">Message</label>
           <textarea name="message" placeholder="Message" />
+          <label htmlFor="file">File (Optional)</label>
+          <input name="file" type="file" />
           <button>Send</button>
         </form>
       </section>
