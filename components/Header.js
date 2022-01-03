@@ -1,5 +1,5 @@
 import Logo from "../public/Logo.png";
-import { Link, animateScroll as scroll } from "react-scroll";
+import Link from "next/link";
 
 export default function Header() {
   function mobileNavMenu() {
@@ -26,29 +26,27 @@ export default function Header() {
   return (
     <>
       <header>
-        <Link to="home" offset={-144}>
-          <a>
-            <img className="header-logo" alt="Logo" src={Logo.src} />
-          </a>
+        <Link href="/">
+          <img className="header-logo" alt="Logo" src={Logo.src} />
         </Link>
         <nav>
           <ul className="header-list">
             <li className="header-list-item">
-              <Link to="home" smooth={true} offset={-144} duration={2000}>
+              <Link href="/" smooth={true} offset={-144} duration={2000}>
                 <a className="underline" onClick={closeNav}>
                   Home
                 </a>
               </Link>
             </li>
             <li className="header-list-item">
-              <Link to="projects" smooth={true} offset={-60} duration={1000}>
+              <Link href="projects">
                 <a className="underline" onClick={closeNav}>
                   Projects
                 </a>
               </Link>
             </li>
             <li className="header-list-item contact-button">
-              <Link to="contact" smooth={true} duration={1000}>
+              <Link href="contact">
                 <a className="button" onClick={closeNav}>
                   Contact
                 </a>

@@ -1,6 +1,6 @@
-import LandingPage from "../components/LandingPage.module";
-import ContactCTA from "../components/ContactCTA.module";
-import Services from "../components/Services.module";
+import LandingPage from "../components/LandingPage";
+import ContactCTA from "../components/ContactCTA";
+import Services from "../components/Services";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
