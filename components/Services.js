@@ -17,11 +17,7 @@ import PremierePro from "../public/technologies-icons/premiere-pro.png";
 export default function Services() {
   return (
     <>
-      <section
-        data-aos="fade-up"
-        tabIndex="0"
-        className="cta-section services-section"
-      >
+      <section tabIndex="0" className="cta-section services-section">
         <h1>Services</h1>
         <div className="cards-container">
           <div className="card" tabIndex="0">

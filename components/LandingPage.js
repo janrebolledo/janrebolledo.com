@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function Landingpage() {
   return (
     <>
-      <section id="home" data-aos="fade-up" tabIndex="0">
+      <section id="home" tabIndex="0">
         <div>
           <h1>
             Hi! I&apos;m a{" "}
