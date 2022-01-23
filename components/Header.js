@@ -39,7 +39,7 @@ export default function Header() {
               </Link>
             </li>
             <li className="header-list-item">
-              <Link href="projects">
+              <Link href="/projects">
                 <a className="underline" onClick={closeNav}>
                   Projects
                 </a>
