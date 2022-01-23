@@ -14,7 +14,7 @@ cover_image: "/projects/Notes/Thumbnail.png"
 **Project Overview**  
 A web and windows application built with javascript and electron.
 
-**Live Project**
+**Live Project**   
 Visit the notes app and download it [here](https://notes.janrebolledo.com).
 
 ![Notes App](/projects/Notes/ToDoDark.png)  
