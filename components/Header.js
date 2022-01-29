@@ -26,7 +26,7 @@ export default function Header() {
   return (
     <>
       <header>
-        <Link href="/">
+        <Link href="/" passHref>
           <img className="header-logo" alt="Logo" src={Logo.src} />
         </Link>
         <nav>
