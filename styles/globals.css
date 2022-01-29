@@ -241,6 +241,7 @@ footer {
 .card-skills > .card-img {
   margin-right: 12px;
   width: 32px;
+  height: 32px;
 }
 
 /* Projects */
