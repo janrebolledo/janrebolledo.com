@@ -34,21 +34,21 @@ export default function Header() {
             <li className="header-list-item">
               <Link href="/" smooth={true} offset={-144} duration={2000}>
                 <a className="underline" onClick={closeNav}>
-                  Home
+                  HOME
                 </a>
               </Link>
             </li>
             <li className="header-list-item">
               <Link href="/projects">
                 <a className="underline" onClick={closeNav}>
-                  Projects
+                  PROJECTS
                 </a>
               </Link>
             </li>
             <li className="header-list-item contact-button">
-              <Link href="contact">
+              <Link href="/contact">
                 <a className="button" onClick={closeNav}>
-                  Contact
+                  CONTACT
                 </a>
               </Link>
             </li>
