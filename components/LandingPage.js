@@ -13,7 +13,7 @@ export default function Landingpage() {
       <section id="home" className="landing-section" tabIndex="0">
         <div>
           <div className="landing-header">
-            <img src={Logo.src} className="landing-logo" />
+            <img src={Logo.src} className="landing-logo" alt="Logo" />
             <div className="landing-header-links">
               <Link href="./projects" passHref>
                 PROJECTS
@@ -29,13 +29,25 @@ export default function Landingpage() {
           </h1>
           <div className="landing-section-socials">
             <Link href="https://instagram.com/janconcepts" passHref>
-              <img src={Instagram.src} className="landing-social" />
+              <img
+                src={Instagram.src}
+                className="landing-social"
+                alt="Instagram Logo"
+              />
             </Link>
             <Link href="https://twitter.com/janconcepts" passHref>
-              <img src={Twitter.src} className="landing-social" />
+              <img
+                src={Twitter.src}
+                className="landing-social"
+                alt="Twitter Logo"
+              />
             </Link>
             <Link href="https://twitch.tv/janrebolledo" passHref>
-              <img src={Twitch.src} className="landing-social" />
+              <img
+                src={Twitch.src}
+                className="landing-social"
+                alt="Twitch Logo"
+              />
             </Link>
           </div>
         </div>
