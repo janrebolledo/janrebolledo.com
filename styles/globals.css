@@ -214,9 +214,6 @@ footer {
 /* Landing */
 
 .landing-section {
-  background: center url("../public/Background.png");
-  background-size: cover;
-  background-repeat: no-repeat;
   height: 100vh;
   padding-top: 0 !important;
 }
