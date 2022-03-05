@@ -1,4 +1,5 @@
 import Head from "next/head";
+import ContactSection from "../components/ContactSection";
 
 export default function Contact() {
   return (
@@ -31,27 +32,7 @@ export default function Contact() {
           content="Let's work together. Fill out this form with any inquires or a quote."
         />
       </Head>
-      <section data-aos="fade-up" className="contact-section">
-        <div>
-          <h1>Let&apos;s work together.</h1>
-          <p>Fill out this form with any inquires or a quote.</p>
-        </div>
-        <form
-          name="contact"
-          action="/contact/form-submitted"
-          method="POST"
-          data-netlify="true"
-        >
-          <input type="hidden" name="form-name" value="contact" />
-          <label htmlFor="name">Name</label>
-          <input name="name" type="text" placeholder="Name" />
-          <label htmlFor="email">Email</label>
-          <input name="email" type="email" placeholder="example@email.com" />
-          <label htmlFor="name">Message</label>
-          <textarea name="message" placeholder="Message" />
-          <button>Send</button>
-        </form>
-      </section>
+      <ContactSection />
     </>
   );
 }

@@ -4,11 +4,12 @@ excerpt: "Budget Tracker app built with React.js."
 slug: "budgeting-app"
 date: "January 29th, 2022"
 cover_image: "/projects/BudgetingApp/Dashboard.png"
+projectscope: "WEB DEVELOPMENT"
 ---
 
 ### Budgeting App
 
-**Date:** January, 2022
+**Date:** January, 2022  
 **Project Scope:** Web Development
 
 **Project Overview**  

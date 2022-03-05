@@ -1,8 +1,6 @@
 import Portrait from "../public/Portrait.jpg";
 import Link from "next/link";
 
-import Logo from "../public/Logo.png";
-
 import Instagram from "../public/Social-Icons/Instagram.png";
 import Twitter from "../public/Social-Icons/Twitter.png";
 import Twitch from "../public/Social-Icons/Twitch.png";
@@ -11,41 +9,42 @@ export default function Landingpage() {
   return (
     <>
       <section id="home" className="landing-section" tabIndex="0">
-        <div>
-          <div className="landing-header">
-            <img src={Logo.src} className="landing-logo" alt="Logo" />
-            <div className="landing-header-links">
-              <Link href="./projects" passHref>
-                PROJECTS
+        <div className="landing-container">
+          <div>
+            <h1 className="landing-h1">
+              <span className="moveUpAnimation">CREATING</span>{" "}
+              <span className="landing-underline moveUpAnimation">UNIQUE</span>{" "}
+              <span className="moveUpAnimation">WEB</span>{" "}
+              <span className="moveUpAnimation">EXPERIENCES</span>
+            </h1>
+            <div className="landing-buttons">
+              <Link href="#projects">
+                <a className="button moveUpAnimation">VIEW PROJECTS →</a>
               </Link>
-              <Link href="./contact" passHref>
-                CONTACT
+              <Link href="#contact">
+                <a className="button-outline moveUpAnimation">CONTACT →</a>
               </Link>
             </div>
           </div>
-          <h1>
-            <span className="underline">FRONT&#8208;END WEB DEVELOPER</span> +{" "}
-            <span className="underline">GRAPHIC DESIGNER</span>.
-          </h1>
           <div className="landing-section-socials">
             <Link href="https://instagram.com/janconcepts" passHref>
               <img
                 src={Instagram.src}
-                className="landing-social"
+                className="landing-social moveUpAnimation"
                 alt="Instagram Logo"
               />
             </Link>
             <Link href="https://twitter.com/janconcepts" passHref>
               <img
                 src={Twitter.src}
-                className="landing-social"
+                className="landing-social moveUpAnimation"
                 alt="Twitter Logo"
               />
             </Link>
             <Link href="https://twitch.tv/janrebolledo" passHref>
               <img
                 src={Twitch.src}
-                className="landing-social"
+                className="landing-social moveUpAnimation"
                 alt="Twitch Logo"
               />
             </Link>

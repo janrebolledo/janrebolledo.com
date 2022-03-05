@@ -1,6 +1,8 @@
 import Logo from "../public/Logo.png";
 import Link from "next/link";
 
+import { useRouter } from "next/router";
+
 export default function Header() {
   function mobileNavMenu() {
     const nav = document.querySelector("nav");
@@ -23,45 +25,104 @@ export default function Header() {
       navButton.innerHTML = "menu";
     }
   }
-  return (
-    <>
-      <header>
-        <Link href="/" passHref>
-          <img className="header-logo" alt="Logo" src={Logo.src} />
-        </Link>
-        <nav>
-          <ul className="header-list">
-            <li className="header-list-item">
-              <Link href="/" smooth={true} offset={-144} duration={2000}>
-                <a className="underline" onClick={closeNav}>
-                  HOME
-                </a>
-              </Link>
-            </li>
-            <li className="header-list-item">
-              <Link href="/projects">
-                <a className="underline" onClick={closeNav}>
-                  PROJECTS
-                </a>
-              </Link>
-            </li>
-            <li className="header-list-item contact-button">
-              <Link href="/contact">
-                <a className="button" onClick={closeNav}>
-                  CONTACT
-                </a>
-              </Link>
-            </li>
-          </ul>
-        </nav>
-        <span
-          className="material-icons mobile-nav-menu"
-          id="mobile-nav-menu"
-          onClick={mobileNavMenu}
-        >
-          menu
-        </span>
-      </header>
-    </>
-  );
+
+  const router = useRouter();
+  if (router.pathname == "/") {
+    return (
+      <>
+        <header>
+          <Link href="/" passHref>
+            <div className="header-logo-link">
+              <img className="header-logo" alt="Logo" src={Logo.src} />
+              JAN REBOLLEDO
+            </div>
+          </Link>
+          <nav>
+            <ul className="header-list">
+              <li className="header-list-item">
+                <Link href="#home">
+                  <a className="header-link" onClick={closeNav}>
+                    HOME
+                  </a>
+                </Link>
+              </li>
+              <li className="header-list-item">
+                <Link href="#projects">
+                  <a className="header-link" onClick={closeNav}>
+                    PROJECTS
+                  </a>
+                </Link>
+              </li>
+              <li className="header-list-item">
+                <Link href="#process">
+                  <a className="header-link" onClick={closeNav}>
+                    MY PROCESS
+                  </a>
+                </Link>
+              </li>
+              <li className="header-list-item contact-button">
+                <Link href="#contact">
+                  <a className="header-link" onClick={closeNav}>
+                    CONTACT
+                  </a>
+                </Link>
+              </li>
+            </ul>
+          </nav>
+          <span
+            className="material-icons mobile-nav-menu"
+            id="mobile-nav-menu"
+            onClick={mobileNavMenu}
+          >
+            menu
+          </span>
+        </header>
+      </>
+    );
+  } else {
+    return (
+      <>
+        <header>
+          <Link href="/" passHref>
+            <div className="header-logo-link">
+              <img className="header-logo" alt="Logo" src={Logo.src} />
+              JAN REBOLLEDO
+            </div>
+          </Link>
+          <nav>
+            <ul className="header-list">
+              <li className="header-list-item">
+                <Link href="/">
+                  <a className="header-link" onClick={closeNav}>
+                    HOME
+                  </a>
+                </Link>
+              </li>
+              <li className="header-list-item">
+                <Link href="/projects">
+                  <a className="header-link" onClick={closeNav}>
+                    PROJECTS
+                  </a>
+                </Link>
+              </li>
+              <li className="header-list-item contact-button">
+                <Link href="/contact">
+                  <a className="header-link" onClick={closeNav}>
+                    CONTACT
+                  </a>
+                </Link>
+              </li>
+            </ul>
+          </nav>
+          <span
+            className="material-icons mobile-nav-menu"
+            id="mobile-nav-menu"
+            onClick={mobileNavMenu}
+          >
+            menu
+          </span>
+        </header>
+      </>
+    );
+  }
 }
