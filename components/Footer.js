@@ -10,7 +10,7 @@ export default function Footer() {
       <footer>
         <div className="footer-container">
           <div className="footer-logo">
-            <img src={Logo.src} />
+            <img src={Logo.src} alt="Logo" />
             <h3>JAN REBOLLEDO</h3>
           </div>
           <div className="footer-list">

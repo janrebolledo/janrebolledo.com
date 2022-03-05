@@ -34,7 +34,8 @@ export default function Process() {
           <h4>04.</h4>
           <h3>LAUNCH</h3>
           <p>
-            THE LAST STAGE. I UPLOAD YOUR SITE TO THE WEB AND WE'RE FINISHED.
+            THE LAST STAGE. I UPLOAD YOUR SITE TO THE WEB AND WE&apos;RE
+            FINISHED.
           </p>
         </div>
       </div>
