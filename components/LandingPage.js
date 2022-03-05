@@ -51,10 +51,14 @@ export default function Landingpage() {
           </div>
         </div>
         <img
-          className="img-responsive"
+          className="img-responsive landing-img"
           alt="Portrait of Jan Rebolledo"
           src={Portrait.src}
         />
+        <div className="background-text">
+          <p>JAN REBOLLEDO</p>
+          <p>FREELANCE WEB DEVELOPER &amp; GRAPHIC DESIGNER</p>
+        </div>
       </section>
     </>
   );
