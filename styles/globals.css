@@ -467,6 +467,18 @@ footer {
 
 .landing-img {
   z-index: 1;
+  display: inline-block;
+  animation: moveUpImg 1.8s cubic-bezier(0, 1, 0, 1) 1 forwards;
+  transform: translateY(240px);
+}
+
+@keyframes moveUpImg {
+  from {
+    transform: translateY(240px);
+  }
+  to {
+    transform: translateY(0px);
+  }
 }
 
 .background-text {
