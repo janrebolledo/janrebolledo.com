@@ -738,6 +738,7 @@ form > button {
 @media screen and (max-width: 980px) {
   header {
     padding: var(--padding);
+    background-color: #00000060;
   }
   nav {
     display: none;
@@ -745,7 +746,8 @@ form > button {
     top: 12vh;
     width: 100%;
     left: 0;
-    height: 85vh;
+    height: 88vh;
+    background-color: #00000060;
   }
   .header-logo-link {
     margin-left: 0;
