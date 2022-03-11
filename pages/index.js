@@ -1,6 +1,7 @@
 import LandingPage from "../components/LandingPage";
 import ContactSection from "../components/ContactSection";
 import Process from "../components/Process";
+import ScrollingText from "../components/ScrollingText";
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
@@ -18,6 +19,7 @@ export default function Home({ posts }) {
           ))}
         </div>
       </section>
+      <ScrollingText />
       <Process />
       <ContactSection />
     </>

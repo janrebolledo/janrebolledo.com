@@ -575,12 +575,45 @@ footer {
   height: 32px;
 }
 
+/* Scrolling Text */
+
+.scrolling-text-div {
+  color: var(--primary);
+  font-weight: bolder;
+  max-width: 100%;
+  overflow: hidden;
+  font-size: 48px;
+}
+
+.scrolling-text-wrapper {
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+  animation: scrollingText 40s linear infinite;
+}
+
+.scrolling-text-wrapper p {
+  display: inline-block;
+}
+
+.scrolling-text-wrapper p:first-of-type {
+  margin-right: 12px;
+}
+
+@keyframes scrollingText {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
 /* Projects */
 
 .projects-section {
   flex-direction: column;
   align-items: flex-start;
-  margin-bottom: 120px;
 }
 
 .projects-container {

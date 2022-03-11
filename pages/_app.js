@@ -50,7 +50,7 @@ function App({ Component, pageProps }) {
           href="/apple-touch-icon.png"
         />
         <link rel="manifest" href="/site.webmanifest" />
-        <meta name="theme-color" content="#36a630" />
+        <meta name="theme-color" content="#2c701c" />
 
         {/* Facebook Tags */}
 
