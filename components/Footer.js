@@ -59,7 +59,7 @@ export default function Footer() {
         </div>
         <p className="footer-cr">
           <span>
-            Copyright © 2021{" "}
+            Copyright © 2022{" "}
             <Link href="/">
               <a className="underline link">Jan Rebolledo</a>
             </Link>
