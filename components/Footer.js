@@ -59,16 +59,16 @@ export default function Footer() {
         </div>
         <p className="footer-cr">
           <span>
-            Copyright © 2022{" "}
+            COPYRIGHT © 2022{" "}
             <Link href="/">
               <a className="underline link">Jan Rebolledo</a>
             </Link>
             .
           </span>
           <span>
-            Digital Experience by{" "}
+            DIGITAL EXPERIENCE BY{" "}
             <Link href="/">
-              <a className="underline link">Jan Rebolledo</a>
+              <a className="underline link">JAN REBOLLEDO</a>
             </Link>
             .
           </span>
