@@ -2,7 +2,7 @@ export default function ContactSection() {
   return (
     <section className="contact-section" id="contact">
       <div>
-        <h1>LETS&apos;S WORK TOGETHER.</h1>
+        <h1>LET&apos;S WORK TOGETHER.</h1>
         <p>TURN YOUR VISION INTO A REALITY.</p>
       </div>
       <form
