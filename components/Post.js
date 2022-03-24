@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function Post({ post }) {
   return (
     <Link href={`/projects/${post.slug}`}>
-      <a tabIndex="0">
+      <div tabIndex="0">
         <div className="project-card">
           <img
             className="project-card-img"
@@ -17,7 +17,7 @@ export default function Post({ post }) {
             <a className="project-link">View Project →</a>
           </div>
         </div>
-      </a>
+      </div>
     </Link>
   );
 }
