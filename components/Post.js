@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Post({ post }) {
   return (
-    <Link href={`/projects/${post.slug}`}>
+    <Link href={`/projects/${post.slug}`} passHref>
       <div tabIndex="0">
         <div className="project-card">
           <img
