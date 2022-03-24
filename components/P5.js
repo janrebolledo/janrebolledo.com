@@ -15,31 +15,18 @@ export default class App extends Component {
 
     p.windowResized = () => {
       //handle window resize here
-      if (p.windowWidth < 980) {
-        p.resizeCanvas(p.windowWidth, p.windowHeight / 2);
-      } else {
-        p.resizeCanvas(p.windowWidth / 2, p.windowHeight);
-      }
+      p.resizeCanvas(64, 64);
     };
     p.setup = () => {
       //setup canvas and init values here
-      p.createCanvas(p.windowWidth / 2, p.windowHeight, p.WEBGL);
-
-      if (p.windowWidth < 980) {
-        p.createCanvas(p.windowWidth, p.windowHeight / 2, p.WEBGL);
-      } else {
-        p.createCanvas(p.windowWidth / 2, p.windowHeight, p.WEBGL);
-      }
+      p.createCanvas(64, 64, p.WEBGL);
     };
 
     p.draw = () => {
       //update canvas here
-      p.background(0);
-      if (p.windowWidth < 980) {
-        p.scale(120);
-      } else {
-        p.scale(200);
-      }
+      p.background(0, 50);
+      p.scale(20);
+
       p.noStroke();
 
       p.ambientLight(100);
@@ -49,11 +36,6 @@ export default class App extends Component {
       p.rotateX(3);
       p.rotateY(p.frameCount * 0.005);
       p.rotateZ(p.frameCount * 0.005);
-
-      if (p.windowWidth > 980) {
-        p.rotateY(-p.mouseX * 0.005);
-        p.rotateZ(-p.mouseY * 0.005);
-      }
 
       p.translate(0, -1);
       p.model(p.bear);

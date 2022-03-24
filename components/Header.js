@@ -3,6 +3,12 @@ import Link from "next/link";
 
 import { useRouter } from "next/router";
 
+import dynamic from "next/dynamic";
+
+const P5 = dynamic(() => import("../components/P5"), {
+  ssr: false,
+});
+
 export default function Header() {
   function mobileNavMenu() {
     const nav = document.querySelector("nav");
@@ -32,10 +38,7 @@ export default function Header() {
       <>
         <header>
           <Link href="/" passHref>
-            <div className="header-logo-link">
-              <img className="header-logo" alt="Logo" src={Logo.src} />
-              JAN REBOLLEDO
-            </div>
+            <div className="header-logo-link">JAN REBOLLEDO</div>
           </Link>
           <nav>
             <ul className="header-list">
@@ -77,6 +80,7 @@ export default function Header() {
             menu
           </span>
         </header>
+        <P5 />
       </>
     );
   } else {

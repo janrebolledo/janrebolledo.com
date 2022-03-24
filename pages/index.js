@@ -7,16 +7,9 @@ import path from "path";
 import matter from "gray-matter";
 import Post from "../components/Post";
 
-import dynamic from "next/dynamic";
-
-const P5 = dynamic(() => import("../components/P5"), {
-  ssr: false,
-});
-
 export default function Home({ posts }) {
   return (
     <>
-      <P5 />
       <LandingPage />
       <section className="projects-section" id="projects">
         <h2>PROJECTS</h2>
