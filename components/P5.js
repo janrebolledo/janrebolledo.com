@@ -35,7 +35,12 @@ export default class App extends Component {
 
       p.rotateX(3);
       p.rotateY(p.frameCount * 0.005);
-      p.rotateZ(p.frameCount * 0.005);
+      p.rotateX(p.frameCount * 0.005);
+
+      if (p.windowWidth > 980) {
+        p.rotateY(p.mouseX * 0.005);
+        p.rotateX(p.mouseY * 0.005);
+      }
 
       p.translate(0, -1);
       p.model(p.bear);
