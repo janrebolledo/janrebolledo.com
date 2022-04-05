@@ -1,25 +1,22 @@
 ---
 title: "Guwop Digital Experience"
-excerpt: "A website and branding for Guwop."
+excerpt: "A website for social media manager Guwop."
 slug: "guwop"
-date: "April 27th, 2021"
+date: "March 20th, 2022"
 cover_image: "/projects/Guwop/Guwop.png"
-projectscope: "BRANDING & WEB DEVELOPMENT"
+projectscope: "WEB DEVELOPMENT"
 ---
 
 ### Guwop
 
-**Date:** April, 2021  
-**Project Scope:** Brand Design & Web Development
+**Date:** March, 2022  
+**Project Scope:** Web Development
 
 **Project Overview**  
-Guwop's brand was created to appeal to the professional scene.
+Guwop's website was created to appeal to the professional scene.
 
-![Guwop](/projects/Guwop/Guwop1.png)  
+![Guwop](/projects/Guwop/Guwop1.png)
+
+Website built with `Next.js` and `Tailwind.css`
+
 ![Guwop](/projects/Guwop/Guwop2.png)
-
-Website built with `HTML` and `CSS`
-
-![Guwop](/projects/Guwop/Guwop3.png)  
-![Guwop](/projects/Guwop/Guwop4.png)  
-![Guwop](/projects/Guwop/Guwop5.png)
