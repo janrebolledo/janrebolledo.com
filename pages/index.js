@@ -8,8 +8,8 @@ import { createClient } from "contentful";
 
 export async function getStaticProps() {
   const client = createClient({
-    space: "ujgh56azuyhl",
-    accessToken: "wbR8JM_yHvHMSP96kyP4w3Tr39lz6QpTvCWy6VtHJh0",
+    space: process.env.CONTENTFUL_SPACE_ID,
+    accessToken: process.env.CONTENTFUL_ACCESS_KEY,
   });
 
   const res = await client.getEntries({ content_type: "post" });
