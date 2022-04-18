@@ -1,8 +1,22 @@
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
 import Post from "../components/Post";
 import Head from "next/head";
+
+import { createClient } from "contentful";
+
+export async function getStaticProps() {
+  const client = createClient({
+    space: process.env.CONTENTFUL_SPACE_ID,
+    accessToken: process.env.CONTENTFUL_ACCESS_KEY,
+  });
+
+  const res = await client.getEntries({ content_type: "post" });
+
+  return {
+    props: {
+      posts: res.items,
+    },
+  };
+}
 
 export default function Projects({ posts }) {
   return (
@@ -45,30 +59,4 @@ export default function Projects({ posts }) {
       </section>
     </>
   );
-}
-
-export async function getStaticProps() {
-  const files = fs.readdirSync(path.join("projects"));
-
-  const posts = files.map((filename) => {
-    const slug = filename.replace(".md", "");
-
-    const markdownWithMeta = fs.readFileSync(
-      path.join("projects", filename),
-      "utf-8"
-    );
-
-    const { data: frontmatter } = matter(markdownWithMeta);
-
-    return {
-      slug,
-      frontmatter,
-    };
-  });
-
-  return {
-    props: {
-      posts,
-    },
-  };
 }
