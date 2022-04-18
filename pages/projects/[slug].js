@@ -48,7 +48,7 @@ export default function ProjectPage({ post }) {
       <p className="project-date">{date}</p>
       <img
         className="project-img"
-        src={coverImage.fields.file.url}
+        src={"https:" + coverImage.fields.file.url}
         alt={coverImage.fields.title}
       />
       <div

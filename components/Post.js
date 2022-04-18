@@ -8,7 +8,7 @@ export default function Post({ post }) {
         <div className="project-card">
           <img
             className="project-card-img"
-            src={coverImage.fields.file.url}
+            src={"https:" + coverImage.fields.file.url}
             alt={coverImage.fields.title}
           />
           <div className="project-info">
