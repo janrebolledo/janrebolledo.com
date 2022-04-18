@@ -1,19 +1,20 @@
 import Link from "next/link";
 
 export default function Post({ post }) {
+  const { title, slug, coverImage, excerpt, tag } = post.fields;
   return (
-    <Link href={`/projects/${post.slug}`} passHref>
+    <Link href={`/projects/${slug}`} passHref>
       <div tabIndex="0">
         <div className="project-card">
           <img
             className="project-card-img"
-            src={post.frontmatter.cover_image}
-            alt=""
+            src={coverImage.fields.file.url}
+            alt={coverImage.fields.title}
           />
           <div className="project-info">
-            <p className="project-scope">{post.frontmatter.projectscope}</p>
-            <h3>{post.frontmatter.title}</h3>
-            <p>{post.frontmatter.excerpt}</p>
+            <p className="project-scope">{tag}</p>
+            <h3>{title}</h3>
+            <p>{excerpt}</p>
             <a className="project-link">View Project →</a>
           </div>
         </div>

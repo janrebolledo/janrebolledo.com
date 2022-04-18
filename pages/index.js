@@ -2,10 +2,24 @@ import LandingPage from "../components/LandingPage";
 import ContactSection from "../components/ContactSection";
 import Process from "../components/Process";
 import ScrollingText from "../components/ScrollingText";
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
 import Post from "../components/Post";
+
+import { createClient } from "contentful";
+
+export async function getStaticProps() {
+  const client = createClient({
+    space: "ujgh56azuyhl",
+    accessToken: "wbR8JM_yHvHMSP96kyP4w3Tr39lz6QpTvCWy6VtHJh0",
+  });
+
+  const res = await client.getEntries({ content_type: "post" });
+
+  return {
+    props: {
+      posts: res.items,
+    },
+  };
+}
 
 export default function Home({ posts }) {
   return (
@@ -24,30 +38,4 @@ export default function Home({ posts }) {
       <ContactSection />
     </>
   );
-}
-
-export async function getStaticProps() {
-  const files = fs.readdirSync(path.join("projects"));
-
-  const posts = files.map((filename) => {
-    const slug = filename.replace(".md", "");
-
-    const markdownWithMeta = fs.readFileSync(
-      path.join("projects", filename),
-      "utf-8"
-    );
-
-    const { data: frontmatter } = matter(markdownWithMeta);
-
-    return {
-      slug,
-      frontmatter,
-    };
-  });
-
-  return {
-    props: {
-      posts,
-    },
-  };
 }

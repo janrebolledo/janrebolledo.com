@@ -1,16 +1,43 @@
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
 import { marked } from "marked";
 import Link from "next/link";
 import Head from "next/head";
+import { createClient } from "contentful";
 
-export default function ProjectPage({
-  frontmatter: { title, date, cover_image },
-  slug,
-  excerpt,
-  content,
-}) {
+const client = createClient({
+  space: "ujgh56azuyhl",
+  accessToken: "wbR8JM_yHvHMSP96kyP4w3Tr39lz6QpTvCWy6VtHJh0",
+});
+
+export const getStaticPaths = async () => {
+  const res = await client.getEntries({ content_type: "post" });
+
+  const paths = res.items.map((item) => {
+    return {
+      params: {
+        slug: item.fields.slug,
+      },
+    };
+  });
+
+  return {
+    paths,
+    fallback: false,
+  };
+};
+
+export async function getStaticProps({ params }) {
+  const { items } = await client.getEntries({
+    content_type: "post",
+    "fields.slug": params.slug,
+  });
+
+  return {
+    props: { post: items[0] },
+  };
+}
+
+export default function ProjectPage({ post }) {
+  const { title, coverImage, date, content, excerpt } = post.fields;
   return (
     <section className="project-section">
       <Head>
@@ -19,7 +46,11 @@ export default function ProjectPage({
       </Head>
       <h2>{title}</h2>
       <p className="project-date">{date}</p>
-      <img className="project-img" src={cover_image} alt="Project Image" />
+      <img
+        className="project-img"
+        src={coverImage.fields.file.url}
+        alt={coverImage.fields.title}
+      />
       <div
         className="project-content"
         dangerouslySetInnerHTML={{ __html: marked(content) }}
@@ -31,36 +62,4 @@ export default function ProjectPage({
       </Link>
     </section>
   );
-}
-
-export async function getStaticPaths() {
-  const files = fs.readdirSync(path.join("projects"));
-
-  const paths = files.map((filename) => ({
-    params: {
-      slug: filename.replace(".md", ""),
-    },
-  }));
-
-  return {
-    paths,
-    fallback: false,
-  };
-}
-
-export async function getStaticProps({ params: { slug } }) {
-  const markdownWithMeta = fs.readFileSync(
-    path.join("projects", slug + ".md"),
-    "utf-8"
-  );
-
-  const { data: frontmatter, content } = matter(markdownWithMeta);
-
-  return {
-    props: {
-      frontmatter,
-      slug,
-      content,
-    },
-  };
 }
