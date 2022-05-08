@@ -88,10 +88,7 @@ export default function Header() {
       <>
         <header>
           <Link href="/" passHref>
-            <div className="header-logo-link">
-              <img className="header-logo" alt="Logo" src={Logo.src} />
-              JAN REBOLLEDO
-            </div>
+            <div className="header-logo-link">JAN REBOLLEDO</div>
           </Link>
           <nav>
             <ul className="header-list">
@@ -126,6 +123,7 @@ export default function Header() {
             menu
           </span>
         </header>
+        <P5 />
       </>
     );
   }
