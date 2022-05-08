@@ -43,6 +43,24 @@ export default function ProjectPage({ post }) {
       <Head>
         <title>Jan Rebolledo — {title}</title>
         <meta name="description" content={excerpt} />
+        {/* Facebook Tags */}
+
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content={"Jan Rebolledo — " + title} />
+        <meta property="og:description" content={excerpt} />
+        <meta
+          property="og:image"
+          content={"https:" + coverImage.fields.file.url}
+        />
+
+        {/* Twitter Tags */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:title" content={"Jan Rebolledo — " + title} />
+        <meta property="twitter:description" content={excerpt} />
+        <meta
+          property="twitter:image"
+          content={"https:" + coverImage.fields.file.url}
+        />
       </Head>
       <h2>{title}</h2>
       <p className="project-date">{date}</p>
@@ -57,9 +75,20 @@ export default function ProjectPage({ post }) {
       ></div>
       <Link href="../projects">
         <a className="button">
-          Go Back <span className="material-icons">chevron_right</span>
+          <span className="material-icons">chevron_left</span>Go Back
         </a>
       </Link>
+      <script type="application/ld+json">
+        {`
+{
+  "@context" : "http://schema.org",
+  "@type" : "Article",
+  "name" : "${title}",
+  "datePublished" : "${date},
+  "image" : "${coverImage.fields.file.url}",
+  "articleBody" : [ "${marked(content)}" ]
+}`}
+      </script>
     </section>
   );
 }
