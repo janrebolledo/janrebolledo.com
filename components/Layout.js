@@ -18,13 +18,15 @@ function Layout(props) {
           name="keywords"
           content="Jan Rebolledo,graphic designer,motion designer,web designer,web developer"
         />
-        <link
-          href="https://fonts.googleapis.com/icon?family=Material+Icons"
-          rel="stylesheet"
-        />
+
+        <meta name="shortcut icon" href="favicon.ico" />
       </Head>
       <>{props.children}</>
       <Footer />
+      <link
+        href="https://fonts.googleapis.com/icon?family=Material+Icons"
+        rel="stylesheet"
+      />
     </>
   );
 }
