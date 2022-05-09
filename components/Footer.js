@@ -61,7 +61,7 @@ export default function Footer() {
           <span>
             COPYRIGHT © 2022{" "}
             <Link href="/">
-              <a className="underline link">Jan Rebolledo</a>
+              <a className="underline link">JAN REBOLLEDO</a>
             </Link>
             .
           </span>

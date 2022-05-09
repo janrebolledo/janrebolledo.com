@@ -7,9 +7,6 @@ function App({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <title>
-          Jan Rebolledo — Multifaceted Web Developer &amp; Graphic Designer
-        </title>
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta
           name="viewport"
@@ -51,39 +48,6 @@ function App({ Component, pageProps }) {
         />
         <link rel="manifest" href="/site.webmanifest" />
         <meta name="theme-color" content="#2c701c" />
-
-        {/* Facebook Tags */}
-
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://janrebolledo.com/" />
-        <meta
-          property="og:title"
-          content="Jan Rebolledo — Multifaceted Web Developer &amp; Graphic Designer"
-        />
-        <meta
-          property="og:description"
-          content="Esports Branding &amp; Web Development. I help esports teams create memorable brands and effective websites."
-        />
-        <meta
-          property="og:image"
-          content="https://janrebolledo.com/socialpreview.png"
-        />
-
-        {/* Twitter Tags */}
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://janrebolledo.com/" />
-        <meta
-          property="twitter:title"
-          content="Jan Rebolledo — Multifaceted Web Developer &amp; Graphic Designer"
-        />
-        <meta
-          property="twitter:description"
-          content="Esports Branding &amp; Web Development. I help esports teams create memorable brands and effective websites."
-        />
-        <meta
-          property="twitter:image"
-          content="https://janrebolledo.com/socialpreview.png"
-        />
       </Head>
       <Header />
       <Component {...pageProps} />
