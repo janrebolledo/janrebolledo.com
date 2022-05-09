@@ -4,8 +4,6 @@ import Process from "../components/Process";
 import ScrollingText from "../components/ScrollingText";
 import Post from "../components/Post";
 
-import Head from "next/head";
-
 import { createClient } from "contentful";
 
 export async function getStaticProps() {
@@ -26,41 +24,6 @@ export async function getStaticProps() {
 export default function Home({ posts }) {
   return (
     <>
-      <Head>
-        <title>Jan Rebolledo — Multifaceted Web Developer</title>
-        {/* Facebook Tags */}
-
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://janrebolledo.com/" />
-        <meta
-          property="og:title"
-          content="Jan Rebolledo — Multifaceted Web Developer"
-        />
-        <meta
-          property="og:description"
-          content="Creating Unique Web Experiences"
-        />
-        <meta
-          property="og:image"
-          content="https://janrebolledo.com/socialpreview.png"
-        />
-
-        {/* Twitter Tags */}
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://janrebolledo.com/" />
-        <meta
-          property="twitter:title"
-          content="Jan Rebolledo — Multifaceted Web Developer"
-        />
-        <meta
-          property="twitter:description"
-          content="Creating Unique Web Experiences"
-        />
-        <meta
-          property="twitter:image"
-          content="https://janrebolledo.com/socialpreview.png"
-        />
-      </Head>
       <LandingPage />
       <section className="projects-section" id="projects">
         <h2>PROJECTS</h2>
