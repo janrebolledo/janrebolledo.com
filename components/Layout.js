@@ -27,6 +27,14 @@ function Layout(props) {
         href="https://fonts.googleapis.com/icon?family=Material+Icons"
         rel="stylesheet"
       />
+      <script
+        data-host="https://microanalytics.io"
+        data-dnt="false"
+        src="https://microanalytics.io/js/script.js"
+        id="ZwSg9rf6GA"
+        async
+        defer
+      />
     </>
   );
 }
