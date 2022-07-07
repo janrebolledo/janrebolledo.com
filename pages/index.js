@@ -51,21 +51,21 @@ function Landing() {
         <div className="flex flex-row flex-wrap gap-4">
           <a
             target="_blank"
-            rel="nofollow"
+            rel="nofollow noreferrer"
             href="https://instagram.com/janconcepts"
           >
             <Image src={Instagram} width={32} height={32} />
           </a>
           <a
             target="_blank"
-            rel="nofollow"
+            rel="nofollow noreferrer"
             href="https://twitter.com/janconcepts"
           >
             <Image src={Twitter} width={32} height={32} />
           </a>
           <a
             target="_blank"
-            rel="nofollow"
+            rel="nofollow noreferrer"
             href="https://twitch.tv/janrebolledo"
           >
             <Image src={Twitch} width={32} height={32} />
