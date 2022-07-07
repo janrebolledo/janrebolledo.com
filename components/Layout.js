@@ -4,7 +4,7 @@ import Footer from "./Footer";
 
 function Layout(props) {
   return (
-    <>
+    <main className="bg-black text-white min-h-screen scroll-smooth">
       <Header />
       <Head>
         <title>Jan Rebolledo — Multifaceted Web Developer</title>
@@ -21,7 +21,7 @@ function Layout(props) {
 
         <meta name="shortcut icon" href="favicon.ico" />
       </Head>
-      <>{props.children}</>
+      {props.children}
       <Footer />
       <link
         href="https://fonts.googleapis.com/icon?family=Material+Icons"
@@ -35,7 +35,7 @@ function Layout(props) {
         async
         defer
       />
-    </>
+    </main>
   );
 }
 

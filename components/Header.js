@@ -1,130 +1,62 @@
-import Logo from "../public/Logo.png";
 import Link from "next/link";
-
-import { useRouter } from "next/router";
-
-import dynamic from "next/dynamic";
-
-const P5 = dynamic(() => import("../components/P5"), {
-  ssr: false,
-});
+import { useState } from "react";
+import AnimatedText from "react-animated-text-content";
 
 export default function Header() {
-  function mobileNavMenu() {
-    const nav = document.querySelector("nav");
-    const navButton = document.getElementById("mobile-nav-menu");
+  const [toggle, setToggle] = useState(false);
+  return (
+    <>
+      <header className="bg-black text-white flex justify-between px-5 py-8">
+        <h1>
+          <Link href="/">JAN REBOLLEDO</Link>
+        </h1>
+        <p
+          className="z-[101] block md:hidden"
+          onClick={() => setToggle(!toggle)}
+        >
+          {toggle ? "[ CLOSE ]" : "[ MENU ]"}
+        </p>
+        <p className="hidden md:flex gap-8">
+          <Link href="/">[ HOME ]</Link>
+          <Link href="/#projects">[ PROJECTS ]</Link>
+          <Link href="/#contact">[ CONTACT ]</Link>
+        </p>
+      </header>
+      <nav onClick={() => setToggle(!toggle)}>{toggle && <MobileNav />}</nav>
+    </>
+  );
+}
 
-    if (nav.classList.contains("menu-open")) {
-      nav.classList.remove("menu-open");
-      navButton.innerHTML = "menu";
-    } else {
-      nav.classList.add("menu-open");
-      navButton.innerHTML = "close";
-    }
-  }
-
-  function closeNav() {
-    if (window.outerWidth && window.outerWidth < 980) {
-      const nav = document.querySelector("nav");
-      const navButton = document.getElementById("mobile-nav-menu");
-      nav.classList.remove("menu-open");
-      navButton.innerHTML = "menu";
-    }
-  }
-
-  const router = useRouter();
-  if (router.pathname == "/") {
-    return (
-      <>
-        <header>
-          <Link href="/" passHref>
-            <div className="header-logo-link">JAN REBOLLEDO</div>
-          </Link>
-          <nav>
-            <ul className="header-list">
-              <li className="header-list-item">
-                <Link href="#home">
-                  <a className="header-link" onClick={closeNav}>
-                    HOME
-                  </a>
-                </Link>
-              </li>
-              <li className="header-list-item">
-                <Link href="#projects">
-                  <a className="header-link" onClick={closeNav}>
-                    PROJECTS
-                  </a>
-                </Link>
-              </li>
-              <li className="header-list-item">
-                <Link href="#process">
-                  <a className="header-link" onClick={closeNav}>
-                    MY PROCESS
-                  </a>
-                </Link>
-              </li>
-              <li className="header-list-item contact-button">
-                <Link href="#contact">
-                  <a className="header-link" onClick={closeNav}>
-                    CONTACT
-                  </a>
-                </Link>
-              </li>
-            </ul>
-          </nav>
-          <span
-            className="material-icons mobile-nav-menu"
-            id="mobile-nav-menu"
-            onClick={mobileNavMenu}
-          >
-            menu
-          </span>
-        </header>
-        <P5 />
-      </>
-    );
-  } else {
-    return (
-      <>
-        <header>
-          <Link href="/" passHref>
-            <div className="header-logo-link">JAN REBOLLEDO</div>
-          </Link>
-          <nav>
-            <ul className="header-list">
-              <li className="header-list-item">
-                <Link href="/">
-                  <a className="header-link" onClick={closeNav}>
-                    HOME
-                  </a>
-                </Link>
-              </li>
-              <li className="header-list-item">
-                <Link href="/projects">
-                  <a className="header-link" onClick={closeNav}>
-                    PROJECTS
-                  </a>
-                </Link>
-              </li>
-              <li className="header-list-item contact-button">
-                <Link href="/contact">
-                  <a className="header-link" onClick={closeNav}>
-                    CONTACT
-                  </a>
-                </Link>
-              </li>
-            </ul>
-          </nav>
-          <span
-            className="material-icons mobile-nav-menu"
-            id="mobile-nav-menu"
-            onClick={mobileNavMenu}
-          >
-            menu
-          </span>
-        </header>
-        <P5 />
-      </>
-    );
-  }
+function MobileNav() {
+  return (
+    <div className="w-full h-full fixed z-[100] top-0 left-0 bg-black text-white px-5 py-8 flex justify-center gap-4 flex-col">
+      <Link href="/">
+        <AnimatedText
+          animation={{ y: "100px", ease: "ease" }}
+          type="chars"
+          className="text-2xl"
+        >
+          [ HOME ]
+        </AnimatedText>
+      </Link>
+      <Link href="/#projects">
+        <AnimatedText
+          animation={{ y: "100px", ease: "ease" }}
+          type="chars"
+          className="text-2xl"
+        >
+          [ PROJECTS ]
+        </AnimatedText>
+      </Link>
+      <Link href="/#contact">
+        <AnimatedText
+          animation={{ y: "100px", ease: "ease" }}
+          type="chars"
+          className="text-2xl"
+        >
+          [ CONTACT ]
+        </AnimatedText>
+      </Link>
+    </div>
+  );
 }

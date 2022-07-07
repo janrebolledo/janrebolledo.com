@@ -1,6 +1,6 @@
 export default function ScrollingText() {
   return (
-    <div className="scrolling-text-div">
+    <div className="scrolling-text-div mt-4">
       <div className="scrolling-text-wrapper">
         <p>
           &quot;YOU&apos;RE THE BEST.&quot; &mdash; GUWOP, SOCIAL MEDIA MANAGER.

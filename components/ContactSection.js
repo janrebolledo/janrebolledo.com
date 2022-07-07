@@ -1,24 +1,50 @@
+import AnimatedText from "react-animated-text-content";
+
 export default function ContactSection() {
   return (
-    <section className="contact-section" id="contact">
+    <section
+      className="px-5 grid grid-cols-1 md:grid-cols-2 mb-12"
+      id="contact"
+    >
       <div>
-        <h1>LET&apos;S WORK TOGETHER.</h1>
-        <p>TURN YOUR VISION INTO A REALITY.</p>
+        <AnimatedText
+          animation={{ y: "40px", ease: "ease" }}
+          type="chars"
+          tag="h1"
+          className="text-4xl hoefler"
+        >
+          Contact
+        </AnimatedText>
+        <p>Let&apos;s work together. Turn your vision into a reality.</p>
       </div>
       <form
         name="contact"
-        action="/contact/form-submitted"
         method="POST"
         data-netlify="true"
+        className="flex flex-col gap-4"
       >
         <input type="hidden" name="form-name" value="contact" />
         <label htmlFor="name">NAME</label>
-        <input name="name" type="text" placeholder="NAME" />
+        <input
+          name="name"
+          type="text"
+          placeholder="NAME"
+          className="bg-black text-white border-2 border-solid border-white px-4 py-2 rounded-none"
+        />
         <label htmlFor="email">EMAIL</label>
-        <input name="email" type="email" placeholder="EXAMPLE@EMAIL.COM" />
+        <input
+          name="email"
+          type="email"
+          placeholder="EXAMPLE@EMAIL.COM"
+          className="bg-black text-white border-2 border-solid border-white px-4 py-2 rounded-none"
+        />
         <label htmlFor="name">MESSAGE</label>
-        <textarea name="message" placeholder="MESSAGE" />
-        <button>SEND</button>
+        <textarea
+          name="message"
+          placeholder="MESSAGE"
+          className="bg-black text-white border-2 border-solid border-white px-4 py-2 rounded-none"
+        />
+        <button className="btn">SEND</button>
       </form>
     </section>
   );
