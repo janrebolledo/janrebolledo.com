@@ -63,7 +63,7 @@ export default function ProjectPage({ post }) {
           content={"https:" + coverImage.fields.file.url}
         />
       </Head>
-      <div className="grid grid-cols-2">
+      <div className="grid grid-cols-1 md:grid-cols-2 mb-4">
         <div>
           <Link href="/">
             <a className="btn flex items-center mb-4">
