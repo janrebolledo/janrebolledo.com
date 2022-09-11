@@ -5,6 +5,7 @@ import ScrollingText from "../components/ScrollingText";
 import { createClient } from "contentful";
 
 import Image from "next/image";
+import Head from "next/head";
 import Link from "next/link";
 
 import Instagram from "../public/Social-Icons/Instagram.png";
@@ -29,6 +30,12 @@ export async function getStaticProps() {
 export default function Home({ posts }) {
   return (
     <>
+      <Head>
+        <meta
+          property="Creating unique digital experiences that drive results."
+          content=""
+        />
+      </Head>
       <Landing />
       <ProjectsSection posts={posts} />
       <ScrollingText />
@@ -54,21 +61,21 @@ function Landing() {
             rel="nofollow noreferrer"
             href="https://instagram.com/janconcepts"
           >
-            <Image src={Instagram} width={32} height={32} />
+            <Image src={Instagram} width={32} height={32} alt="Instagram" />
           </a>
           <a
             target="_blank"
             rel="nofollow noreferrer"
             href="https://twitter.com/janconcepts"
           >
-            <Image src={Twitter} width={32} height={32} />
+            <Image src={Twitter} width={32} height={32} alt="Twitter" />
           </a>
           <a
             target="_blank"
             rel="nofollow noreferrer"
             href="https://twitch.tv/janrebolledo"
           >
-            <Image src={Twitch} width={32} height={32} />
+            <Image src={Twitch} width={32} height={32} alt="Twitch" />
           </a>
         </div>
       </div>

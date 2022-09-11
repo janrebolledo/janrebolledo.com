@@ -1,6 +1,7 @@
 import { marked } from "marked";
 import Link from "next/link";
 import Head from "next/head";
+import Image from "next/image";
 import { createClient } from "contentful";
 import AnimatedText from "react-animated-text-content";
 
@@ -77,21 +78,24 @@ export default function ProjectPage({ post }) {
           >
             {title}
           </AnimatedText>
-          <h2 className="hoefler text-lg">Date</h2>
+          <h2 className="hoefler text-xl mt-2">Date</h2>
           <p>{date}</p>
-          <h2 className="hoefler text-lg">Project Scope</h2>
+          <h2 className="hoefler text-xl mt-2">Project Scope</h2>
           <p>{tag}</p>
-          <h2 className="hoefler text-lg">Project Overview</h2>
+          <h2 className="hoefler text-xl mt-2">Project Overview</h2>
           <p>{excerpt}</p>
         </div>
-        <img
-          className="mt-4"
-          src={"https:" + coverImage.fields.file.url}
-          alt={coverImage.fields.title}
-        />
+        <div className="relative mt-4 aspect-video md:aspect-auto">
+          <Image
+            src={"https:" + coverImage.fields.file.url}
+            alt={coverImage.fields.title}
+            layout="fill"
+            objectFit="cover"
+          />
+        </div>
       </div>
       <div
-        className="project-content mb-12"
+        className="project-content mb-12 flex flex-col gap-4"
         dangerouslySetInnerHTML={{ __html: marked(content) }}
       ></div>
 

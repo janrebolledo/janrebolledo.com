@@ -96,6 +96,10 @@ body {
   width: 100%;
 }
 
+.project-content p > a {
+  text-decoration: underline;
+}
+
 .project-content video {
   width: 100%;
 }
