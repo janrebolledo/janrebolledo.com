@@ -32,7 +32,7 @@ export default function Home({ posts }) {
     <>
       <Head>
         <meta
-          property="description"
+          name="description"
           content="Web Developer, Creating unique digital experiences that drive results."
         />
       </Head>

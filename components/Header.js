@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { useState } from "react";
-import AnimatedText from "react-animated-text-content";
 
 export default function Header() {
   const [toggle, setToggle] = useState(false);

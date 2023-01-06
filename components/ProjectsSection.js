@@ -1,4 +1,3 @@
-import AnimatedText from "react-animated-text-content";
 import Post from "../components/Post";
 
 export default function ProjectsSection({ posts }) {
@@ -8,14 +7,7 @@ export default function ProjectsSection({ posts }) {
       id="projects"
     >
       <div className="col-span-1">
-        <AnimatedText
-          animation={{ y: "40px", ease: "ease" }}
-          type="chars"
-          tag="h1"
-          className="text-4xl hoefler inline-flex"
-        >
-          Projects
-        </AnimatedText>
+        <h1 className="text-4xl hoefler inline-flex">Projects</h1>
         <p>View my recent work.</p>
       </div>
       <div className="col-span-1 md:col-span-3 md:overflow-x-scroll snap-mandatory snap-x projects">

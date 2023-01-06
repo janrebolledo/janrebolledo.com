@@ -3,7 +3,6 @@ import Link from "next/link";
 import Head from "next/head";
 import Image from "next/image";
 import { createClient } from "contentful";
-import AnimatedText from "react-animated-text-content";
 
 const client = createClient({
   space: process.env.CONTENTFUL_SPACE_ID,
@@ -65,13 +64,7 @@ export default function ProjectPage({ post }) {
           <Link href="/" className="btn flex items-center mb-4">
             &larr; Go Back
           </Link>
-          <AnimatedText
-            animation={{ y: "40px", ease: "ease" }}
-            type="chars"
-            className="text-2xl font-bold inline-flex"
-          >
-            {title}
-          </AnimatedText>
+          <h1 className="text-2xl font-bold inline-flex">{title}</h1>
           <div className="grid md:grid-cols-2">
             <div>
               <h2 className="hoefler text-xl mt-2">Date</h2>

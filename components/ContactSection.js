@@ -1,5 +1,3 @@
-import AnimatedText from "react-animated-text-content";
-
 export default function ContactSection() {
   return (
     <section
@@ -7,14 +5,7 @@ export default function ContactSection() {
       id="contact"
     >
       <div>
-        <AnimatedText
-          animation={{ y: "40px", ease: "ease" }}
-          type="chars"
-          tag="h1"
-          className="text-4xl hoefler inline-flex"
-        >
-          Contact
-        </AnimatedText>
+        <h1 className="text-4xl hoefler inline-flex">Contact</h1>
         <p>Let&apos;s work together. Turn your vision into a reality.</p>
       </div>
       <form
