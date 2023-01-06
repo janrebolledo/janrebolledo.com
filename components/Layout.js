@@ -16,6 +16,9 @@ function Layout(props) {
         />
 
         <meta name="shortcut icon" href="favicon.ico" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@janconcepts" />
+        <meta name="twitter:creator" content="@janconcepts" />
       </Head>
       {props.children}
       <Footer />

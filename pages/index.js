@@ -59,21 +59,39 @@ function Landing() {
             rel="nofollow noreferrer"
             href="https://instagram.com/janconcepts"
           >
-            <Image src={Instagram} width={32} height={32} alt="Instagram" />
+            <Image
+              src={Instagram}
+              width={32}
+              height={32}
+              alt="Instagram"
+              priority={true}
+            />
           </a>
           <a
             target="_blank"
             rel="nofollow noreferrer"
             href="https://twitter.com/janconcepts"
           >
-            <Image src={Twitter} width={32} height={32} alt="Twitter" />
+            <Image
+              src={Twitter}
+              width={32}
+              height={32}
+              alt="Twitter"
+              priority={true}
+            />
           </a>
           <a
             target="_blank"
             rel="nofollow noreferrer"
             href="https://twitch.tv/janrebolledo"
           >
-            <Image src={Twitch} width={32} height={32} alt="Twitch" />
+            <Image
+              src={Twitch}
+              width={32}
+              height={32}
+              alt="Twitch"
+              priority={true}
+            />
           </a>
         </div>
       </div>

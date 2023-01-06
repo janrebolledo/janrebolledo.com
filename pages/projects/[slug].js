@@ -39,35 +39,31 @@ export async function getStaticProps({ params }) {
 }
 
 export default function ProjectPage({ post }) {
-  const { title, coverImage, date, content, excerpt, tag } = post.fields;
+  const { title, coverImage, date, content, excerpt, tag, slug } = post.fields;
+  const seoTitle = "Jan Rebolledo — " + title;
   return (
     <section className="px-5">
       <Head>
-        <title>Jan Rebolledo — {title}</title>
+        <title>{seoTitle}</title>
         <meta name="description" content={excerpt} />
-        {/* Facebook Tags */}
 
         <meta property="og:type" content="website" />
-        <meta property="og:title" content={"Jan Rebolledo — " + title} />
+        <meta property="og:title" content={seoTitle} />
         <meta property="og:description" content={excerpt} />
+        <meta
+          property="og:url"
+          content={"https://janrebolledo.com/projects/" + slug}
+        />
         <meta
           property="og:image"
           content={"https:" + coverImage.fields.file.url}
         />
-
-        {/* Twitter Tags */}
         <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:title" content={"Jan Rebolledo — " + title} />
-        <meta property="twitter:description" content={excerpt} />
-        <meta
-          property="twitter:image"
-          content={"https:" + coverImage.fields.file.url}
-        />
       </Head>
       <div className="grid grid-cols-1 md:grid-cols-2 mb-4">
         <div>
-          <Link href="/">
-            <a className="btn flex items-center mb-4">&larr; Go Back</a>
+          <Link href="/" className="btn flex items-center mb-4">
+            &larr; Go Back
           </Link>
           <AnimatedText
             animation={{ y: "40px", ease: "ease" }}
@@ -95,27 +91,16 @@ export default function ProjectPage({ post }) {
           <Image
             src={"https:" + coverImage.fields.file.url}
             alt={coverImage.fields.title}
-            layout="fill"
-            objectFit="cover"
+            fill="true"
+            sizes="(max-width: 1200px) 50vw, 70vw"
+            className="object-cover"
           />
         </div>
       </div>
       <div
         className="project-content mb-12 flex flex-col gap-4"
         dangerouslySetInnerHTML={{ __html: marked(content) }}
-      ></div>
-
-      <script type="application/ld+json">
-        {`
-{
-  "@context" : "http://schema.org",
-  "@type" : "Article",
-  "name" : "${title}",
-  "datePublished" : "${date},
-  "image" : "${coverImage.fields.file.url}",
-  "articleBody" : [ "${marked(content)}" ]
-}`}
-      </script>
+      />
     </section>
   );
 }
