@@ -29,32 +29,14 @@ export default function Header() {
 function MobileNav() {
   return (
     <div className="w-full h-full fixed z-[100] top-0 left-0 bg-black text-white px-5 py-8 flex justify-center gap-4 flex-col">
-      <Link href="/">
-        <AnimatedText
-          animation={{ y: "100px", ease: "ease" }}
-          type="chars"
-          className="text-2xl"
-        >
-          [ HOME ]
-        </AnimatedText>
+      <Link href="/" className="text-2xl">
+        [ HOME ]
       </Link>
-      <Link href="/#projects">
-        <AnimatedText
-          animation={{ y: "100px", ease: "ease" }}
-          type="chars"
-          className="text-2xl"
-        >
-          [ PROJECTS ]
-        </AnimatedText>
+      <Link href="/#projects" className="text-2xl">
+        [ PROJECTS ]
       </Link>
-      <Link href="/#contact">
-        <AnimatedText
-          animation={{ y: "100px", ease: "ease" }}
-          type="chars"
-          className="text-2xl"
-        >
-          [ CONTACT ]
-        </AnimatedText>
+      <Link href="/#contact" className="text-2xl">
+        [ CONTACT ]
       </Link>
     </div>
   );
