@@ -19,10 +19,6 @@ function Layout(props) {
       </Head>
       {props.children}
       <Footer />
-      <link
-        href="https://fonts.googleapis.com/icon?family=Material+Icons"
-        rel="stylesheet"
-      />
       <script
         data-host="https://microanalytics.io"
         data-dnt="false"

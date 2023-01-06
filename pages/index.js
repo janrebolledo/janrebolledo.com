@@ -32,8 +32,8 @@ export default function Home({ posts }) {
     <>
       <Head>
         <meta
-          property="Creating unique digital experiences that drive results."
-          content=""
+          property="description"
+          content="Web Developer, Creating unique digital experiences that drive results."
         />
       </Head>
       <Landing />
@@ -48,12 +48,10 @@ function Landing() {
   return (
     <section className="px-5 py-8" id="home">
       <div>
-        <p>
-          <span className="hoefler">Web</span> Developer,
-        </p>
+        <p className="hoefler">Web Developer,</p>
         <h1 className="text-2xl">
-          Creating <span className="hoefler">Unique</span> Digital Experiences
-          That Drive <span className="hoefler">Results</span>
+          Creating Unique Digital Experiences That Drive{" "}
+          <span className="hoefler">Results</span>
         </h1>
         <div className="flex flex-row flex-wrap gap-4">
           <a
@@ -82,7 +80,7 @@ function Landing() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-24 md:gap-4 py-8">
         <Link href="#projects">
           <p className="text-6xl md:text-8xl cursor-pointer">
-            <span className="hoefler">Explore</span> Projects &rarr;
+            Explore <span className="hoefler">Projects</span> &rarr;
           </p>
         </Link>
         <Link href="#contact">

@@ -12,7 +12,7 @@ export default function ProjectsSection({ posts }) {
           animation={{ y: "40px", ease: "ease" }}
           type="chars"
           tag="h1"
-          className="text-4xl hoefler"
+          className="text-4xl hoefler inline-flex"
         >
           Projects
         </AnimatedText>

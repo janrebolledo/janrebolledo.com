@@ -11,7 +11,7 @@ export default function ContactSection() {
           animation={{ y: "40px", ease: "ease" }}
           type="chars"
           tag="h1"
-          className="text-4xl hoefler"
+          className="text-4xl hoefler inline-flex"
         >
           Contact
         </AnimatedText>

@@ -67,23 +67,29 @@ export default function ProjectPage({ post }) {
       <div className="grid grid-cols-1 md:grid-cols-2 mb-4">
         <div>
           <Link href="/">
-            <a className="btn flex items-center mb-4">
-              <span className="material-icons">chevron_left</span>Go Back
-            </a>
+            <a className="btn flex items-center mb-4">&larr; Go Back</a>
           </Link>
           <AnimatedText
             animation={{ y: "40px", ease: "ease" }}
             type="chars"
-            className="text-2xl font-bold"
+            className="text-2xl font-bold inline-flex"
           >
             {title}
           </AnimatedText>
-          <h2 className="hoefler text-xl mt-2">Date</h2>
-          <p>{date}</p>
-          <h2 className="hoefler text-xl mt-2">Project Scope</h2>
-          <p>{tag}</p>
-          <h2 className="hoefler text-xl mt-2">Project Overview</h2>
-          <p>{excerpt}</p>
+          <div className="grid md:grid-cols-2">
+            <div>
+              <h2 className="hoefler text-xl mt-2">Date</h2>
+              <p>{date}</p>
+            </div>
+            <div>
+              <h2 className="hoefler text-xl mt-2">Project Scope</h2>
+              <p>{tag}</p>
+            </div>
+            <div>
+              <h2 className="hoefler text-xl mt-2">Project Overview</h2>
+              <p>{excerpt}</p>
+            </div>
+          </div>
         </div>
         <div className="relative mt-4 aspect-video md:aspect-auto">
           <Image
