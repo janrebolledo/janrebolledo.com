@@ -1,0 +1,52 @@
+---
+const today = new Date();
+import Time from "./Time.astro";
+---
+
+<footer
+  class="container px-3 py-12 md:px-24 md:mx-auto flex flex-col gap-4 w-full"
+>
+  <div
+    class="grid grid-cols-1 md:grid-cols-2 gap-4 w-full text-center md:text-start"
+  >
+    <div class="flex flex-col gap-4">
+      <a href="/" class="cursor-pointer">JAN REBOLLEDO</a><a
+        href="mailto:jan@janrebolledo.com"
+        class="cursor-pointer">JAN@JANREBOLLEDO.COM</a
+      >
+      <p>PST</p>
+      <Time />
+    </div>
+    <nav class="grid grid-cols-2 gap-4">
+      <div class="flex flex-col gap-4">
+        <a href="/" class="cursor-pointer"
+          ><span class="text-xs mr-2">01.</span>INDEX</a
+        >
+        <a href="/" class="cursor-pointer"
+          ><span class="text-xs mr-2">02.</span>WORK</a
+        >
+        <a href="mailto:contact@janrebolledo.com" class="cursor-pointer"
+          ><span class="text-xs mr-2">03.</span>CONTACT</a
+        >
+      </div>
+      <div class="flex flex-col gap-4">
+        <a href="/" class="cursor-pointer"
+          ><span class="text-xs mr-2">04.</span>TWITTER &nearr;</a
+        >
+        <a href="/" class="cursor-pointer"
+          ><span class="text-xs mr-2">05.</span>LINKEDIN &nearr;</a
+        >
+      </div>
+    </nav>
+  </div>
+
+  <div
+    class="w-full flex flex-col md:flex-row justify-center gap-8 md:gap-16 text-xs text-center text-neutral-500"
+  >
+    <p>&copy; {today.getFullYear()}</p>
+    <span class="hidden md:block">&mdash;</span>
+    <p>THIS WEBSITE DOES NOT COLLECT PERSONAL DATA</p>
+    <span class="hidden md:block">&mdash;</span>
+    <a href="/sustainability" class="cursor-pointer">SUSTAINABILITY</a>
+  </div>
+</footer>

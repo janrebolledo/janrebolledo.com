@@ -1,0 +1,10 @@
+<script>
+  function displayClock() {
+    var display = new Date().toLocaleTimeString();
+    document.getElementById("time").innerHTML = display;
+    setTimeout(displayClock, 1000);
+  }
+  displayClock();
+</script>
+
+<p id="time"></p>

@@ -1,0 +1,148 @@
+---
+import { Image } from "astro:assets";
+import { contentfulClient } from "../../lib/contentful";
+import { BLOCKS, INLINES } from "@contentful/rich-text-types";
+import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
+import type { Project } from "../../lib/contentful";
+import Layout from "../../Layout/Layout.astro";
+import List from "../../components/List.astro";
+import Media from "../../components/Media.astro";
+
+export async function getStaticPaths() {
+  const options = {
+    renderNode: {
+      [BLOCKS.EMBEDDED_ASSET]: (node) =>
+        node.data.target.fields.file.contentType.includes("image")
+          ? `<img src="https:${node.data.target.fields.file.url}" />`
+          : `<video controls><source src="${node.data.target.fields.file.url}"></video>`,
+      [BLOCKS.HEADING_1]: (node, next) =>
+        `<h1 class="text-xl font-bold">${next(node.content)}</h1>`,
+      [INLINES.HYPERLINK]: (node, next) => {
+        const href = typeof node.data.uri === "string" ? node.data.uri : "";
+        return `<a href=${href} class="underline font-bold">${next(
+          node.content
+        )}</a>`;
+      },
+    },
+  };
+  const { items } = await contentfulClient.getEntries<Project>({
+    content_type: "project",
+  });
+  const pages = items.map((item) => ({
+    params: { slug: item.fields.slug },
+    props: {
+      title: item.fields.title,
+      date: new Date(item.fields.date).toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      }),
+      description: item.fields.description,
+      media: item.fields.media,
+      content: documentToHtmlString(item.fields.content, options),
+      technologies: item.fields.technologies,
+      scope: item.fields.scope,
+      link: item.fields.link,
+    },
+  }));
+  return pages;
+}
+
+const { title, date, description, media, content, technologies, scope, link } =
+  Astro.props;
+---
+
+<Layout props={Astro.props}>
+  <main class="flex flex-col gap-24">
+    {
+      media && (
+        <div class="h-[80vh] w-full relative">
+          <Media media={media} />
+          <div class="absolute top-0 left-0 right-0 bottom-0 flex items-end">
+            <hgroup class="container px-3 md:px-24 md:mx-auto py-24 text-white">
+              <p>CASE STUDY</p>
+              <h1 class="text-4xl md:text-8xl font-bold">{title}</h1>
+            </hgroup>
+          </div>
+        </div>
+      )
+    }
+    <div
+      class="grid md:grid-cols-4 xl:grid-cols-5 gap-5 container md:mx-auto px-3 md:px-24"
+    >
+      <div class="md:col-span-3 xl:col-span-3">
+        <h3 class="mb-6 md:mb-14">OVERVIEW</h3><p>{description}</p>
+      </div>
+      <div class="md:col-span-1 xl:col-span-2">
+        <h3 class="mb-6 md:mb-14">DETAILS</h3>
+        <dl class="flex flex-col gap-7 text-xs">
+          {
+            link && (
+              <>
+                <dt class="font-bold">IN PRODUCTION</dt>
+                <dd>
+                  <a
+                    href={link}
+                    class="cursor-pointer flex flex-row items-center text-base font-semibold gap-3"
+                  >
+                    <img src="/icons/link.svg" class="w-4 h-4" alt="" />
+                    {link}
+                  </a>
+                </dd>
+                <hr class="w-full border-sage" />
+              </>
+            )
+          }
+          <dt class="font-bold">TECHNOLOGIES</dt>
+          <dd>
+            <ul class="flex flex-row flex-wrap gap-1">
+              <List list={technologies} />
+            </ul>
+          </dd>
+          <hr class="w-full border-sage" />
+          <dt class="font-bold">SCOPE</dt>
+          <dd>
+            <ul class="flex flex-row flex-wrap gap-1">
+              <List list={scope} />
+            </ul>
+          </dd>
+          <hr class="w-full border-sage" />
+          <dt class="font-bold">DATE</dt>
+          <dd><time>{date}</time></dd>
+        </dl>
+      </div>
+    </div>
+
+    <article
+      set:html={content}
+      class="container px-3 md:px-24 md:mx-auto flex flex-col gap-4"
+      id="content"
+    />
+  </main>
+</Layout>
+
+<script>
+  // select the target element
+  const target = document.getElementById("content");
+  const header = document.getElementById("header");
+
+  header.classList.add("text-white");
+
+  const threshold = 0.08;
+
+  // create an observer instance
+  const observer = new IntersectionObserver((entries) => {
+    // do something when the target element is intersecting the viewport
+    if (entries[0].intersectionRatio > threshold) {
+      header.classList.remove("text-white");
+    }
+    if (entries[0].intersectionRatio < threshold) {
+      header.classList.add("text-white");
+    }
+  });
+
+  // add a load event listener to the window to start observing on load
+  window.addEventListener("load", () => {
+    observer.observe(target);
+  });
+</script>

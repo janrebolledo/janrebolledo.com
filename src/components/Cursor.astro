@@ -1,0 +1,51 @@
+<div class="cursor hidden md:block" id="cursor"></div>
+
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function (event) {
+    const cursor = document.getElementById("cursor");
+
+    onmousemove = function (e) {
+      const x = e.clientX - 24;
+      const y = e.clientY - 24;
+      cursor.style.left = x + "px";
+      cursor.style.top = y + "px";
+    };
+
+    function toggleCursor() {
+      cursor.classList.toggle("cursorActive");
+    }
+
+    const anchorsCollection = document.getElementsByClassName("cursor-pointer");
+
+    const anchors = [...anchorsCollection];
+
+    anchors.forEach((anchor) => {
+      anchor.addEventListener("mouseover", () => {
+        toggleCursor();
+      });
+      anchor.addEventListener("mouseout", () => {
+        toggleCursor();
+      });
+    });
+  });
+</script>
+
+<style>
+  .cursor {
+    position: fixed;
+    background: #d3c1d2;
+    border-radius: 1.5rem;
+    mix-blend-mode: difference;
+    transition: transform 0.2s ease;
+    transform-origin: center;
+    z-index: 999;
+    pointer-events: none;
+    width: 48px;
+    height: 48px;
+    transform: scale(0.8);
+  }
+
+  .cursorActive {
+    transform: scale(1.5);
+  }
+</style>

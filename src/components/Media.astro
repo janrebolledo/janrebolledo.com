@@ -1,0 +1,25 @@
+---
+import { Image } from "astro:assets";
+const { media } = Astro.props;
+---
+
+{
+  media && media.fields.file.contentType.includes("image") && (
+    <Image
+      src={"https:" + media.fields.file.url}
+      alt={media.fields.title}
+      class="object-cover w-full h-full"
+      width={1920}
+      height={1080}
+      format={media.fields.file.contentType.replace("image/", "")}
+      loading={"eager"}
+    />
+  )
+}
+{
+  media && media.fields.file.contentType.includes("video") && (
+    <video class="object-cover w-full h-full" autoplay muted loop>
+      <source src={media.fields.file.url} />
+    </video>
+  )
+}
