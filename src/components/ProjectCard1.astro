@@ -1,0 +1,48 @@
+---
+import List from "./List.astro";
+import Media from "./Media.astro";
+const { project } = Astro.props;
+---
+
+<article class="min-h-[534px] h-96 xl:h-[534px] relative">
+  <div
+    class="absolute top-0 left-0 right-0 bottom-0 grid grid-cols-1 xl:grid-cols-5 gap-5 text-white py-8 px-8 z-10 drop-shadow-lg"
+  >
+    <div
+      class="flex flex-col items-center xl:items-start justify-end xl:justify-between h-full gap-6 xl:gap-0 xl:col-start-4"
+    >
+      <div>
+        <hgroup
+          class="flex flex-col xl:flex-row gap-2 relative xl:-left-6 text-center xl:text-left"
+        >
+          <span class="text-[10px]">.0{project.order}</span>
+          <h2 class="text-3xl uppercase">{project.title}</h2>
+        </hgroup>
+        <p class="font-serif my-6 mb-2 text-center xl:text-left">
+          Technologies
+        </p>
+        <ul
+          class="flex flex-row flex-wrap gap-1 justify-center xl:justify-start max-w-full whitespace"
+        >
+          <List list={project.technologies} />
+        </ul>
+      </div>
+      {
+        project.available ? (
+          <a
+            href={`/project/${project.slug}/`}
+            class="px-4 py-2 border-white border-solid border-[1px] max-w-max max-h-max cursor-pointer"
+          >
+            VIEW CASE STUDY →
+          </a>
+        ) : (
+          <p class="px-4 py-2 border-white border-solid border-[1px] max-w-max max-h-max">
+            NOT AVAILABLE
+          </p>
+        )
+      }
+    </div>
+    <p>{project.description}</p>
+  </div>
+  <Media media={project.media} />
+</article>

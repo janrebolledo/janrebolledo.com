@@ -1,43 +1,18 @@
 ---
 import List from "./List.astro";
 import Media from "./Media.astro";
+import ProjectCard1 from "./ProjectCard1.astro";
+import ProjectCard2 from "./ProjectCard2.astro";
 
 const { projects } = Astro.props;
 ---
 
 {
-  projects.map((project) => (
-    <article class="min-h-[470px] lg:h-[470px] grid grid-cols-1 lg:grid-cols-5 gap-5">
-      <div class="flex flex-col items-center lg:items-start lg:justify-between h-full gap-6 lg:gap-0">
-        <div>
-          <hgroup class="flex flex-col lg:flex-row gap-2 relative lg:-left-6 text-center lg:text-left">
-            <span class="text-[10px]">.0{project.order}</span>
-            <h2 class="text-3xl uppercase">{project.title}</h2>
-          </hgroup>
-          <p class="font-serif my-6 mb-2 text-center lg:text-left">
-            Technologies
-          </p>
-          <ul class="flex flex-row flex-wrap gap-1 justify-center lg:justify-start max-w-full whitespace">
-            <List list={project.technologies} />
-          </ul>
-        </div>
-        {project.available ? (
-          <a
-            href={`/project/${project.slug}/`}
-            class="px-4 py-2 border-black border-solid border-[1px] max-w-max max-h-max cursor-pointer"
-          >
-            VIEW CASE STUDY →
-          </a>
-        ) : (
-          <p class="px-4 py-2 border-black border-solid border-[1px] max-w-max max-h-max">
-            NOT AVAILABLE
-          </p>
-        )}
-      </div>
-      <p>{project.description}</p>
-      <div class="lg:col-span-3 aspect-video lg:aspect-auto lg:h-[470px]">
-        <Media media={project.media} />
-      </div>
-    </article>
-  ))
+  projects.map((project) =>
+    project.order % 2 === 0 ? (
+      <ProjectCard1 project={project} />
+    ) : (
+      <ProjectCard2 project={project} />
+    )
+  )
 }
