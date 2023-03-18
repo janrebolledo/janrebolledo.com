@@ -1,5 +1,5 @@
 ---
-import { Image } from "astro:assets";
+import { Image } from "@astrojs/image/components";
 const { media } = Astro.props;
 ---
 
@@ -13,6 +13,7 @@ const { media } = Astro.props;
       height={1080}
       format={media.fields.file.contentType.replace("image/", "")}
       loading={"eager"}
+      quality={80}
     />
   )
 }

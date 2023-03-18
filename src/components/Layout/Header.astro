@@ -10,7 +10,7 @@
     </h2></a
   >
   <nav
-    class="hidden absolute -top-24 pt-24 left-0 bg-white h-screen container md:mx-auto flex-col gap-12 px-3 z-20 text-3xl lg:static lg:pt-0 lg:bg-transparent lg:h-auto lg:gap-0 lg:px-0 lg:z-auto lg:text-base lg:col-span-2 lg:grid lg:grid-cols-2"
+    class="flex absolute -top-24 pt-24 -left-full transition-transform bg-white h-screen container md:mx-auto flex-col gap-12 px-3 z-20 text-3xl lg:static lg:pt-0 lg:bg-transparent lg:h-auto lg:gap-0 lg:px-0 lg:z-auto lg:text-base lg:col-span-2 lg:grid lg:grid-cols-2"
     id="nav"
   >
     <a href="/#work" class="flex flex-col gap-2 cursor-pointer"
@@ -25,7 +25,7 @@
       ></a
     >
   </nav>
-  <button class="block lg:hidden z-30 p-4 pr-0 text-3xl" onclick="openMenu()"
+  <button class="block lg:hidden z-30 m-4 mr-0 text-3xl" onclick="openMenu()"
     >☰</button
   >
 </header>
@@ -33,7 +33,6 @@
 <script type="text/javascript">
   function openMenu() {
     const nav = document.getElementById("nav");
-    nav.classList.toggle("hidden");
-    nav.classList.toggle("flex");
+    nav.classList.toggle("translate-x-full");
   }
 </script>
