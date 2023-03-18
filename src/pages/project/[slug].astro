@@ -122,26 +122,18 @@ const { title, date, description, media, content, technologies, scope, link } =
 </Layout>
 
 <script>
-  // select the target element
   const target = document.getElementById("content");
   const header = document.getElementById("header");
-
   header.classList.add("text-white");
-
-  const threshold = 0.08;
-
-  // create an observer instance
   const observer = new IntersectionObserver((entries) => {
-    // do something when the target element is intersecting the viewport
-    if (entries[0].intersectionRatio > threshold) {
-      header.classList.remove("text-white");
-    }
-    if (entries[0].intersectionRatio < threshold) {
-      header.classList.add("text-white");
-    }
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        header.classList.remove("text-white");
+      } else {
+        header.classList.add("text-white");
+      }
+    });
   });
-
-  // add a load event listener to the window to start observing on load
   window.addEventListener("load", () => {
     observer.observe(target);
   });
