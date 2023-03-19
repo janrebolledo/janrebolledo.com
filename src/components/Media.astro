@@ -19,7 +19,7 @@ const { media } = Astro.props;
 }
 {
   media && media.fields.file.contentType.includes("video") && (
-    <video class="object-cover w-full h-full" autoplay muted loop playsinline>
+    <video class="object-cover w-full h-full" muted loop playsinline>
       <source
         src={"https:" + media.fields.file.url}
         type={media.fields.file.contentType}

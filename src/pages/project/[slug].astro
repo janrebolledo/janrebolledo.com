@@ -136,4 +136,25 @@ const { title, date, description, media, content, technologies, scope, link } =
   window.addEventListener("load", () => {
     observer.observe(target);
   });
+
+  const videosArray = document.getElementsByTagName("video");
+  const videos = [...videosArray];
+
+  const options = {
+    threshold: 0.5,
+  };
+
+  const videoObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.play();
+      } else {
+        entry.target.pause();
+      }
+    });
+  }, options);
+
+  videos.forEach((video) => {
+    videoObserver.observe(video);
+  });
 </script>
