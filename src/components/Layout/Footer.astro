@@ -1,6 +1,5 @@
 ---
 const today = new Date();
-import Time from "./Time.astro";
 ---
 
 <footer
@@ -15,7 +14,7 @@ import Time from "./Time.astro";
         class="cursor-pointer">JAN@JANREBOLLEDO.COM</a
       >
       <p>PST</p>
-      <Time />
+      <p id="time"></p>
     </div>
     <nav class="grid grid-cols-2 gap-4">
       <div class="flex flex-col gap-4">
@@ -50,3 +49,12 @@ import Time from "./Time.astro";
     <a href="/sustainability" class="cursor-pointer">SUSTAINABILITY</a>
   </div>
 </footer>
+
+<script>
+  function displayClock() {
+    var display = new Date().toLocaleTimeString();
+    document.getElementById("time").innerHTML = display;
+    setTimeout(displayClock, 1000);
+  }
+  displayClock();
+</script>

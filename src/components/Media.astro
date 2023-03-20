@@ -9,10 +9,10 @@ const { media } = Astro.props;
       src={"https:" + media.fields.file.url}
       alt={media.fields.title}
       class="object-cover w-full h-full"
-      width={1920}
-      height={1080}
-      format={media.fields.file.contentType.replace("image/", "")}
-      loading={"eager"}
+      width={media.fields.file.details.image.width}
+      height={media.fields.file.details.image.height}
+      format={"webp"}
+      loading={"lazy"}
       quality={80}
     />
   )
