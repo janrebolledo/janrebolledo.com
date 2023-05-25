@@ -1,38 +1,37 @@
 <header
-  class="container px-3 md:px-24 mx-auto flex justify-between items-center lg:grid lg:grid-cols-3 fixed z-10 top-24 left-0 right-0 transition-colors"
-  id="header"
+  class='container px-3 md:px-24 mx-auto flex justify-between items-center lg:grid lg:grid-cols-3 fixed z-10 top-24 left-0 right-0 transition-colors'
+  id='header'
 >
-  <a href="/" class="cursor-pointer">
-    <h2 class="flex flex-col gap-2">
-      JAN REBOLLEDO <span class="text-neutral-500 text-sm"
-        >@ Hesperia, California</span
-      >
-    </h2></a
-  >
+  <h2 class='cursor-pointer flex flex-col gap-2'>
+    <a href='/'> JAN REBOLLEDO</a>
+    <a href='https://placoson.com' class='text-neutral-500 text-sm'
+      >@ Placoson</a
+    >
+  </h2>
   <nav
-    class="flex absolute -top-24 pt-24 -left-full transition-transform bg-white h-screen container md:mx-auto flex-col gap-12 px-3 z-20 text-3xl lg:static lg:pt-0 lg:bg-transparent lg:h-auto lg:gap-0 lg:px-0 lg:z-auto lg:text-base lg:col-span-2 lg:grid lg:grid-cols-2"
-    id="nav"
+    class='flex absolute -top-24 pt-24 -left-full transition-transform bg-white h-screen container md:mx-auto flex-col gap-12 px-3 z-20 text-3xl lg:static lg:pt-0 lg:bg-transparent lg:h-auto lg:gap-0 lg:px-0 lg:z-auto lg:text-base lg:col-span-2 lg:grid lg:grid-cols-2'
+    id='nav'
   >
-    <a href="/#work" class="flex flex-col gap-2 cursor-pointer"
-      ><span>WORK</span><span class="text-neutral-500 text-sm">5 Projects</span
+    <a href='/#work' class='flex flex-col gap-2 cursor-pointer'
+      ><span>WORK</span><span class='text-neutral-500 text-sm'>5 Projects</span
       ></a
     >
     <a
-      href="mailto:contact@janrebolledo.com"
-      class="flex flex-col gap-2 cursor-pointer"
-      ><span>CONTACT</span><span class="text-neutral-500 text-sm"
+      href='mailto:contact@janrebolledo.com'
+      class='flex flex-col gap-2 cursor-pointer'
+      ><span>CONTACT</span><span class='text-neutral-500 text-sm'
         >contact@janrebolledo.com</span
       ></a
     >
   </nav>
-  <button class="block lg:hidden z-30 m-4 mr-0 text-3xl" onclick="openMenu()"
+  <button class='block lg:hidden z-30 m-4 mr-0 text-3xl' onclick='openMenu()'
     >☰</button
   >
 </header>
 
-<script type="text/javascript">
+<script type='text/javascript'>
   function openMenu() {
-    const nav = document.getElementById("nav");
-    nav.classList.toggle("translate-x-full");
+    const nav = document.getElementById('nav');
+    nav.classList.toggle('translate-x-full');
   }
 </script>
