@@ -1,25 +1,25 @@
 ---
-import List from "./List.astro";
-import Media from "./Media.astro";
+import List from './List.astro';
+import Media from './Media.astro';
 const { project } = Astro.props;
 ---
 
 <article
-  class="min-h-[470px] xl:h-[470px] grid grid-cols-1 xl:grid-cols-5 gap-5"
+  class='min-h-[470px] xl:h-[470px] grid grid-cols-1 xl:grid-cols-5 gap-5'
 >
   <div
-    class="flex flex-col items-center xl:items-start xl:justify-between h-full gap-6 xl:gap-0"
+    class='flex flex-col items-center xl:items-start xl:justify-between h-full gap-6 xl:gap-0'
   >
     <div>
       <hgroup
-        class="flex flex-col xl:flex-row gap-2 relative xl:-left-6 text-center xl:text-left"
+        class='flex flex-col xl:flex-row gap-2 relative xl:-left-6 text-center xl:text-left'
       >
-        <span class="text-[10px]">.0{project.order}</span>
-        <h2 class="text-3xl uppercase">{project.title}</h2>
+        <span class='text-[10px]'>.0{project.order}</span>
+        <h2 class='text-3xl uppercase'>{project.title}</h2>
       </hgroup>
-      <p class="font-serif my-6 mb-2 text-center xl:text-left">Technologies</p>
+      <p class='font-serif my-6 mb-2 text-center xl:text-left'>Technologies</p>
       <ul
-        class="flex flex-row flex-wrap gap-1 justify-center xl:justify-start max-w-full whitespace"
+        class='flex flex-row flex-wrap gap-1 justify-center xl:justify-start max-w-full whitespace'
       >
         <List list={project.technologies} />
       </ul>
@@ -28,19 +28,19 @@ const { project } = Astro.props;
       project.available ? (
         <a
           href={`/project/${project.slug}/`}
-          class="px-4 py-2 border-black border-solid border-[1px] max-w-max max-h-max cursor-pointer"
+          class='px-4 py-2 border-black border-solid border-[1px] max-w-max max-h-max cursor-pointer'
         >
           VIEW CASE STUDY →
         </a>
       ) : (
-        <p class="px-4 py-2 border-black border-solid border-[1px] max-w-max max-h-max">
+        <p class='px-4 py-2 border-black border-solid border-[1px] max-w-max max-h-max'>
           NOT AVAILABLE
         </p>
       )
     }
   </div>
   <p>{project.description}</p>
-  <div class="xl:col-span-3 aspect-video xl:aspect-auto xl:h-[470px]">
-    <Media media={project.media} />
+  <div class='xl:col-span-3 aspect-video xl:aspect-auto xl:h-[470px]'>
+    <Media media={project.media} thumbnail={project.thumbnail} />
   </div>
 </article>

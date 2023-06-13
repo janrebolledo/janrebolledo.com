@@ -1,21 +1,30 @@
 ---
-import { contentfulClient } from "../lib/contentful";
-import type { Project } from "../lib/contentful";
-import Layout from "../Layout/Layout.astro";
-import ProjectList from "../components/ProjectList.astro";
+import { contentfulClient } from '../lib/contentful';
+import type { Project } from '../lib/contentful';
+import Layout from '../Layout/Layout.astro';
+import ProjectList from '../components/ProjectList.astro';
 
 const entries = await contentfulClient.getEntries<Project>({
-  content_type: "project",
+  content_type: 'project',
 });
 
 var projects = entries.items.map((item) => {
-  const { title, slug, description, media, available, technologies, order } =
-    item.fields;
+  const {
+    title,
+    slug,
+    description,
+    media,
+    thumbnail,
+    available,
+    technologies,
+    order,
+  } = item.fields;
   return {
     title,
     slug,
     description,
     media,
+    thumbnail,
     available,
     technologies,
     order,
@@ -27,72 +36,72 @@ projects = projects.sort(function (a, b) {
 });
 
 const props = {
-  title: "Jan Rebolledo",
+  title: 'Jan Rebolledo',
   description:
-    "Freelance Front-end Web Developer & Graphic Designer, Crafting online experiences for startups.",
+    'Freelance Front-end Web Developer & Graphic Designer, Crafting online experiences for startups.',
 };
 ---
 
 <Layout props={props}>
   <main>
     <section
-      class="container px-3 md:px-24 md:mx-auto mt-56 mb-24 flex flex-col justify-center"
+      class='container px-3 md:px-24 md:mx-auto mt-56 mb-24 flex flex-col justify-center'
     >
-      <p class="font-serif">
+      <p class='font-serif'>
         Freelance Front-end Web Developer & Graphic Designer
       </p>
-      <h1 class="text-3xl flex flex-col">
+      <h1 class='text-3xl flex flex-col'>
         <span> CREATING ONLINE EXPERIENCES FOR</span><span
-          class="underline"
-          id="landingText">STARTUPS</span
+          class='underline'
+          id='landingText'>STARTUPS</span
         >
       </h1>
       <div
-        class="text-6xl md:text-7xl grid grid-cols-1 md:grid-cols-2 gap-24 md:gap-4 py-8"
+        class='text-6xl md:text-7xl grid grid-cols-1 md:grid-cols-2 gap-24 md:gap-4 py-8'
       >
-        <a href="/#work" class="cursor-pointer"
-          >Explore <span class="font-serif">Work</span> &rarr;</a
+        <a href='/#work' class='cursor-pointer'
+          >Explore <span class='font-serif'>Work</span> &rarr;</a
         >
-        <a href="mailto:contact@janrebolledo.com" class="cursor-pointer"
+        <a href='mailto:contact@janrebolledo.com' class='cursor-pointer'
           >Contact &rarr;</a
         >
       </div>
     </section>
-    <div class="scrollingTextContainer">
-      <img src="/text.svg" class="scrollingText" alt="" />
-      <img src="/text.svg" class="scrollingText" alt="" />
+    <div class='scrollingTextContainer'>
+      <img src='/text.svg' class='scrollingText' alt='' />
+      <img src='/text.svg' class='scrollingText' alt='' />
     </div>
-    <section id="work">
-      <div class="container px-3 md:px-24 md:mx-auto w-full">
+    <section id='work'>
+      <div class='container px-3 md:px-24 md:mx-auto w-full'>
         <hgroup
-          class="w-full lg:w-2/5 flex flex-col md:flex-row items-end lg:items-center justify-between mb-12"
+          class='w-full lg:w-2/5 flex flex-col md:flex-row items-end lg:items-center justify-between mb-12'
         >
-          <h2 class="text-5xl w-full text-start lg:w-auto">SELECTED WORKS</h2>
-          <p class="text-right text-neutral-500">2021 &mdash; PRESENT</p>
+          <h2 class='text-5xl w-full text-start lg:w-auto'>SELECTED WORKS</h2>
+          <p class='text-right text-neutral-500'>2021 &mdash; PRESENT</p>
         </hgroup>
       </div>
-      <div class="container px-3 md:px-24 md:mx-auto flex flex-col gap-11">
+      <div class='container px-3 md:px-24 md:mx-auto flex flex-col gap-11'>
         <ProjectList projects={projects} />
       </div>
     </section>
   </main>
 </Layout>
 
-<script type="text/javascript">
-  const landingText = document.getElementById("landingText");
-  var currentClient = -1;
-  clients = [
-    "STARTUPS",
-    "DESIGNERS",
-    "EDITORS",
-    "ARTISTS",
-    "MUSICIANS",
-    "BRANDS",
-  ];
+<script type='text/javascript'>
+const landingText = document.getElementById('landingText');
+var currentClient = -1;
+clients = [
+  'STARTUPS',
+  'DESIGNERS',
+  'EDITORS',
+  'ARTISTS',
+  'MUSICIANS',
+  'BRANDS',
+];
 
-  var text = setInterval(function () {
-    landingText.innerHTML = clients[++currentClient % clients.length];
-  }, 1000);
+var text = setInterval(function () {
+  landingText.innerHTML = clients[++currentClient % clients.length];
+}, 1000);
 </script>
 
 <style>

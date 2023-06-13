@@ -6,7 +6,7 @@ const { project } = Astro.props;
 
 <article class='min-h-[534px] h-96 xl:h-[534px] relative'>
   <div
-    class='absolute top-0 left-0 right-0 bottom-0 grid grid-cols-1 xl:grid-cols-5 gap-5 text-white py-8 px-8 z-10 drop-shadow-lg bg-gradient-to-br from-transparent to to-black/50'
+    class='absolute top-0 left-0 right-0 bottom-0 grid grid-cols-1 xl:grid-cols-5 gap-5 text-white py-8 px-8 z-10 drop-shadow-lg bg-gradient-to-br from-transparent to-black/10'
   >
     <div
       class='flex flex-col items-center xl:items-start justify-end xl:justify-between h-full gap-6 xl:gap-0 xl:col-start-4'
@@ -44,5 +44,5 @@ const { project } = Astro.props;
     </div>
     <p>{project.description}</p>
   </div>
-  <Media media={project.media} />
+  <Media media={project.media} thumbnail={project.thumbnail} />
 </article>

@@ -1,8 +1,6 @@
 ---
-import List from "./List.astro";
-import Media from "./Media.astro";
-import ProjectCard1 from "./ProjectCard1.astro";
-import ProjectCard2 from "./ProjectCard2.astro";
+import ProjectCard1 from './ProjectCard1.astro';
+import ProjectCard2 from './ProjectCard2.astro';
 
 const { projects } = Astro.props;
 ---
@@ -18,7 +16,7 @@ const { projects } = Astro.props;
 }
 
 <script>
-  const videosArray = document.getElementsByTagName("video");
+  const videosArray = document.getElementsByTagName('video');
   const videos = [...videosArray];
 
   const options = {

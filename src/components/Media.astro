@@ -1,27 +1,33 @@
 ---
-import { Image } from "@astrojs/image/components";
-const { media } = Astro.props;
+import { Image } from '@astrojs/image/components';
+const { media, thumbnail } = Astro.props;
 ---
 
 {
-  media && media.fields.file.contentType.includes("image") && (
+  media && media.fields.file.contentType.includes('image') && (
     <Image
-      src={"https:" + media.fields.file.url}
+      src={'https:' + media.fields.file.url}
       alt={media.fields.title}
-      class="object-cover w-full h-full"
+      class='object-cover w-full h-full'
       width={media.fields.file.details.image.width}
       height={media.fields.file.details.image.height}
-      format={"webp"}
-      loading={"lazy"}
+      format={'webp'}
+      loading={'lazy'}
       quality={80}
     />
   )
 }
 {
-  media && media.fields.file.contentType.includes("video") && (
-    <video class="object-cover w-full h-full" muted loop playsinline>
+  media && media.fields.file.contentType.includes('video') && (
+    <video
+      class='object-cover w-full h-full'
+      muted
+      loop
+      playsinline
+      poster={thumbnail ? 'https:' + thumbnail.fields.file.url : ''}
+    >
       <source
-        src={"https:" + media.fields.file.url}
+        src={'https:' + media.fields.file.url}
         type={media.fields.file.contentType}
       />
     </video>
