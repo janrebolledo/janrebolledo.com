@@ -1,10 +1,9 @@
-import { defineConfig } from "astro/config";
-import tailwind from "@astrojs/tailwind";
-
-import image from "@astrojs/image";
+import { defineConfig } from 'astro/config';
+import tailwind from '@astrojs/tailwind';
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://janrebolledo.com",
-  integrations: [tailwind(), image()],
+  site: 'https://janrebolledo.com',
+  integrations: [tailwind()],
+  experimental: { assets: true },
 });

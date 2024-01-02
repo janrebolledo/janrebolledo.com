@@ -1,47 +1,65 @@
-<div class="cursor hidden md:block" id="cursor"></div>
+<div class='cursor hidden md:block' id='cursor'></div>
 
-<script type="text/javascript">
-  document.addEventListener("DOMContentLoaded", function (event) {
-    const cursor = document.getElementById("cursor");
+<script type='text/javascript'>
+  document.addEventListener('DOMContentLoaded', function () {
+    const cursor = document.getElementById('cursor');
 
     onmousemove = function (e) {
-      const x = e.clientX - 24;
-      const y = e.clientY - 24;
-      cursor.style.left = x + "px";
-      cursor.style.top = y + "px";
+      const x = e.clientX - 16;
+      const y = e.clientY - 16;
+      cursor.style.left = x + 'px';
+      cursor.style.top = y + 'px';
     };
 
     function toggleCursor() {
-      cursor.classList.toggle("cursorActive");
+      cursor.classList.toggle('cursorActive');
     }
 
-    const anchorsCollection = document.getElementsByClassName("cursor-pointer");
+    const anchorsCollection = document.getElementsByClassName('cursor-pointer');
 
     const anchors = [...anchorsCollection];
 
     anchors.forEach((anchor) => {
-      anchor.addEventListener("mouseover", () => {
+      anchor.addEventListener('mouseover', () => {
         toggleCursor();
       });
-      anchor.addEventListener("mouseout", () => {
+      anchor.addEventListener('mouseout', () => {
         toggleCursor();
       });
+    });
+
+    const cursorClick = [
+      { transform: 'scale(1)' },
+      { transform: 'scale(0.8)' },
+    ];
+
+    const cursorAnimationOptions = {
+      duration: 200,
+      iterations: 1,
+      fill: 'forwards',
+    };
+
+    document.addEventListener('click', () => {
+      cursor.animate(cursorClick, cursorAnimationOptions);
     });
   });
 </script>
 
 <style>
+  body {
+    cursor: none;
+  }
   .cursor {
     position: fixed;
-    background: #d3c1d2;
-    border-radius: 1.5rem;
+    background: #ffffff;
+    border-radius: 50%;
     mix-blend-mode: difference;
     transition: transform 0.2s ease;
     transform-origin: center;
     z-index: 999;
     pointer-events: none;
-    width: 48px;
-    height: 48px;
+    width: 32px;
+    height: 32px;
     transform: scale(0.8);
   }
 

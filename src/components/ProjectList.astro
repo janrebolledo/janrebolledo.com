@@ -1,18 +1,13 @@
 ---
-import ProjectCard1 from './ProjectCard1.astro';
-import ProjectCard2 from './ProjectCard2.astro';
+import ProjectCard from './ProjectCard.astro';
 
 const { projects } = Astro.props;
 ---
 
 {
-  projects.map((project) =>
-    project.order % 2 === 0 ? (
-      <ProjectCard1 project={project} />
-    ) : (
-      <ProjectCard2 project={project} />
-    )
-  )
+  projects.map((project) => (
+    <ProjectCard project={project} alt={project.order % 2 === 0} />
+  ))
 }
 
 <script>
@@ -25,10 +20,11 @@ const { projects } = Astro.props;
 
   const observer = new IntersectionObserver((entries, observer) => {
     entries.forEach((entry) => {
+      const video = entry.target as HTMLVideoElement;
       if (entry.isIntersecting) {
-        entry.target.play();
+        video.play();
       } else {
-        entry.target.pause();
+        video.pause();
       }
     });
   }, options);

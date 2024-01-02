@@ -1,23 +1,23 @@
 ---
-import { contentfulClient } from "../../lib/contentful";
-import { BLOCKS, INLINES } from "@contentful/rich-text-types";
-import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
-import type { Project } from "../../lib/contentful";
-import Layout from "../../Layout/Layout.astro";
-import List from "../../components/List.astro";
-import Media from "../../components/Media.astro";
+import { contentfulClient } from '../../lib/contentful';
+import { BLOCKS, INLINES } from '@contentful/rich-text-types';
+import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+import type { Project } from '../../lib/contentful';
+import Layout from '../../Layout/Layout.astro';
+import List from '../../components/List.astro';
+import Media from '../../components/Media.astro';
 
 export async function getStaticPaths() {
   const options = {
     renderNode: {
       [BLOCKS.EMBEDDED_ASSET]: (node) =>
-        node.data.target.fields.file.contentType.includes("image")
+        node.data.target.fields.file.contentType.includes('image')
           ? `<img src="https:${node.data.target.fields.file.url}" />`
           : `<video controls><source src="${node.data.target.fields.file.url}"></video>`,
       [BLOCKS.HEADING_1]: (node, next) =>
         `<h1 class="text-xl font-bold">${next(node.content)}</h1>`,
       [INLINES.HYPERLINK]: (node, next) => {
-        const href = typeof node.data.uri === "string" ? node.data.uri : "";
+        const href = typeof node.data.uri === 'string' ? node.data.uri : '';
         return `<a href=${href} class="underline font-bold">${next(
           node.content
         )}</a>`;
@@ -25,16 +25,16 @@ export async function getStaticPaths() {
     },
   };
   const { items } = await contentfulClient.getEntries<Project>({
-    content_type: "project",
+    content_type: 'project',
   });
   const pages = items.map((item) => ({
     params: { slug: item.fields.slug },
     props: {
       title: item.fields.title,
-      date: new Date(item.fields.date).toLocaleDateString("en-US", {
-        year: "numeric",
-        month: "long",
-        day: "numeric",
+      date: new Date(item.fields.date).toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
       }),
       description: item.fields.description,
       media: item.fields.media,
@@ -42,71 +42,92 @@ export async function getStaticPaths() {
       technologies: item.fields.technologies,
       scope: item.fields.scope,
       link: item.fields.link,
+      order: item.fields.order,
     },
   }));
   return pages;
 }
 
-const { title, date, description, media, content, technologies, scope, link } =
-  Astro.props;
+const { items } = await contentfulClient.getEntries<Project>({
+  content_type: 'project',
+});
+
+const {
+  title,
+  date,
+  description,
+  media,
+  content,
+  technologies,
+  scope,
+  link,
+  order,
+} = Astro.props;
+
+const projects = items.sort((a, b) => a.fields.order - b.fields.order);
+
+const recommendedProjects = [
+  order === 1 ? projects[projects.length - 1] : projects[order - 2],
+  order === projects.length ? projects[0] : projects[order],
+];
 ---
 
 <Layout props={Astro.props}>
-  <main class="flex flex-col gap-24">
+  <main class='flex flex-col gap-24'>
     {
       media && (
-        <div class="h-[80vh] w-full relative">
-          <Media media={media} />
-          <div class="absolute top-0 left-0 right-0 bottom-0 flex items-end">
-            <hgroup class="container px-3 md:px-24 md:mx-auto py-24 text-white">
+        <div class='h-[80vh] w-full relative'>
+          <Media media={media} className='rounded-t-none' />
+          <div class='absolute top-0 left-0 right-0 bottom-0 flex items-end'>
+            <hgroup class='container px-3 md:px-24 md:mx-auto py-24 text-white'>
               <p>CASE STUDY</p>
-              <h1 class="text-4xl md:text-8xl font-bold">{title}</h1>
+              <h1 class='text-4xl md:text-8xl font-bold'>{title}</h1>
             </hgroup>
           </div>
         </div>
       )
     }
     <div
-      class="grid md:grid-cols-4 xl:grid-cols-5 gap-5 container md:mx-auto px-3 md:px-24"
+      class='grid md:grid-cols-4 xl:grid-cols-5 gap-5 container md:mx-auto px-3 md:px-24'
     >
-      <div class="md:col-span-3 xl:col-span-3">
-        <h3 class="mb-6 md:mb-14">OVERVIEW</h3><p>{description}</p>
+      <div class='md:col-span-3 xl:col-span-3'>
+        <h3 class='mb-6 md:mb-14'>OVERVIEW</h3><p>{description}</p>
       </div>
-      <div class="md:col-span-1 xl:col-span-2">
-        <h3 class="mb-6 md:mb-14">DETAILS</h3>
-        <dl class="flex flex-col gap-7 text-xs">
+      <div class='md:col-span-1 xl:col-span-2'>
+        <h3 class='mb-6 md:mb-14'>DETAILS</h3>
+        <dl class='flex flex-col gap-7 text-xs'>
           {
             link && (
               <>
-                <dt class="font-bold">IN PRODUCTION</dt>
+                <dt class='font-bold'>IN PRODUCTION</dt>
                 <dd>
                   <a
                     href={link}
-                    class="cursor-pointer flex flex-row items-center text-base font-semibold gap-3"
+                    class='cursor-pointer flex flex-row items-center text-base font-semibold gap-3'
                   >
-                    <img src="/icons/link.svg" class="w-4 h-4" alt="" />
+                    <img src='/icons/link.svg' class='w-4 h-4' alt='' />
                     {link}
                   </a>
                 </dd>
-                <hr class="w-full border-sage" />
+                <hr class='w-full border-black' />
               </>
             )
           }
-          <dt class="font-bold">TECHNOLOGIES</dt>
+          <dt class='font-bold'>TECHNOLOGIES</dt>
           <dd>
-            <ul class="flex flex-row flex-wrap gap-1">
+            <ul class='flex flex-row flex-wrap gap-1'>
               <List list={technologies} />
             </ul>
           </dd>
-          <hr class="w-full border-sage" />
-          <dt class="font-bold">SCOPE</dt>
+          <hr class='w-full border-black' />
+          <dt class='font-bold'>SCOPE</dt>
           <dd>
-            <ul class="flex flex-row flex-wrap gap-1">
+            <ul class='flex flex-row flex-wrap gap-1'>
               <List list={scope} />
             </ul>
           </dd>
-          <hr class="w-full border-sage" />
-          <dt class="font-bold">DATE</dt>
+          <hr class='w-full border-black' />
+          <dt class='font-bold'>DATE</dt>
           <dd><time>{date}</time></dd>
         </dl>
       </div>
@@ -114,42 +135,74 @@ const { title, date, description, media, content, technologies, scope, link } =
 
     <article
       set:html={content}
-      class="container px-3 md:px-24 md:mx-auto flex flex-col gap-4"
-      id="content"
+      class='container px-3 md:px-24 md:mx-auto flex flex-col gap-4'
+      id='content'
     />
+
+    <section class='container px-3 md:px-24 md:mx-auto'>
+      <h2 class='text-xl mb-4'>View <span class='font-serif'>More</span></h2>
+      <div class='grid gap-5 lg:grid-cols-2'>
+        {
+          recommendedProjects.map((project) => (
+            <a
+              href={
+                project.fields.available
+                  ? `/project/${project.fields.slug}/`
+                  : null
+              }
+              class='relative'
+            >
+              <div class='absolute top-0 left-0 right-0 bottom-0 p-4 xl:p-12 text-white flex flex-col justify-end bg-gradient-to-t from-black rounded-xl'>
+                <p>
+                  {new Date(project.fields.date).toLocaleDateString('en-US', {
+                    year: 'numeric',
+                  })}
+                </p>
+                <h4 class='font-bold text-lg'>{project.fields.title}</h4>
+              </div>
+              <Media
+                media={project.fields.media}
+                thumbnail={project.fields.thumbnail}
+              />
+            </a>
+          ))
+        }
+      </div>
+    </section>
   </main>
 </Layout>
 
 <script>
-  const target = document.getElementById("content");
-  const header = document.getElementById("header");
-  header.classList.add("text-white");
+  const target = document.getElementById('content')!;
+  const header = document.getElementById('header')!;
+  header.classList.add('text-white');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        header.classList.remove("text-white");
+        header.classList.remove('text-white');
       } else {
-        header.classList.add("text-white");
+        header.classList.add('text-white');
       }
     });
   });
-  window.addEventListener("load", () => {
+  window.addEventListener('load', () => {
     observer.observe(target);
   });
 
-  const videosArray = document.getElementsByTagName("video");
+  const videosArray = document.getElementsByTagName('video');
   const videos = [...videosArray];
 
   const options = {
-    threshold: 0.5,
+    threshold: 1,
   };
 
   const videoObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach((entry) => {
+      const video = entry.target as HTMLVideoElement;
       if (entry.isIntersecting) {
-        entry.target.play();
+        video.play();
       } else {
-        entry.target.pause();
+        video.pause();
       }
     });
   }, options);

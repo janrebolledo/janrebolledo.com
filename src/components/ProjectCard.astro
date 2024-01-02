@@ -1,0 +1,52 @@
+---
+import List from './List.astro';
+import Media from './Media.astro';
+const { project, alt } = Astro.props;
+---
+
+<article class='xl:h-[470px] grid grid-cols-1 xl:grid-cols-5 gap-8 xl:gap-10'>
+  <div
+    class={alt
+      ? 'order-2 flex flex-col items-center xl:items-start xl:justify-between h-full gap-4 xl:gap-0'
+      : 'order-2 xl:order-none flex flex-col items-center xl:items-start xl:justify-between h-full gap-4 xl:gap-0'}
+  >
+    <div>
+      <hgroup
+        class='flex flex-col xl:flex-row gap-2 relative xl:-left-6 text-center xl:text-left'
+      >
+        <span class='text-[10px]'>0{project.order}.</span>
+        <h2 class='text-3xl'>{project.title}</h2>
+      </hgroup>
+      <p class='font-serif my-6 mb-2 text-center xl:text-left hidden xl:block'>
+        Technologies
+      </p>
+      <ul
+        class='hidden xl:flex flex-row flex-wrap gap-1 justify-center xl:justify-start max-w-full whitespace'
+      >
+        <List list={project.technologies} />
+      </ul>
+    </div>
+    {
+      project.available ? (
+        <a
+          href={`/project/${project.slug}/`}
+          class='rounded-2xl border border-black w-max px-4 py-3 bg-black text-white max-w-max max-h-max cursor-pointer'
+        >
+          View Case Study &rarr;
+        </a>
+      ) : (
+        <p class='rounded-2xl border w-max px-4 py-3'>Unavailable</p>
+      )
+    }
+  </div>
+  <p class={alt ? 'order-3 hidden xl:block' : 'hidden xl:block'}>
+    {project.description}
+  </p>
+  <div
+    class={alt
+      ? 'order-1 xl:col-span-3 aspect-video xl:aspect-auto xl:h-[470px]'
+      : 'order-1 xl:order-none xl:col-span-3 aspect-video xl:aspect-auto xl:h-[470px]'}
+  >
+    <Media media={project.media} thumbnail={project.thumbnail} />
+  </div>
+</article>

@@ -1,6 +1,9 @@
 ---
-import { Image } from '@astrojs/image/components';
-const { media, thumbnail } = Astro.props;
+import { Image } from 'astro:assets';
+const { media, thumbnail, className } = Astro.props;
+
+const defaultStyle = 'object-cover w-full h-full rounded-2xl ';
+const style = defaultStyle + className;
 ---
 
 {
@@ -8,7 +11,7 @@ const { media, thumbnail } = Astro.props;
     <Image
       src={'https:' + media.fields.file.url}
       alt={media.fields.title}
-      class='object-cover w-full h-full'
+      class={style}
       width={media.fields.file.details.image.width}
       height={media.fields.file.details.image.height}
       format={'webp'}
@@ -20,7 +23,7 @@ const { media, thumbnail } = Astro.props;
 {
   media && media.fields.file.contentType.includes('video') && (
     <video
-      class='object-cover w-full h-full'
+      class={style}
       muted
       loop
       playsinline

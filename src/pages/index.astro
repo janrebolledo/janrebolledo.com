@@ -45,39 +45,34 @@ const props = {
 <Layout props={props}>
   <main>
     <section
-      class='container px-3 md:px-24 md:mx-auto mt-56 mb-24 flex flex-col justify-center'
+      class='container px-3 md:px-24 md:mx-auto mt-56 mb-24 flex flex-col justify-center gap-4'
     >
       <p class='font-serif'>
         Freelance Front-end Web Developer & Graphic Designer
       </p>
-      <h1 class='text-3xl flex flex-col'>
-        <span> CREATING ONLINE EXPERIENCES FOR</span><span
-          class='underline'
-          id='landingText'>STARTUPS</span
-        >
+      <h1 class='text-3xl xl:w-1/2'>
+        Crafting <span class='font-serif'>online experiences</span> for startups,
+        brands, &amp; creatives
       </h1>
-      <div
-        class='text-6xl md:text-7xl grid grid-cols-1 md:grid-cols-2 gap-24 md:gap-4 py-8'
-      >
-        <a href='/#work' class='cursor-pointer'
-          >Explore <span class='font-serif'>Work</span> &rarr;</a
+      <div class='flex gap-2'>
+        <a
+          href='mailto:contact@janrebolledo.com'
+          class='rounded-2xl border w-max px-4 py-3 bg-black text-white'
         >
-        <a href='mailto:contact@janrebolledo.com' class='cursor-pointer'
-          >Contact &rarr;</a
+          Contact &rarr;
+        </a>
+        <a href='#work' class='rounded-2xl border w-max px-4 py-3'
+          >View Work &rarr;</a
         >
       </div>
     </section>
-    <div class='scrollingTextContainer'>
-      <img src='/text.svg' class='scrollingText' alt='' />
-      <img src='/text.svg' class='scrollingText' alt='' />
-    </div>
     <section id='work'>
       <div class='container px-3 md:px-24 md:mx-auto w-full'>
         <hgroup
-          class='w-full lg:w-2/5 flex flex-col md:flex-row items-end lg:items-center justify-between mb-12'
+          class='w-full lg:w-2/5 flex flex-row items-end lg:items-center justify-between mb-12'
         >
-          <h2 class='text-5xl w-full text-start lg:w-auto'>SELECTED WORKS</h2>
-          <p class='text-right text-neutral-500'>2021 &mdash; PRESENT</p>
+          <h2 class='text-3xl w-full text-start lg:w-auto'>Selected Works</h2>
+          <p class='text-right text-neutral-500'>2021 &mdash; Present</p>
         </hgroup>
       </div>
       <div class='container px-3 md:px-24 md:mx-auto flex flex-col gap-11'>
@@ -86,48 +81,3 @@ const props = {
     </section>
   </main>
 </Layout>
-
-<script type='text/javascript'>
-const landingText = document.getElementById('landingText');
-var currentClient = -1;
-clients = [
-  'STARTUPS',
-  'DESIGNERS',
-  'EDITORS',
-  'ARTISTS',
-  'MUSICIANS',
-  'BRANDS',
-];
-
-var text = setInterval(function () {
-  landingText.innerHTML = clients[++currentClient % clients.length];
-}, 1000);
-</script>
-
-<style>
-  .scrollingTextContainer {
-    max-width: 100%;
-    overflow: hidden;
-    display: flex;
-    flex-direction: row;
-    margin-bottom: 6rem;
-    pointer-events: none;
-  }
-  .scrollingText {
-    white-space: nowrap;
-    overflow: hidden;
-    display: inline-block;
-    animation: scrollingText 40s linear infinite;
-    min-width: 3040.5px;
-  }
-
-  @keyframes scrollingText {
-    0% {
-      transform: translateZ(0);
-    }
-
-    to {
-      transform: translate3d(-3040.5px, 0, 0);
-    }
-  }
-</style>
