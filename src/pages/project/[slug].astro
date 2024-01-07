@@ -13,15 +13,21 @@ export async function getStaticPaths() {
       [BLOCKS.EMBEDDED_ASSET]: (node) =>
         node.data.target.fields.file.contentType.includes('image')
           ? `<img src="https:${node.data.target.fields.file.url}" />`
-          : `<video controls><source src="${node.data.target.fields.file.url}"></video>`,
+          : `<video muted loop playsinline><source src="${node.data.target.fields.file.url}"></video>`,
       [BLOCKS.HEADING_1]: (node, next) =>
-        `<h1 class="text-xl font-bold">${next(node.content)}</h1>`,
+        `<h1 class="font-bold container px-3 md:px-24 mx-auto">${next(
+          node.content
+        )}</h1>`,
+      [BLOCKS.PARAGRAPH]: (node, next) =>
+        `<p class="container px-3 md:px-24 mx-auto">${next(node.content)}</p>`,
       [INLINES.HYPERLINK]: (node, next) => {
         const href = typeof node.data.uri === 'string' ? node.data.uri : '';
         return `<a href=${href} class="underline font-bold">${next(
           node.content
         )}</a>`;
       },
+      [BLOCKS.UL_LIST]: (node, next) =>
+        `<ul class="ul">${next(node.content)}</ul>`,
     },
   };
   const { items } = await contentfulClient.getEntries<Project>({
@@ -91,10 +97,10 @@ const recommendedProjects = [
       class='grid md:grid-cols-4 xl:grid-cols-5 gap-5 container mx-auto px-3 md:px-24'
     >
       <div class='md:col-span-3 xl:col-span-3'>
-        <h3 class='mb-6 md:mb-14'>OVERVIEW</h3><p>{description}</p>
+        <h3 class='mb-6 md:mb-14 font-bold'>OVERVIEW</h3><p>{description}</p>
       </div>
       <div class='md:col-span-1 xl:col-span-2'>
-        <h3 class='mb-6 md:mb-14'>DETAILS</h3>
+        <h3 class='mb-6 md:mb-14 font-bold'>DETAILS</h3>
         <dl class='flex flex-col gap-7 text-xs'>
           {
             link && (
@@ -133,11 +139,7 @@ const recommendedProjects = [
       </div>
     </div>
 
-    <article
-      set:html={content}
-      class='container px-3 md:px-24 mx-auto flex flex-col gap-4'
-      id='content'
-    />
+    <article set:html={content} class='flex flex-col gap-4' id='content' />
 
     <section class='container px-3 md:px-24 mx-auto'>
       <h2 class='text-xl mb-4'>View <span class='font-serif'>More</span></h2>
@@ -198,4 +200,17 @@ const recommendedProjects = [
       observer.observe(video);
     });
   </script>
+
+  <style is:global>
+    .ul:has(img, video) {
+      padding: 0 24px;
+      display: flex;
+      gap: 20px;
+    }
+
+    .ul:has(img, video) li img,
+    .ul:has(img, video) li video {
+      border-radius: 0.75rem;
+    }
+  </style>
 </Layout>

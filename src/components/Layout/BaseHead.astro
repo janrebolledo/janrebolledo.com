@@ -52,7 +52,7 @@ const { title, description, media } = Astro.props;
   media && media.fields.file.contentType.includes('image') ? (
     <meta property='twitter:image' content={'https' + media.fields.file.url} />
   ) : (
-    <meta property='og:image' content='/socialpreview.png' />
+    <meta property='twitter:image' content='/socialpreview.png' />
   )
 }
 <meta name='twitter:site' content='@janconcepts' />
