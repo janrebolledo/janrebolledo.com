@@ -14,6 +14,7 @@ export interface Project {
   scope: object;
   link: URL;
   order: number;
+  type: string;
 }
 
 export const contentfulClient = contentful.createClient({

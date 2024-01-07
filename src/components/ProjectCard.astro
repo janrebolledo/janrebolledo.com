@@ -32,10 +32,12 @@ const { project, alt } = Astro.props;
           href={`/project/${project.slug}/`}
           class='rounded-2xl border border-black w-max px-4 py-3 bg-black text-white max-w-max max-h-max cursor-pointer'
         >
-          View Case Study &rarr;
+          View {project.type} &rarr;
         </a>
       ) : (
-        <p class='rounded-2xl border w-max px-4 py-3'>Case Study Unavailable</p>
+        <p class='rounded-2xl border w-max px-4 py-3'>
+          {project.type} Unavailable
+        </p>
       )
     }
   </div>

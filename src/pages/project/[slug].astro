@@ -12,8 +12,8 @@ export async function getStaticPaths() {
     renderNode: {
       [BLOCKS.EMBEDDED_ASSET]: (node) =>
         node.data.target.fields.file.contentType.includes('image')
-          ? `<img src="https:${node.data.target.fields.file.url}" />`
-          : `<video muted loop playsinline><source src="${node.data.target.fields.file.url}"></video>`,
+          ? `<img class="mx-3 lg:m-6 rounded-xl" src="https:${node.data.target.fields.file.url}" />`
+          : `<video class="mx-3 lg:m-6 rounded-xl" muted loop playsinline><source src="${node.data.target.fields.file.url}"></video>`,
       [BLOCKS.HEADING_1]: (node, next) =>
         `<h1 class="font-bold container px-3 md:px-24 mx-auto">${next(
           node.content
@@ -49,6 +49,7 @@ export async function getStaticPaths() {
       scope: item.fields.scope,
       link: item.fields.link,
       order: item.fields.order,
+      type: item.fields.type,
     },
   }));
   return pages;
@@ -68,6 +69,7 @@ const {
   scope,
   link,
   order,
+  type,
 } = Astro.props;
 
 const projects = items.sort((a, b) => a.fields.order - b.fields.order);
@@ -86,7 +88,7 @@ const recommendedProjects = [
           <Media media={media} />
           <div class='absolute top-0 left-0 right-0 bottom-0 flex items-end'>
             <hgroup class='container px-3 md:px-24 mx-auto py-24 text-white'>
-              <p>CASE STUDY</p>
+              <p class='uppercase'>{type}</p>
               <h1 class='text-4xl md:text-8xl font-bold'>{title}</h1>
             </hgroup>
           </div>
@@ -203,14 +205,12 @@ const recommendedProjects = [
 
   <style is:global>
     .ul:has(img, video) {
-      padding: 0 24px;
-      display: flex;
-      gap: 20px;
+      @apply px-3 lg:px-6 flex gap-5;
     }
 
     .ul:has(img, video) li img,
     .ul:has(img, video) li video {
-      border-radius: 0.75rem;
+      @apply m-0;
     }
   </style>
 </Layout>
