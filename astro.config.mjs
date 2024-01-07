@@ -5,5 +5,5 @@ import tailwind from '@astrojs/tailwind';
 export default defineConfig({
   site: 'https://janrebolledo.com',
   integrations: [tailwind()],
-  experimental: { assets: true },
+  experimental: {},
 });

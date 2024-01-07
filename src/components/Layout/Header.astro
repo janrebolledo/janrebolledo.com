@@ -1,38 +1,71 @@
 <header
-  class='container px-3 md:px-24 mx-auto flex justify-between items-center lg:grid lg:grid-cols-3 fixed z-10 top-24 left-0 right-0 transition-colors'
+  class='fixed z-10 top-0 left-0 right-0 transition-all bg-white'
   id='header'
 >
-  <h2 class='cursor-pointer flex flex-col gap-2'>
-    <a href='/'> Jan Rebolledo</a>
-    <a href='https://placoson.com' class='text-neutral-500 text-sm'
-      >@ Placoson</a
-    >
-  </h2>
-  <nav
-    class='flex absolute -top-24 pt-24 -left-full transition-transform bg-white h-screen container md:mx-auto flex-col gap-12 px-3 z-20 text-3xl lg:static lg:pt-0 lg:bg-transparent lg:h-auto lg:gap-0 lg:px-0 lg:z-auto lg:text-base lg:col-span-2 lg:grid lg:grid-cols-2'
-    id='nav'
+  <div
+    class='container mx-auto md:px-24 px-3 py-6 flex justify-between items-center md:grid md:grid-cols-3'
   >
-    <a href='/#work' class='flex flex-col gap-2 cursor-pointer'
-      ><span class='text-black lg:text-current'>Work</span><span
-        class='text-neutral-500 text-sm'>5 Projects</span
-      ></a
+    <h2 class='cursor-pointer flex flex-col gap-2'>
+      <a href='/'> Jan Rebolledo</a>
+      <a href='https://placoson.com' class='text-neutral-500 text-sm'
+        >@ Placoson</a
+      >
+    </h2>
+    <div
+      id='nav'
+      class='absolute top-0 pt-24 -left-[100vw] transition-transform bg-white md:bg-transparent h-screen md:h-auto min-w-full md:min-w-0 container mx-auto px-3 z-20 text-3xl md:static md:pt-0 md:z-auto md:col-span-2'
     >
-    <a
-      href='mailto:contact@janrebolledo.com'
-      class='flex flex-col gap-2 cursor-pointer'
-      ><span class='text-black lg:text-current'>Contact</span><span
-        class='text-neutral-500 text-sm'>contact@janrebolledo.com</span
-      ></a
+      <nav
+        class='container mx-auto flex flex-col gap-12 md:text-base md:grid md:grid-cols-2 md:px-0 md:gap-0'
+      >
+        <a href='/#work' class='flex flex-col gap-2 cursor-pointer'
+          ><span class='text-black md:text-current'>Work</span><span
+            class='text-neutral-500 text-sm'>5 Projects</span
+          ></a
+        >
+        <a
+          href='mailto:contact@janrebolledo.com'
+          class='flex flex-col gap-2 cursor-pointer'
+          ><span class='text-black md:text-current'>Contact</span><span
+            class='text-neutral-500 text-sm'>contact@janrebolledo.com</span
+          ></a
+        >
+      </nav>
+    </div>
+    <button class='block md:hidden z-30 m-4 mr-0 text-3xl' onclick='openMenu()'
+      >☰</button
     >
-  </nav>
-  <button class='block lg:hidden z-30 m-4 mr-0 text-3xl' onclick='openMenu()'
-    >☰</button
-  >
+  </div>
 </header>
 
 <script type='text/javascript'>
   function openMenu() {
     const nav = document.getElementById('nav');
-    nav.classList.toggle('translate-x-full');
+    nav.classList.toggle('translate-x-[100vw]');
   }
+
+  let lastScroll = 0;
+
+  const header = document.getElementById('header');
+  window.addEventListener('scroll', () => {
+    const currentScroll = window.scrollY;
+    if (currentScroll <= lastScroll) {
+      header.dataset.visible = true;
+    } else {
+      if (nav.classList.contains('translate-x-[100vw]') === false) {
+        header.dataset.visible = false;
+      }
+    }
+    if (currentScroll < 100) {
+      header.dataset.visible = true;
+    }
+    lastScroll = currentScroll;
+  });
 </script>
+
+<style>
+  #header[data-visible='false'] {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+</style>

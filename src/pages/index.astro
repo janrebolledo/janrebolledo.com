@@ -45,7 +45,7 @@ const props = {
 <Layout props={props}>
   <main>
     <section
-      class='container px-3 md:px-24 md:mx-auto mt-56 mb-24 flex flex-col justify-center gap-4'
+      class='container px-3 md:px-24 mx-auto mt-56 mb-24 flex flex-col justify-center gap-4'
     >
       <p class='font-serif'>
         Freelance Front-end Web Developer & Graphic Designer
@@ -61,13 +61,15 @@ const props = {
         >
           Contact &rarr;
         </a>
-        <a href='#work' class='rounded-2xl border w-max px-4 py-3 cursor-pointer'
+        <a
+          href='#work'
+          class='rounded-2xl border w-max px-4 py-3 cursor-pointer'
           >View Work &rarr;</a
         >
       </div>
     </section>
     <section id='work'>
-      <div class='container px-3 md:px-24 md:mx-auto w-full'>
+      <div class='container px-3 md:px-24 mx-auto w-full'>
         <hgroup
           class='w-full lg:w-2/5 flex flex-row items-end lg:items-center justify-between mb-12'
         >
@@ -75,7 +77,7 @@ const props = {
           <p class='text-right text-neutral-500'>2021 &mdash; Present</p>
         </hgroup>
       </div>
-      <div class='container px-3 md:px-24 md:mx-auto flex flex-col gap-11'>
+      <div class='container px-3 md:px-24 mx-auto flex flex-col gap-11'>
         <ProjectList projects={projects} />
       </div>
     </section>

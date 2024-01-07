@@ -77,9 +77,9 @@ const recommendedProjects = [
     {
       media && (
         <div class='h-[80vh] w-full relative'>
-          <Media media={media} className='rounded-t-none' />
+          <Media media={media} />
           <div class='absolute top-0 left-0 right-0 bottom-0 flex items-end'>
-            <hgroup class='container px-3 md:px-24 md:mx-auto py-24 text-white'>
+            <hgroup class='container px-3 md:px-24 mx-auto py-24 text-white'>
               <p>CASE STUDY</p>
               <h1 class='text-4xl md:text-8xl font-bold'>{title}</h1>
             </hgroup>
@@ -88,7 +88,7 @@ const recommendedProjects = [
       )
     }
     <div
-      class='grid md:grid-cols-4 xl:grid-cols-5 gap-5 container md:mx-auto px-3 md:px-24'
+      class='grid md:grid-cols-4 xl:grid-cols-5 gap-5 container mx-auto px-3 md:px-24'
     >
       <div class='md:col-span-3 xl:col-span-3'>
         <h3 class='mb-6 md:mb-14'>OVERVIEW</h3><p>{description}</p>
@@ -135,11 +135,11 @@ const recommendedProjects = [
 
     <article
       set:html={content}
-      class='container px-3 md:px-24 md:mx-auto flex flex-col gap-4'
+      class='container px-3 md:px-24 mx-auto flex flex-col gap-4'
       id='content'
     />
 
-    <section class='container px-3 md:px-24 md:mx-auto'>
+    <section class='container px-3 md:px-24 mx-auto'>
       <h2 class='text-xl mb-4'>View <span class='font-serif'>More</span></h2>
       <div class='grid gap-5 lg:grid-cols-2'>
         {
@@ -150,9 +150,13 @@ const recommendedProjects = [
                   ? `/project/${project.fields.slug}/`
                   : null
               }
-              class='relative'
+              class={
+                project.fields.available
+                  ? 'relative'
+                  : 'relative cursor-not-allowed'
+              }
             >
-              <div class='absolute top-0 left-0 right-0 bottom-0 p-4 xl:p-12 text-white flex flex-col justify-end bg-gradient-to-t from-black rounded-xl'>
+              <div class='absolute top-0 left-0 right-0 bottom-0 p-4 xl:p-12 text-white flex flex-col justify-end bg-gradient-to-t from-black rounded-xl z-10'>
                 <p>
                   {new Date(project.fields.date).toLocaleDateString('en-US', {
                     year: 'numeric',
@@ -170,44 +174,28 @@ const recommendedProjects = [
       </div>
     </section>
   </main>
+
+  <script>
+    const videosArray = document.getElementsByTagName('video');
+    const videos = [...videosArray];
+
+    const options = {
+      threshold: 0.5,
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        const video = entry.target as HTMLVideoElement;
+        if (entry.isIntersecting) {
+          video.play();
+        } else {
+          video.pause();
+        }
+      });
+    }, options);
+
+    videos.forEach((video) => {
+      observer.observe(video);
+    });
+  </script>
 </Layout>
-
-<script>
-  const target = document.getElementById('content')!;
-  const header = document.getElementById('header')!;
-  header.classList.add('text-white');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        header.classList.remove('text-white');
-      } else {
-        header.classList.add('text-white');
-      }
-    });
-  });
-  window.addEventListener('load', () => {
-    observer.observe(target);
-  });
-
-  const videosArray = document.getElementsByTagName('video');
-  const videos = [...videosArray];
-
-  const options = {
-    threshold: 1,
-  };
-
-  const videoObserver = new IntersectionObserver((entries, observer) => {
-    entries.forEach((entry) => {
-      const video = entry.target as HTMLVideoElement;
-      if (entry.isIntersecting) {
-        video.play();
-      } else {
-        video.pause();
-      }
-    });
-  }, options);
-
-  videos.forEach((video) => {
-    videoObserver.observe(video);
-  });
-</script>
