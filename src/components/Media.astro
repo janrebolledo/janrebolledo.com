@@ -8,7 +8,7 @@ const style = 'object-cover w-full h-full rounded-2xl ';
 {
   media && media.fields.file.contentType.includes('image') && (
     <Image
-      src={'https:' + media.fields.file.url}
+      src={'https:' + media.fields.file.url + '?fm=webp'}
       alt={media.fields.title}
       class={style}
       width={media.fields.file.details.image.width}
@@ -26,7 +26,9 @@ const style = 'object-cover w-full h-full rounded-2xl ';
       muted
       loop
       playsinline
-      poster={thumbnail ? 'https:' + thumbnail.fields.file.url : ''}
+      poster={
+        thumbnail ? 'https:' + thumbnail.fields.file.url + '?fm=webp' : ''
+      }
     >
       <source
         src={'https:' + media.fields.file.url}
