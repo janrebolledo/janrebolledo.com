@@ -65,10 +65,12 @@ const { title, description, media } = Astro.props;
 {
   import.meta.env.DEV ? undefined : (
     <script
+      data-host='https://app.microanalytics.io'
+      data-dnt='false'
+      src='https://app.microanalytics.io/js/script.js'
+      id='ZwSg9rf6GA'
+      async
       defer
-      src='https://unpkg.com/@tinybirdco/flock.js'
-      data-host='https://api.us-east.tinybird.co'
-      data-token='p.eyJ1IjogIjE1MDNkNDRkLWMxZDUtNDQ1NC04NzE3LTU0MGIwMDgzZjhjNCIsICJpZCI6ICJmZTY3NWIyMS03ZjQ5LTRmYWQtYmFmNy1lODJhN2E2MDg3OWUifQ.wg4gY-TCYInyi1tL27gzHBtBF6mm9mjAGMzPsQI8Wu8'
     />
   )
 }

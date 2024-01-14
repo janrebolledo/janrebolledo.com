@@ -27,6 +27,7 @@
         <a
           href='mailto:contact@janrebolledo.com'
           class='flex flex-col gap-2 cursor-pointer'
+          onclick='handleEvent()'
           ><span class='text-black md:text-current'>Contact</span><span
             class='text-neutral-500 text-sm'>contact@janrebolledo.com</span
           ></a
@@ -62,6 +63,10 @@
     }
     lastScroll = currentScroll;
   });
+
+  function handleEvent() {
+    pa.track({ name: 'Inquiry Created' });
+  }
 </script>
 
 <style>
