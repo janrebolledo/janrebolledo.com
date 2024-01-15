@@ -60,6 +60,7 @@ const props = {
         <a
           href='mailto:contact@janrebolledo.com'
           class='rounded-2xl border w-max px-4 py-3 bg-black text-white cursor-pointer'
+          onclick='handleEvent()'
         >
           Contact &rarr;
         </a>
@@ -84,4 +85,9 @@ const props = {
       </div>
     </section>
   </main>
+  <script>
+    function handleEvent() {
+      pa.track({ name: 'Inquiry Created', location: 'Landing' });
+    }
+  </script>
 </Layout>

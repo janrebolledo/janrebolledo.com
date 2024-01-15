@@ -24,7 +24,10 @@ const today = new Date();
         <a href='/#work' class='cursor-pointer'
           ><span class='text-xs mr-2'>02.</span>Work</a
         >
-        <a href='mailto:contact@janrebolledo.com' class='cursor-pointer'
+        <a
+          href='mailto:contact@janrebolledo.com'
+          class='cursor-pointer'
+          onclick='handleEvent()'
           ><span class='text-xs mr-2'>03.</span>Contact</a
         >
       </div>
@@ -50,9 +53,9 @@ const today = new Date();
   <div
     class='w-full flex flex-col md:flex-row justify-center gap-8 md:gap-16 text-xs text-center text-neutral-500'
   >
-  <a href='/privacy'>PRIVACY POLICY</a>
-  <span class='hidden md:block'>&mdash;</span>
-  <p>&copy; {today.getFullYear()}</p>
+    <a href='/privacy'>PRIVACY POLICY</a>
+    <span class='hidden md:block'>&mdash;</span>
+    <p>&copy; {today.getFullYear()}</p>
     <span class='hidden md:block'>&mdash;</span>
     <a href='/sustainability' class='cursor-pointer'>SUSTAINABILITY</a>
   </div>
@@ -61,8 +64,11 @@ const today = new Date();
 <script>
   function displayClock() {
     var display = new Date().toLocaleTimeString();
-    document.getElementById('time').innerHTML = display;
+    document.getElementById('time')!.innerHTML = display;
     setTimeout(displayClock, 1000);
   }
   displayClock();
+  function handleEvent() {
+    pa.track({ name: 'Inquiry Created', location: 'Footer' });
+  }
 </script>
