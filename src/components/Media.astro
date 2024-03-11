@@ -1,8 +1,11 @@
 ---
 import { Image } from 'astro:assets';
-const { media, thumbnail } = Astro.props;
+const { media, thumbnail, controls } = Astro.props;
 
 const style = 'object-cover w-full h-full rounded-2xl ';
+const controlsProps = controls
+  ? { controls: true }
+  : { muted: true, loop: true };
 ---
 
 {
@@ -23,8 +26,7 @@ const style = 'object-cover w-full h-full rounded-2xl ';
   media && media.fields.file.contentType.includes('video') && (
     <video
       class={style}
-      muted
-      loop
+      {...controlsProps}
       playsinline
       poster={
         thumbnail ? 'https:' + thumbnail.fields.file.url + '?fm=webp' : ''

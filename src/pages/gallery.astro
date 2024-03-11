@@ -1,0 +1,54 @@
+---
+import { contentfulClient } from '../lib/contentful';
+import type { GalleryPost } from '../lib/contentful';
+import Layout from '../Layout/Layout.astro';
+import Media from '../components/Media.astro';
+
+const gallery = await contentfulClient.getEntry('7omKq0qntF8iUf5MMKBE0h');
+
+console.log(gallery.fields);
+
+// var posts = gallery.items.posts.map((item: { GalleryPost }) => {
+//   const { internalName, scope, media, client, year } = item.fields;
+//   return {
+//     internalName,
+//     scope,
+//     media,
+//     client,
+//     year,
+//   };
+// });
+
+const props = {
+  title: 'Jan Rebolledo — Gallery',
+  description:
+    'Freelance Front-end Web Developer & Graphic Designer, Crafting online experiences for startups.',
+};
+---
+
+<Layout props={props}>
+  <main>
+    <section class='container px-3 md:px-24 mx-auto mt-56 mb-24'>
+      <h1 class='font-serif italic text-lg'>Gallery</h1>
+      <p class='mb-24'>{gallery.fields.description}</p>
+      <div class='grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-5'>
+        {
+          gallery.fields.posts.map((post: GalleryPost, index: number) => (
+            <article>
+              <div class='relative w-full mb-3 md:aspect-[4/3]'>
+                <Media controls media={post.fields.media} />
+              </div>
+              <div class='flex justify-between'>
+                <h2 class='font-bold'>{post.fields.client}</h2>
+                <p>
+                  {post.fields.scope} /{' '}
+                  <span class='text-neutral-500'>{post.fields.year}</span>
+                </p>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+  </main>
+</Layout>
