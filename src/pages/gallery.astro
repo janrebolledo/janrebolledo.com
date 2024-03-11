@@ -6,31 +6,30 @@ import Media from '../components/Media.astro';
 
 const gallery = await contentfulClient.getEntry('7omKq0qntF8iUf5MMKBE0h');
 
-console.log(gallery.fields);
-
-// var posts = gallery.items.posts.map((item: { GalleryPost }) => {
-//   const { internalName, scope, media, client, year } = item.fields;
-//   return {
-//     internalName,
-//     scope,
-//     media,
-//     client,
-//     year,
-//   };
-// });
-
 const props = {
   title: 'Jan Rebolledo — Gallery',
-  description:
-    'Freelance Front-end Web Developer & Graphic Designer, Crafting online experiences for startups.',
+  description: gallery.fields.description,
 };
 ---
 
 <Layout props={props}>
   <main>
     <section class='container px-3 md:px-24 mx-auto mt-56 mb-24'>
-      <h1 class='font-serif italic text-lg'>Gallery</h1>
-      <p class='mb-24'>{gallery.fields.description}</p>
+      <h1 class='font-serif italic text-3xl'>Gallery</h1>
+      <p class='my-4'>{gallery.fields.description}</p>
+      <div class='flex gap-2 mb-12'>
+        <a
+          href='/#work'
+          class='rounded-2xl border w-max px-4 py-3 bg-black text-white cursor-pointer'
+        >
+          View Case Studies &rarr;
+        </a>
+        <a
+          href='mailto:contact@janrebolledo.com'
+          class='rounded-2xl border w-max px-4 py-3 cursor-pointer'
+          >Contact &rarr;</a
+        >
+      </div>
       <div class='grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-5'>
         {
           gallery.fields.posts.map((post: GalleryPost, index: number) => (
@@ -48,6 +47,22 @@ const props = {
             </article>
           ))
         }
+        <div
+          class='flex items-center md:items-start justify-end flex-col gap-4 p-6 text-balance text-center md:text-left'
+        >
+          <h1 class='text-2xl'>
+            Let&apos;s build <span class='font-serif italic'>together</span>
+          </h1>
+          <p>Get in touch to create your dream online experience.</p>
+          <div class='flex gap-2 mb-12'>
+            <a
+              href='mailto:contact@janrebolledo.com'
+              class='rounded-2xl border w-max px-4 py-3 bg-black text-white cursor-pointer'
+            >
+              Contact &rarr;
+            </a>
+          </div>
+        </div>
       </div>
     </section>
   </main>
