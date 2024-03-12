@@ -24,10 +24,7 @@ const today = new Date();
         <a href='/#work' class='cursor-pointer'
           ><span class='text-xs mr-2'>02.</span>Work</a
         >
-        <a
-          href='mailto:contact@janrebolledo.com'
-          class='cursor-pointer'
-          onclick='handleEvent()'
+        <a href='mailto:contact@janrebolledo.com' class='cursor-pointer'
           ><span class='text-xs mr-2'>03.</span>Contact</a
         >
       </div>
@@ -71,7 +68,4 @@ const today = new Date();
     setTimeout(displayClock, 1000);
   }
   displayClock();
-  function handleEvent() {
-    pa.track({ name: 'Inquiry Created' });
-  }
 </script>

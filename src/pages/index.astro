@@ -60,7 +60,6 @@ const props = {
         <a
           href='mailto:contact@janrebolledo.com'
           class='rounded-2xl border w-max px-4 py-3 bg-black text-white cursor-pointer'
-          onclick='handleEvent()'
         >
           Contact &rarr;
         </a>
@@ -84,10 +83,21 @@ const props = {
         <ProjectList projects={projects} />
       </div>
     </section>
+    <section
+      class='container mx-auto px-3 md:px-24 pt-24 flex items-center justify-end flex-col gap-4 p-6 text-balance text-center md:text-left'
+    >
+      <h1 class='text-2xl'>
+        Let&apos;s build <span class='font-serif italic'>together</span>
+      </h1>
+      <p>Get in touch to create your dream online experience.</p>
+      <div class='flex gap-2 mb-12'>
+        <a
+          href='mailto:contact@janrebolledo.com'
+          class='rounded-2xl border w-max px-4 py-3 bg-black text-white cursor-pointer'
+        >
+          Contact &rarr;
+        </a>
+      </div>
+    </section>
   </main>
-  <script>
-    function handleEvent() {
-      pa.track({ name: 'Inquiry Created' });
-    }
-  </script>
 </Layout>
