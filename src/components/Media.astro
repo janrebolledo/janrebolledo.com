@@ -19,6 +19,8 @@ const controlsProps = controls
       format={'webp'}
       loading={'lazy'}
       quality={80}
+      transition:name={media.sys.id}
+      transition:persist
     />
   )
 }
@@ -28,6 +30,8 @@ const controlsProps = controls
       class={style}
       {...controlsProps}
       playsinline
+      transition:name={media.sys.id}
+      transition:persist
       poster={
         thumbnail ? 'https:' + thumbnail.fields.file.url + '?fm=webp' : ''
       }

@@ -2,7 +2,7 @@
 import BaseHead from '../components/Layout/BaseHead.astro';
 import Header from '../components/Layout/Header.astro';
 import Footer from '../components/Layout/Footer.astro';
-
+import { ViewTransitions } from 'astro:transitions';
 const { title, description, media } = Astro.props.props;
 ---
 
@@ -12,6 +12,7 @@ const { title, description, media } = Astro.props.props;
     <BaseHead title={title} description={description} media={media} />
   </head>
   <body class='bg-white scroll-smooth'>
+    <ViewTransitions />
     <Header />
     <slot />
     <Footer />

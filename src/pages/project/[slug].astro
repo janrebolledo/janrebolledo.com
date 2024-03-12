@@ -181,7 +181,7 @@ const recommendedProjects = [
     </section>
   </main>
 
-  <script>
+  <script data-astro-rerun is:inline>
     const videosArray = document.getElementsByTagName('video');
     const videos = [...videosArray];
 
@@ -191,7 +191,7 @@ const recommendedProjects = [
 
     const observer = new IntersectionObserver((entries, observer) => {
       entries.forEach((entry) => {
-        const video = entry.target as HTMLVideoElement;
+        const video = entry.target;
         if (entry.isIntersecting) {
           video.play();
         } else {
