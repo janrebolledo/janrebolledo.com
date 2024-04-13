@@ -20,6 +20,10 @@ export async function getStaticPaths() {
         )}</h1>`,
       [BLOCKS.PARAGRAPH]: (node, next) =>
         `<p class="container px-3 md:px-24 mx-auto">${next(node.content)}</p>`,
+      [BLOCKS.QUOTE]: (node, next) =>
+        `<blockquote class="font-bold text-4xl">${next(
+          node.content
+        )}</blockquote>`,
       [INLINES.HYPERLINK]: (node, next) => {
         const href = typeof node.data.uri === 'string' ? node.data.uri : '';
         return `<a href=${href} class="underline font-bold">${next(
