@@ -11,7 +11,7 @@ const controlsProps = controls
 {
   media && media.fields.file.contentType.includes('image') && (
     <Image
-      src={'https:' + media.fields.file.url + '?fm=webp'}
+      src={'https:' + media.fields.file.url + '?fm=webp&w=900'}
       alt={media.fields.title}
       class={style}
       width={media.fields.file.details.image.width}
@@ -33,7 +33,7 @@ const controlsProps = controls
       transition:name={media.sys.id}
       transition:persist
       poster={
-        thumbnail ? 'https:' + thumbnail.fields.file.url + '?fm=webp' : ''
+        thumbnail ? 'https:' + thumbnail.fields.file.url + '?fm=webp&w=900' : ''
       }
     >
       <source

@@ -14,22 +14,6 @@ export async function getStaticPaths() {
         node.data.target.fields.file.contentType.includes('image')
           ? `<img class="mx-3 lg:m-6 rounded-xl" src="https:${node.data.target.fields.file.url}" />`
           : `<video class="mx-3 lg:m-6 rounded-xl" muted loop playsinline><source src="${node.data.target.fields.file.url}"></video>`,
-      [BLOCKS.HEADING_1]: (node, next) =>
-        `<h1 class="font-bold container px-3 md:px-24 mx-auto">${next(
-          node.content
-        )}</h1>`,
-      [BLOCKS.PARAGRAPH]: (node, next) =>
-        `<p class="container px-3 md:px-24 mx-auto">${next(node.content)}</p>`,
-      [BLOCKS.QUOTE]: (node, next) =>
-        `<blockquote class="font-bold text-4xl">${next(
-          node.content
-        )}</blockquote>`,
-      [INLINES.HYPERLINK]: (node, next) => {
-        const href = typeof node.data.uri === 'string' ? node.data.uri : '';
-        return `<a href=${href} class="underline font-bold">${next(
-          node.content
-        )}</a>`;
-      },
       [BLOCKS.UL_LIST]: (node, next) =>
         `<ul class="ul">${next(node.content)}</ul>`,
     },
@@ -145,7 +129,11 @@ const recommendedProjects = [
       </div>
     </div>
 
-    <article set:html={content} class='flex flex-col gap-4' id='content' />
+    <article
+      set:html={content}
+      class='prose prose-neutral max-w-none prose-headings:container prose-headings:px-3 prose-headings:lg:px-24 prose-p:container prose-p:mx-auto prose-p:px-3 lg:prose-p:px-24 prose-headings:mx-auto prose-blockquote:text-4xl prose-blockquote:font-bold prose-blockquote:not-italic quoteless'
+      id='content'
+    />
 
     <section class='container px-3 md:px-24 mx-auto'>
       <h2 class='text-xl mb-4'>
@@ -217,6 +205,9 @@ const recommendedProjects = [
     .ul:has(img, video) li img,
     .ul:has(img, video) li video {
       @apply m-0;
+    }
+    .quoteless blockquote {
+      quotes: none !important;
     }
   </style>
 </Layout>
