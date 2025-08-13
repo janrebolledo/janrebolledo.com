@@ -38,7 +38,7 @@ const { project, alt } = Astro.props;
         </a>
       ) : (
         <p class='rounded-2xl border w-max px-4 py-3'>
-          {project.type} Unavailable
+          {project.type} Under NDA
         </p>
       )
     }
@@ -48,9 +48,14 @@ const { project, alt } = Astro.props;
   </p>
   <div
     class={alt
-      ? 'order-1 xl:col-span-3 aspect-video xl:aspect-auto xl:h-[470px]'
-      : 'order-1 xl:order-none xl:col-span-3 aspect-video xl:aspect-auto xl:h-[470px]'}
+      ? 'order-1 xl:col-span-3 aspect-video xl:aspect-auto xl:h-[470px] relative'
+      : 'order-1 xl:order-none xl:col-span-3 aspect-video xl:aspect-auto xl:h-[470px] relative'}
   >
+  {!project.available && 
+    <div class="absolute top-0 left-0 right-0 bottom-0 rounded-2xl bg-white/30 z-10 flex items-center justify-center">
+      <img src="/icons/lock.svg" />
+    </div>
+  }
     <Media media={project.media} thumbnail={project.thumbnail} />
   </div>
 </article>
