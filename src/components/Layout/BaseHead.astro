@@ -13,7 +13,7 @@ const { title, description, media } = Astro.props;
 <!-- Global Metadata -->
 <meta charset='utf-8' />
 <meta name='viewport' content='width=device-width,initial-scale=1' />
-<link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+<link rel='icon' type='image/x-icon' href='/favicon.ico' />
 <meta name='generator' content={Astro.generator} />
 <meta name='robots' content='index, follow' />
 <meta http-equiv='X-UA-Compatible' content='IE=edge' />
@@ -58,9 +58,24 @@ const { title, description, media } = Astro.props;
 <meta name='twitter:site' content='@janconcepts' />
 <meta name='twitter:creator' content='@janconcepts' />
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+/* Register your custom font family and tell the browser where to find it. */
+@font-face {
+  font-family: 'PP Neue Montreal';
+  src: url('/fonts/PPNeueMontreal-Medium.otf');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'PP Editorial Old';
+  src: url('/fonts/PPEditorialOld-Italic.otf');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+</style>
 
 {
   import.meta.env.DEV ? undefined : (

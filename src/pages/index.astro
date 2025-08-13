@@ -3,6 +3,7 @@ import { contentfulClient } from '../lib/contentful';
 import type { Project } from '../lib/contentful';
 import Layout from '../Layout/Layout.astro';
 import ProjectList from '../components/ProjectList.astro';
+import { Image } from 'astro:assets';
 
 const entries = await contentfulClient.getEntries<Project>({
   content_type: 'project',
@@ -47,14 +48,14 @@ const props = {
 <Layout props={props}>
   <main>
     <section
-      class='container px-3 md:px-24 mx-auto mt-56 mb-24 flex flex-col justify-center gap-4'
+      class='container px-3 md:px-24 mx-auto mt-56 mb-24 flex flex-col justify-center items-center gap-4 relative'
     >
-      <p class='font-serif italic'>
-        Freelance Front-end Web Developer & Graphic Designer
-      </p>
-      <h1 class='text-3xl xl:w-1/2 text-balance'>
-        Crafting <span class='font-serif italic'>online experiences</span> for startups,
-        brands, &amp; creatives
+      
+      <h1 class='text-4xl md:text-5xl lg:w-1/2 text-balance text-center px-6'>
+        curating experiences
+that people <span class='font-serif italic'>feel</span>
+        <Image src='/vscode.png' alt='Visual Studio Code' width={120} height={120} class='absolute w-12 h-12 md:w-20 md:h-20 left-1/2 right-1/2 translate-x-28 lg:translate-x-48 top-12 lg:top-10' />
+        <Image src='/figma.png' alt='Figma' width={120} height={120} class='absolute w-12 h-12 md:w-20 md:h-20 left-1/2 right-1/2 -translate-x-36 lg:-translate-x-72 top-0 lg:-top-10' />
       </h1>
       <div class='flex gap-2'>
         <a
@@ -69,7 +70,25 @@ const props = {
           >View Work &rarr;</a
         >
       </div>
+      <div class="flex items-center justify-center flex-col gap-6 mt-20">
+        <p>previously</p>
+        <div class="flex gap-6">
+          <div class="flex items-center justify-center gap-2 md:text-xl">
+            <Image src='/msft.png' alt='Microsoft Logo' width={48} height={48} class='w-8' />
+            <p>microsoft intern</p>
+          </div>
+          <div class="flex items-center justify-center gap-2 md:text-xl">
+            <Image src='/dia.png' alt='Dia App Icon' width={48} height={48} class='w-8' />
+            <p>bcny ambassador</p>
+          </div>
+        </div>
+      </div>
+      </div>
     </section>
+    <div class="absolute left-0 right-0 top-0 bottom-0 overflow-x-hidden pointer-events-none hidden lg:block">
+      <Image src='/polaroid-2.png' alt={'A polaroid of my camera.'} width={464.06} height={568} class='absolute right-12 top-32 w-60' />
+      <Image src='/polaroid-1.png' alt={'A polaroid of me in front of Jan Rebolledo the Golden Gate Bridge.'} width={464.06} height={568} class='absolute -right-12 top-64 w-60' />
+    </div>
     <section id='work'>
       <div class='container px-3 md:px-24 mx-auto w-full'>
         <hgroup

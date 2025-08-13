@@ -10,7 +10,7 @@ const { title, description, media } = Astro.props.props;
   <head>
     <BaseHead title={title} description={description} media={media} />
   </head>
-  <body class='bg-white scroll-smooth'>
+  <body class='bg-white scroll-smooth font-medium lowercase'>
     <Header />
     <slot />
     <Footer />

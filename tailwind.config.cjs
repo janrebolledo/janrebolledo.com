@@ -6,6 +6,7 @@ module.exports = {
     fontFamily: {
       sans: [
         '-apple-system',
+        'PP Neue Montreal',
         'Inter',
         'ui-sans-serif',
         'system-ui',
@@ -22,6 +23,7 @@ module.exports = {
         'Noto Color Emoji',
       ],
       serif: [
+        'PP Editorial Old',
         'Libre Baskerville',
         'ui-serif',
         'Georgia',
