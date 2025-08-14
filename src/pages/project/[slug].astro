@@ -6,6 +6,7 @@ import type { Project } from '../../lib/contentful';
 import Layout from '../../Layout/Layout.astro';
 import List from '../../components/List.astro';
 import Media from '../../components/Media.astro';
+import Lock from '../../components/Icons/lock.astro';
 
 export async function getStaticPaths() {
   const options = {
@@ -76,7 +77,7 @@ const recommendedProjects = [
           <Media media={media} />
           <div class='absolute top-0 left-0 right-0 bottom-0 flex items-end'>
             <hgroup class='container px-3 md:px-24 mx-auto py-24 text-white'>
-              <p class='uppercase'>{type}</p>
+              <p class=''>{type}</p>
               <h1 class='text-4xl md:text-8xl font-bold'>{title}</h1>
             </hgroup>
           </div>
@@ -160,7 +161,7 @@ const recommendedProjects = [
                     year: 'numeric',
                   })}
                 </p>
-                <h4 class='font-bold text-lg'>{project.fields.title}</h4>
+                <h4 class='font-bold text-lg flex items-center gap-1'>{project.fields.title} {!project.fields.available && <Lock className="w-5" />}</h4>
               </div>
               <Media
                 media={project.fields.media}
