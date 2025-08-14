@@ -51,11 +51,11 @@ const props = {
       class='container px-3 md:px-24 mx-auto mt-52 lg:mt-72 mb-24 flex flex-col justify-center items-center gap-4 relative'
     >
       
-      <h1 class='text-4xl md:text-5xl lg:w-1/2 text-balance text-center px-6'>
+      <h1 class='text-4xl md:text-5xl w-full lg:w-1/2 text-balance text-center px-6 relative'>
         curating experiences
 that people <span class='font-serif italic'>feel</span>
-        <Image src='/vscode.png' alt='Visual Studio Code' width={120} height={120} class='absolute w-12 h-12 md:w-20 md:h-20 left-1/2 right-1/2 translate-x-28 lg:translate-x-48 top-24 lg:top-10' />
-        <Image src='/figma.png' alt='Figma' width={120} height={120} class='absolute w-12 h-12 md:w-20 md:h-20 left-1/2 right-1/2 -translate-x-36 lg:-translate-x-72 top-0 lg:-top-14' />
+        <Image src='/vscode.png' alt='Visual Studio Code' width={96} height={96} class='absolute w-12 h-12 md:w-20 md:h-20 left-1/2 right-1/2 translate-x-28 lg:translate-x-48 top-[5rem] md:top-20 lg:top-10' format="webp" quality={80} />
+        <Image src='/figma.png' alt='Figma' width={96} height={96} class='absolute w-12 h-12 md:w-20 md:h-20 left-1/2 right-1/2 -translate-x-36 md:-translate-x-64 lg:-translate-x-72 -top-12  lg:-top-14' format='webp' quality={80} />
       </h1>
       <div class='flex gap-2 mt-8'>
         <a
@@ -74,11 +74,11 @@ that people <span class='font-serif italic'>feel</span>
         <p>previously</p>
         <div class="flex gap-6">
           <div class="flex items-center justify-center gap-2 md:text-xl">
-            <Image src='/msft.png' alt='Microsoft Logo' width={48} height={48} class='w-8' />
+            <Image src='/msft.png' alt='Microsoft Logo' width={48} height={48} class='w-8' format='webp' />
             <p>microsoft intern</p>
           </div>
           <div class="flex items-center justify-center gap-2 md:text-xl">
-            <Image src='/dia.png' alt='Dia App Icon' width={48} height={48} class='w-8' />
+            <Image src='/dia.png' alt='Dia App Icon' width={48} height={48} class='w-8' format='webp' />
             <p>bcny ambassador</p>
           </div>
         </div>

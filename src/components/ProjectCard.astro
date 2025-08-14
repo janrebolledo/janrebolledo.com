@@ -1,4 +1,5 @@
 ---
+import Lock from './Icons/lock.astro';
 import List from './List.astro';
 import Media from './Media.astro';
 const { project, alt } = Astro.props;
@@ -37,8 +38,8 @@ const { project, alt } = Astro.props;
           View {project.type} &rarr;
         </a>
       ) : (
-        <p class='rounded-2xl border w-max px-4 py-3'>
-          {project.type} Under NDA
+        <p class='rounded-2xl border w-max px-4 py-3 flex items-center gap-1'>
+          {project.type} Under NDA <Lock className="w-5" />
         </p>
       )
     }
@@ -52,8 +53,8 @@ const { project, alt } = Astro.props;
       : 'order-1 xl:order-none xl:col-span-3 aspect-video xl:aspect-auto xl:h-[470px] relative'}
   >
   {!project.available && 
-    <div class="absolute top-0 left-0 right-0 bottom-0 rounded-2xl bg-white/30 z-10 flex items-center justify-center">
-      <img src="/icons/lock.svg" />
+    <div class="absolute top-0 left-0 right-0 bottom-0 rounded-2xl bg-white/30 text-white z-10 flex items-center justify-center">
+      <Lock />
     </div>
   }
     <Media media={project.media} thumbnail={project.thumbnail} />
