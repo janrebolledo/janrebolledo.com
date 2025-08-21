@@ -1,4 +1,6 @@
 ---
+import Signature from "../Icons/Signature.astro";
+
 const today = new Date();
 ---
 
@@ -9,11 +11,11 @@ const today = new Date();
     class='grid grid-cols-1 md:grid-cols-2 gap-4 w-full text-center md:text-start'
   >
     <div class='flex flex-col gap-4'>
+      <Signature />
       <a href='/' class='cursor-pointer'>Jan Rebolledo</a><a
         href='mailto:jan@janrebolledo.com'
         class='cursor-pointer'>jan@janrebolledo.com</a
       >
-      <p>PST</p>
       <p id='time'></p>
     </div>
     <nav class='grid grid-cols-2 gap-4'>

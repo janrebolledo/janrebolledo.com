@@ -14,7 +14,8 @@ export async function getStaticPaths() {
       [BLOCKS.EMBEDDED_ASSET]: (node) =>
         node.data.target.fields.file.contentType.includes('image')
           ? `<img class="mx-3 lg:m-6 rounded-xl" src="https:${node.data.target.fields.file.url}" />`
-          : `<video class="mx-3 lg:m-6 rounded-xl" muted loop playsinline><source src="${node.data.target.fields.file.url}"></video>`,
+          : `<div class="px-3 lg:p-6"><video class="rounded-xl" muted loop playsinline><source src="${node.data.target.fields.file.url}"></video></div>`,
+      [BLOCKS.EMBEDDED_ENTRY]: (node) => node.data.target.sys.contentType.sys.id === 'embed' && `<div class="embed px-3 lg:p-6 w-full [&_*]:aspect-video [&_*]:h-auto [&_*]:rounded-xl [&_*]:w-full">${node.data.target.fields.embedCode}</div>`,
       [BLOCKS.UL_LIST]: (node, next) =>
         `<ul class="ul">${next(node.content)}</ul>`,
     },
@@ -33,7 +34,7 @@ export async function getStaticPaths() {
       }),
       description: item.fields.description,
       media: item.fields.media,
-      content: documentToHtmlString(item.fields.content, options),
+      content: documentToHtmlString(item.fields.content, options as any),
       technologies: item.fields.technologies,
       scope: item.fields.scope,
       link: item.fields.link,
@@ -200,12 +201,12 @@ const recommendedProjects = [
 
   <style is:global>
     .ul:has(img, video) {
-      @apply px-3 lg:px-6 flex gap-5;
+      @apply px-3 lg:px-6 flex gap-5 list-none;
     }
 
     .ul:has(img, video) li img,
-    .ul:has(img, video) li video {
-      @apply m-0;
+    .ul:has(img, video) li div {
+      @apply m-0 p-0;
     }
     .quoteless blockquote {
       quotes: none !important;
