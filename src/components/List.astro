@@ -7,7 +7,7 @@ const { list } = Astro.props;
     list.map((item: string, index: number) => (
       <li>
         {item}
-        {index < list.length - 1 && ' •'}
+        {index < list.length - 1 && " •"}
       </li>
     ))
   ) : (

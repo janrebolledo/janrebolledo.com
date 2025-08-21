@@ -5,68 +5,68 @@ const today = new Date();
 ---
 
 <footer
-  class='container px-3 py-12 md:px-24 mx-auto flex flex-col gap-4 w-full'
+  class="container px-3 py-12 md:px-24 mx-auto flex flex-col gap-4 w-full"
 >
   <div
-    class='grid grid-cols-1 md:grid-cols-2 gap-4 w-full text-center md:text-start'
+    class="grid grid-cols-1 md:grid-cols-2 gap-4 w-full text-center md:text-start"
   >
-    <div class='flex flex-col gap-4'>
+    <div class="flex flex-col gap-4">
       <Signature />
-      <a href='/' class='cursor-pointer'>Jan Rebolledo</a><a
-        href='mailto:jan@janrebolledo.com'
-        class='cursor-pointer'>jan@janrebolledo.com</a
+      <a href="/" class="cursor-pointer">Jan Rebolledo</a><a
+        href="mailto:jan@janrebolledo.com"
+        class="cursor-pointer">jan@janrebolledo.com</a
       >
-      <p id='time'></p>
+      <p id="time"></p>
     </div>
-    <nav class='grid grid-cols-2 gap-4'>
-      <div class='flex flex-col gap-4'>
-        <a href='/' class='cursor-pointer'
-          ><span class='text-xs mr-2'>01.</span>Index</a
+    <nav class="grid grid-cols-2 gap-4">
+      <div class="flex flex-col gap-4">
+        <a href="/" class="cursor-pointer"
+          ><span class="text-xs mr-2">01.</span>Index</a
         >
-        <a href='/#work' class='cursor-pointer'
-          ><span class='text-xs mr-2'>02.</span>Work</a
+        <a href="/#work" class="cursor-pointer"
+          ><span class="text-xs mr-2">02.</span>Work</a
         >
-        <a href='mailto:contact@janrebolledo.com' class='cursor-pointer'
-          ><span class='text-xs mr-2'>03.</span>Contact</a
+        <a href="mailto:contact@janrebolledo.com" class="cursor-pointer"
+          ><span class="text-xs mr-2">03.</span>Contact</a
         >
       </div>
-      <div class='flex flex-col gap-4'>
-        <a href='/gallery' class='cursor-pointer'
-          ><span class='text-xs mr-2'>04.</span>Gallery</a
+      <div class="flex flex-col gap-4">
+        <a href="/gallery" class="cursor-pointer"
+          ><span class="text-xs mr-2">04.</span>Gallery</a
         >
         <a
-          href='https://twitter.com/janconcepts'
-          class='cursor-pointer'
-          rel='noopener noreferrer nofollow'
-          target='_blank'
-          ><span class='text-xs mr-2'>05.</span>X / Twitter &nearr;</a
+          href="https://twitter.com/janconcepts"
+          class="cursor-pointer"
+          rel="noopener noreferrer nofollow"
+          target="_blank"
+          ><span class="text-xs mr-2">05.</span>X / Twitter &nearr;</a
         >
         <a
-          href='https://www.linkedin.com/in/jan-rebolledo-567544229/'
-          class='cursor-pointer'
-          rel='noopener noreferrer nofollow'
-          target='_blank'
-          ><span class='text-xs mr-2'>06.</span>LinkedIn &nearr;</a
+          href="https://www.linkedin.com/in/jan-rebolledo-567544229/"
+          class="cursor-pointer"
+          rel="noopener noreferrer nofollow"
+          target="_blank"
+          ><span class="text-xs mr-2">06.</span>LinkedIn &nearr;</a
         >
       </div>
     </nav>
   </div>
 
   <div
-    class='w-full flex flex-col md:flex-row justify-center gap-8 md:gap-16 text-xs text-center text-neutral-500'
+    class="w-full flex flex-col md:flex-row justify-center gap-8 md:gap-16 text-xs text-center text-neutral-500"
   >
-    <a href='/privacy'>PRIVACY POLICY</a>
-    <span class='hidden md:block'>&mdash;</span>
+    <a href="/privacy">PRIVACY POLICY</a>
+    <span class="hidden md:block">&mdash;</span>
     <p>&copy; {today.getFullYear()}</p>
-    <span class='hidden md:block'>&mdash;</span>
-    <a href='/sustainability' class='cursor-pointer'>SUSTAINABILITY</a>
+    <span class="hidden md:block">&mdash;</span>
+    <a href="/sustainability" class="cursor-pointer">SUSTAINABILITY</a>
   </div>
 </footer>
 
 <script>
   function displayClock() {
     var display = new Date().toLocaleTimeString();
-    document.getElementById('time')!.innerHTML = display;
+    document.getElementById("time")!.innerHTML = display;
     setTimeout(displayClock, 1000);
   }
   displayClock();

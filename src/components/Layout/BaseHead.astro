@@ -11,87 +11,87 @@ const { title, description, media } = Astro.props;
 ---
 
 <!-- Global Metadata -->
-<meta charset='utf-8' />
-<meta name='viewport' content='width=device-width,initial-scale=1' />
-<link rel='icon' type='image/x-icon' href='/favicon.ico' />
-<meta name='generator' content={Astro.generator} />
-<meta name='robots' content='index, follow' />
-<meta http-equiv='X-UA-Compatible' content='IE=edge' />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+<meta name="generator" content={Astro.generator} />
+<meta name="robots" content="index, follow" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta
-  name='keywords'
-  content='Jan Rebolledo,graphic designer,motion designer,web designer,web developer'
+  name="keywords"
+  content="Jan Rebolledo,graphic designer,motion designer,web designer,web developer"
 />
 
 <!-- Canonical URL -->
-<link rel='canonical' href={canonicalURL} />
+<link rel="canonical" href={canonicalURL} />
 
 <!-- Primary Meta Tags -->
 <title>{title}</title>
-<meta name='title' content={title} />
-<meta name='description' content={description} />
+<meta name="title" content={title} />
+<meta name="description" content={description} />
 
 <!-- Open Graph / Facebook -->
-<meta property='og:type' content='website' />
-<meta property='og:url' content={Astro.url} />
-<meta property='og:title' content={title} />
-<meta property='og:description' content={description} />
+<meta property="og:type" content="website" />
+<meta property="og:url" content={Astro.url} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
 {
-  media && media.fields.file.contentType.includes('image') ? (
-    <meta property='og:image' content={'https' + media.fields.file.url} />
+  media && media.fields.file.contentType.includes("image") ? (
+    <meta property="og:image" content={"https" + media.fields.file.url} />
   ) : (
-    <meta property='og:image' content='/socialpreview.png' />
+    <meta property="og:image" content="/socialpreview.png" />
   )
 }
 
 <!-- Twitter -->
-<meta property='twitter:card' content='summary_large_image' />
-<meta property='twitter:url' content={Astro.url} />
-<meta property='twitter:title' content={title} />
-<meta property='twitter:description' content={description} />
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content={Astro.url} />
+<meta property="twitter:title" content={title} />
+<meta property="twitter:description" content={description} />
 {
-  media && media.fields.file.contentType.includes('image') ? (
-    <meta property='twitter:image' content={'https' + media.fields.file.url} />
+  media && media.fields.file.contentType.includes("image") ? (
+    <meta property="twitter:image" content={"https" + media.fields.file.url} />
   ) : (
-    <meta property='twitter:image' content='/socialpreview.png' />
+    <meta property="twitter:image" content="/socialpreview.png" />
   )
 }
-<meta name='twitter:site' content='@janconcepts' />
-<meta name='twitter:creator' content='@janconcepts' />
+<meta name="twitter:site" content="@janconcepts" />
+<meta name="twitter:creator" content="@janconcepts" />
 
 <style>
-/* Register your custom font family and tell the browser where to find it. */
-@font-face {
-  font-family: 'PP Neue Montreal';
-  src: url('/fonts/PPNeueMontreal-Medium.otf');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
+  /* Register your custom font family and tell the browser where to find it. */
+  @font-face {
+    font-family: "PP Neue Montreal";
+    src: url("/fonts/PPNeueMontreal-Medium.otf");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
 
-@font-face {
-  font-family: 'PP Neue Montreal';
-  src: url('/fonts/PPNeueMontreal-Bold.otf');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
+  @font-face {
+    font-family: "PP Neue Montreal";
+    src: url("/fonts/PPNeueMontreal-Bold.otf");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
 
-@font-face {
-  font-family: 'PP Editorial Old';
-  src: url('/fonts/PPEditorialOld-Italic.otf');
-  font-weight: 500;
-  font-style: italic;
-  font-display: swap;
-}
+  @font-face {
+    font-family: "PP Editorial Old";
+    src: url("/fonts/PPEditorialOld-Italic.otf");
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+  }
 </style>
 
 {
   import.meta.env.DEV ? undefined : (
     <script
-      data-host='https://app.microanalytics.io'
-      data-dnt='false'
-      src='https://app.microanalytics.io/js/script.js'
-      id='ZwSg9rf6GA'
+      data-host="https://app.microanalytics.io"
+      data-dnt="false"
+      src="https://app.microanalytics.io/js/script.js"
+      id="ZwSg9rf6GA"
       async
       defer
     />

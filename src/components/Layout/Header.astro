@@ -1,64 +1,69 @@
 <header
-  class='fixed z-10 top-0 left-0 right-0 transition-all bg-white/90 backdrop-brightness-200 backdrop-blur-md'
-  id='header'
+  class="fixed z-10 top-0 left-0 right-0 transition-all bg-white/90 backdrop-brightness-200 backdrop-blur-md"
+  id="header"
+  data-nav-open=""
 >
   <div
-    class='container mx-auto md:px-24 p-3 lg:py-6 flex justify-between items-center md:grid md:grid-cols-3'
+    class="container mx-auto md:px-24 p-3 lg:py-6 flex justify-between items-center md:grid md:grid-cols-3"
   >
-    <h2 class='cursor-pointer flex flex-col gap-2'>
-      <a href='/' class=''> Jan Rebolledo</a>
+    <h2 class="cursor-pointer flex flex-col gap-2">
+      <a href="/" class=""> Jan Rebolledo</a>
       <!-- <a
         href='/'
         class='text-neutral-500 text-sm hidden lg:block'>Multimedia</a
       > -->
     </h2>
     <div
-      id='nav'
-      class='absolute top-0 pt-24 -left-[100vw] transition-transform bg-white md:bg-transparent h-[100lvh] md:h-auto min-w-full md:min-w-0 container mx-auto px-3 z-20 text-3xl md:static md:pt-0 md:z-auto md:col-span-2'
+      id="nav"
+      class="absolute top-0 pt-24 -left-[100vw] transition-transform bg-white md:bg-transparent h-[100lvh] md:h-auto min-w-full md:min-w-0 container mx-auto px-3 z-20 text-3xl md:static md:pt-0 md:z-auto md:col-span-2"
     >
       <nav
-        class='container mx-auto flex flex-col gap-12 md:text-base md:grid md:grid-cols-2 md:px-0 md:gap-0'
+        class="container mx-auto flex flex-col gap-12 md:text-base md:grid md:grid-cols-2 md:px-0 md:gap-0"
       >
-        <a href='/#work' class='flex flex-col gap-2 cursor-pointer'
-          ><span class='text-black md:text-current'>Work</span><span
-            class='text-neutral-500 text-sm md:hidden'>5 Projects</span
+        <a href="/#work" class="flex flex-col gap-2 cursor-pointer"
+          ><span class="text-black md:text-current">Work</span><span
+            class="text-neutral-500 text-sm md:hidden">5 Projects</span
           ></a
         >
-        <a href='/gallery' class='flex md:hidden flex-col gap-2 cursor-pointer'
-          ><span class='text-black md:text-current'>Gallery</span><span
-            class='text-neutral-500 text-sm md:hidden'>Curated Media</span
+        <a href="/gallery" class="flex md:hidden flex-col gap-2 cursor-pointer"
+          ><span class="text-black md:text-current">Gallery</span><span
+            class="text-neutral-500 text-sm md:hidden">Curated Media</span
           ></a
         >
         <a
-          href='mailto:contact@janrebolledo.com'
-          class='flex flex-col gap-2 cursor-pointer'
-          ><span class='text-black md:text-current'>Contact</span><span
-            class='text-neutral-500 text-sm md:hidden'>contact@janrebolledo.com</span
+          href="mailto:contact@janrebolledo.com"
+          class="flex flex-col gap-2 cursor-pointer"
+          ><span class="text-black md:text-current">Contact</span><span
+            class="text-neutral-500 text-sm md:hidden"
+            >contact@janrebolledo.com</span
           ></a
         >
       </nav>
     </div>
-    <button class='block md:hidden z-30 m-4 mr-0 text-3xl' onclick='openMenu()'
+    <button class="block md:hidden z-30 m-4 mr-0 text-3xl" onclick="openMenu()"
       >☰</button
     >
   </div>
 </header>
 
 <script data-astro-rerun is:inline>
+  const header = document.getElementById("header");
   function openMenu() {
-    const nav = document.getElementById('nav');
-    nav.classList.toggle('translate-x-[100vw]');
+    const nav = document.getElementById("nav");
+    nav.classList.toggle("translate-x-[100vw]");
+    header.dataset.navOpen = nav.classList.contains("translate-x-[100vw]")
+      ? true
+      : false;
   }
 
   let lastScroll = 0;
 
-  const header = document.getElementById('header');
-  window.addEventListener('scroll', () => {
+  window.addEventListener("scroll", () => {
     const currentScroll = window.scrollY;
     if (currentScroll <= lastScroll) {
       header.dataset.visible = true;
     } else {
-      if (nav.classList.contains('translate-x-[100vw]') === false) {
+      if (nav.classList.contains("translate-x-[100vw]") === false) {
         header.dataset.visible = false;
       }
     }
@@ -70,7 +75,7 @@
 </script>
 
 <style>
-  #header[data-visible='false'] {
+  #header[data-visible="false"] {
     transform: translateY(-100px);
     opacity: 0;
   }

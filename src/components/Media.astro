@@ -1,23 +1,25 @@
 ---
-import { Image } from 'astro:assets';
-const { media, thumbnail, controls } = Astro.props;
+import { Image } from "astro:assets";
+const { media, thumbnail, controls, partiallyRounded } = Astro.props;
 
-const style = 'object-cover w-full h-full rounded-2xl ';
+const style = `object-cover w-full h-full rounded-${
+  partiallyRounded ? "b-" : ""
+}2xl `;
 const controlsProps = controls
   ? { controls: true }
   : { muted: true, loop: true };
 ---
 
 {
-  media && media.fields.file.contentType.includes('image') && (
+  media && media.fields.file.contentType.includes("image") && (
     <Image
-      src={'https:' + media.fields.file.url + '?fm=webp&w=900'}
+      src={"https:" + media.fields.file.url + "?fm=webp&w=900"}
       alt={media.fields.title}
       class={style}
       width={media.fields.file.details.image.width}
       height={media.fields.file.details.image.height}
-      format={'webp'}
-      loading={'lazy'}
+      format={"webp"}
+      loading={"lazy"}
       quality={80}
       transition:name={media.sys.id}
       transition:persist
@@ -25,7 +27,7 @@ const controlsProps = controls
   )
 }
 {
-  media && media.fields.file.contentType.includes('video') && (
+  media && media.fields.file.contentType.includes("video") && (
     <video
       class={style}
       {...controlsProps}
@@ -33,11 +35,11 @@ const controlsProps = controls
       transition:name={media.sys.id}
       transition:persist
       poster={
-        thumbnail ? 'https:' + thumbnail.fields.file.url + '?fm=webp&w=900' : ''
+        thumbnail ? "https:" + thumbnail.fields.file.url + "?fm=webp&w=900" : ""
       }
     >
       <source
-        src={'https:' + media.fields.file.url}
+        src={"https:" + media.fields.file.url}
         type={media.fields.file.contentType}
       />
     </video>

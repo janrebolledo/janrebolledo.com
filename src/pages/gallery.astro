@@ -1,63 +1,63 @@
 ---
-import { contentfulClient } from '../lib/contentful';
-import type { GalleryPost } from '../lib/contentful';
-import Layout from '../Layout/Layout.astro';
-import Media from '../components/Media.astro';
+import { contentfulClient } from "../lib/contentful";
+import type { GalleryPost } from "../lib/contentful";
+import Layout from "../Layout/Layout.astro";
+import Media from "../components/Media.astro";
 
-var gallery = await contentfulClient.getEntry('7omKq0qntF8iUf5MMKBE0h');
+var gallery = await contentfulClient.getEntry("7omKq0qntF8iUf5MMKBE0h");
 
 const props = {
-  title: 'Jan Rebolledo — Gallery',
+  title: "Jan Rebolledo — Gallery",
   description: gallery.fields.description,
 };
 ---
 
 <Layout props={props}>
   <main>
-    <section class='container px-3 md:px-24 mx-auto mt-56 mb-24'>
-      <h1 class='font-serif italic text-3xl'>Gallery</h1>
-      <p class='my-4'>{gallery.fields.description}</p>
-      <div class='flex gap-2 mb-12'>
+    <section class="container px-3 md:px-24 mx-auto mt-56 mb-24">
+      <h1 class="font-serif italic text-3xl">Gallery</h1>
+      <p class="my-4">{gallery.fields.description}</p>
+      <div class="flex gap-2 mb-12">
         <a
-          href='/#work'
-          class='rounded-2xl border w-max px-4 py-3 bg-black text-white cursor-pointer'
+          href="/#work"
+          class="rounded-2xl border w-max px-4 py-3 bg-black text-white cursor-pointer"
         >
           View Case Studies &rarr;
         </a>
         <a
-          href='mailto:contact@janrebolledo.com'
-          class='rounded-2xl border w-max px-4 py-3 cursor-pointer'
+          href="mailto:contact@janrebolledo.com"
+          class="rounded-2xl border w-max px-4 py-3 cursor-pointer"
           >Contact &rarr;</a
         >
       </div>
-      <div class='grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-5'>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-5">
         {
           gallery.fields.posts.map((post: GalleryPost, index: number) => (
             <article>
-              <div class='relative w-full mb-3 md:aspect-[4/3]'>
+              <div class="relative w-full mb-3 md:aspect-[4/3]">
                 <Media controls media={post.fields.media} />
               </div>
-              <div class='flex items-center justify-between'>
+              <div class="flex items-center justify-between">
                 <div>
-                  <h2 class='font-bold'>{post.fields.client}</h2>
+                  <h2 class="font-bold">{post.fields.client}</h2>
                   <p>{post.fields.scope}</p>
                 </div>
-                <p class='text-neutral-500'>{post.fields.year}</p>
+                <p class="text-neutral-500">{post.fields.year}</p>
               </div>
             </article>
           ))
         }
         <div
-          class='flex items-center md:items-start justify-end flex-col gap-4 p-6 text-balance text-center md:text-left'
+          class="flex items-center md:items-start justify-end flex-col gap-4 p-6 text-balance text-center md:text-left"
         >
-          <h1 class='text-2xl'>
-            Let&apos;s build <span class='font-serif italic'>together</span>
+          <h1 class="text-2xl">
+            Let&apos;s build <span class="font-serif italic">together</span>
           </h1>
           <p>Get in touch to create your dream online experience.</p>
-          <div class='flex gap-2 mb-12'>
+          <div class="flex gap-2 mb-12">
             <a
-              href='mailto:contact@janrebolledo.com'
-              class='rounded-2xl border w-max px-4 py-3 bg-black text-white cursor-pointer'
+              href="mailto:contact@janrebolledo.com"
+              class="rounded-2xl border w-max px-4 py-3 bg-black text-white cursor-pointer"
             >
               Contact &rarr;
             </a>

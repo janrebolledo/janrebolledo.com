@@ -1,19 +1,19 @@
 ---
-import { contentfulClient } from '../lib/contentful';
-import type { Project } from '../lib/contentful';
-import Layout from '../Layout/Layout.astro';
-import ProjectList from '../components/ProjectList.astro';
-import { Image } from 'astro:assets';
+import { contentfulClient } from "../lib/contentful";
+import type { Project } from "../lib/contentful";
+import Layout from "../Layout/Layout.astro";
+import ProjectList from "../components/ProjectList.astro";
+import { Image } from "astro:assets";
 
-import figma from '../assets/figma.png'
-import vscode from '../assets/vscode.png'
-import msft from '../assets/msft.png'
-import dia from '../assets/dia.png'
-import polaroid1 from '../assets/polaroid-1.png'
-import polaroid2 from '../assets/polaroid-2.png'
+import figma from "../assets/figma.png";
+import vscode from "../assets/vscode.png";
+import msft from "../assets/msft.png";
+import dia from "../assets/dia.png";
+import polaroid1 from "../assets/polaroid-1.png";
+import polaroid2 from "../assets/polaroid-2.png";
 
 const entries = await contentfulClient.getEntries<Project>({
-  content_type: 'project',
+  content_type: "project",
 });
 
 var projects = entries.items.map((item) => {
@@ -46,34 +46,51 @@ projects = projects.sort(function (a, b) {
 });
 
 const props = {
-  title: 'Jan Rebolledo',
-  description:
-    'Curating experiences that people feel.',
+  title: "Jan Rebolledo",
+  description: "Curating experiences that people feel.",
 };
 ---
 
 <Layout props={props}>
   <main>
     <section
-      class='container px-3 md:px-24 mx-auto mt-52 lg:mt-72 mb-24 flex flex-col justify-center items-center gap-4 relative'
+      class="container px-3 md:px-24 mx-auto mt-52 lg:mt-72 mb-24 flex flex-col justify-center items-center gap-4 relative"
     >
-      
-      <h1 class='text-4xl md:text-5xl w-full lg:w-1/2 text-balance text-center px-6 relative'>
-        Curating experiences
-that people <span class='font-serif italic'>feel</span>
-        <Image src={vscode} alt='Visual Studio Code' width={120} height={120} class='absolute w-12 h-12 md:w-20 md:h-20 left-1/2 right-1/2 translate-x-28 lg:translate-x-48 top-[5rem] md:top-20 lg:top-10' format="webp" quality={100} />
-        <Image src={figma} alt='Figma' width={120} height={120} class='absolute w-12 h-12 md:w-20 md:h-20 left-1/2 right-1/2 -translate-x-36 md:-translate-x-64 lg:-translate-x-72 -top-12  lg:-top-14' format='webp' quality={100} />
+      <h1
+        class="text-4xl md:text-5xl w-full lg:w-1/2 text-balance text-center px-6 relative"
+      >
+        Curating experiences that people <span class="font-serif italic"
+          >feel</span
+        >
+        <Image
+          src={vscode}
+          alt="Visual Studio Code"
+          width={120}
+          height={120}
+          class="absolute w-12 h-12 md:w-20 md:h-20 left-1/2 right-1/2 translate-x-28 lg:translate-x-48 top-[5rem] md:top-20 lg:top-10"
+          format="webp"
+          quality={100}
+        />
+        <Image
+          src={figma}
+          alt="Figma"
+          width={120}
+          height={120}
+          class="absolute w-12 h-12 md:w-20 md:h-20 left-1/2 right-1/2 -translate-x-36 md:-translate-x-64 lg:-translate-x-72 -top-12 lg:-top-14"
+          format="webp"
+          quality={100}
+        />
       </h1>
-      <div class='flex gap-2 mt-8'>
+      <div class="flex gap-2 mt-8">
         <a
-          href='mailto:contact@janrebolledo.com'
-          class='rounded-2xl border w-max px-4 py-3 bg-black text-white cursor-pointer'
+          href="mailto:contact@janrebolledo.com"
+          class="rounded-2xl border w-max px-4 py-3 bg-black text-white cursor-pointer"
         >
           Contact &rarr;
         </a>
         <a
-          href='#work'
-          class='rounded-2xl border w-max px-4 py-3 cursor-pointer'
+          href="#work"
+          class="rounded-2xl border w-max px-4 py-3 cursor-pointer"
           >View Work &rarr;</a
         >
       </div>
@@ -81,72 +98,104 @@ that people <span class='font-serif italic'>feel</span>
         <p>previously</p>
         <div class="flex gap-6">
           <div class="flex items-center justify-center gap-2 md:text-xl">
-            <Image src={msft} alt='Microsoft Logo' width={72} height={72} class='w-8' format='webp' />
+            <Image
+              src={msft}
+              alt="Microsoft Logo"
+              width={72}
+              height={72}
+              class="w-8"
+              format="webp"
+            />
             <p>microsoft intern</p>
           </div>
           <div class="flex items-center justify-center gap-2 md:text-xl">
-            <Image src={dia} alt='Dia App Icon' width={72} height={72} class='w-8' format='webp' />
+            <Image
+              src={dia}
+              alt="Dia App Icon"
+              width={72}
+              height={72}
+              class="w-8"
+              format="webp"
+            />
             <p>bcny ambassador</p>
           </div>
         </div>
       </div>
-      </div>
-    </section>
-    <div class="absolute left-0 right-0 top-0 bottom-0 max-h-[70lvh] overflow-hidden pointer-events-none hidden lg:block">
-      <Image src={polaroid2} alt={'A polaroid of my camera.'} width={464.06} height={568} class='pointer-events-auto polaroid drop-shadow absolute translate-x-[33rem] -translate-y-[8rem] w-52 -rotate-[7deg] cursor-pointer' onclick='selectPolaroid(event)' quality={100} />
-      <Image src={polaroid1} alt={'A polaroid of me in front of Jan Rebolledo the Golden Gate Bridge.'} width={464.06} height={568} class='pointer-events-auto polaroid drop-shadow absolute -translate-x-[47rem] -translate-y-[3rem] w-52 rotate-[15deg] cursor-pointer' onclick='selectPolaroid(event)' quality={100} />
-    </div>
-    <section id='work'>
-      <div class='container px-3 md:px-24 mx-auto w-full'>
-        <hgroup
-          class='w-full lg:w-2/5 flex flex-row items-end lg:items-center justify-between mb-12'
-        >
-          <h2 class='text-3xl w-full text-start lg:w-auto'>Selected Works</h2>
-          <p class='text-right text-neutral-500'>2021 &mdash; Present</p>
-        </hgroup>
-      </div>
-      <div class='container px-3 md:px-24 mx-auto flex flex-col gap-11'>
-        <ProjectList projects={projects} />
-      </div>
-    </section>
-    <section
-      class='container mx-auto px-3 md:px-24 pt-24 flex items-center justify-end flex-col gap-4 p-6 text-balance text-center md:text-left'
-    >
-      <h1 class='text-2xl'>
-        Let&apos;s build <span class='font-serif italic'>together</span>
-      </h1>
-      <p>Get in touch to create your dream online experience.</p>
-      <div class='flex gap-2 mb-12'>
-        <a
-          href='mailto:contact@janrebolledo.com'
-          class='rounded-2xl border w-max px-4 py-3 bg-black text-white cursor-pointer'
-        >
-          Contact &rarr;
-        </a>
-      </div>
     </section>
   </main>
-  <script is:inline>
-    function selectPolaroid(e) {
-      console.log(e.target)
-      e.target.dataset.selected = e.target.dataset.selected == 'true' ? 'false' : 'true'
-    }
-  </script>
-  <style>
-    .polaroid {
-      left: 50%;
-      right: 50%;
-      top: 50%;
-      bottom: 50%;
-      transition: cubic-bezier(0,.7,.3,1) 0.5s transform;
-    }
-
-    .polaroid[data-selected='true'] {
-      transform: translate(-50%, -50%) rotate(3deg) scale(1.3);
-    }
-
-    .polaroid[data-selected='true']:nth-child(2) {
-      transform: translate(-50%, -50%) rotate(-5deg) scale(1.3);
-    }
-  </style>
+  <div
+    class="absolute left-0 right-0 top-0 bottom-0 max-h-[70lvh] overflow-hidden pointer-events-none hidden lg:block"
+  >
+    <Image
+      src={polaroid2}
+      alt={"A polaroid of my camera."}
+      width={464.06}
+      height={568}
+      class="pointer-events-auto polaroid drop-shadow absolute translate-x-[33rem] -translate-y-[8rem] w-52 -rotate-[7deg] cursor-pointer"
+      onclick="selectPolaroid(event)"
+      quality={100}
+    />
+    <Image
+      src={polaroid1}
+      alt={"A polaroid of me in front of Jan Rebolledo the Golden Gate Bridge."}
+      width={464.06}
+      height={568}
+      class="pointer-events-auto polaroid drop-shadow absolute -translate-x-[47rem] -translate-y-[3rem] w-52 rotate-[15deg] cursor-pointer"
+      onclick="selectPolaroid(event)"
+      quality={100}
+    />
+  </div>
+  <section id="work">
+    <div class="container px-3 md:px-24 mx-auto w-full">
+      <hgroup
+        class="w-full lg:w-2/5 flex flex-row items-end lg:items-center justify-between mb-12"
+      >
+        <h2 class="text-3xl w-full text-start lg:w-auto">Selected Works</h2>
+        <p class="text-right text-neutral-500">2021 &mdash; Present</p>
+      </hgroup>
+    </div>
+    <div class="container px-3 md:px-24 mx-auto flex flex-col gap-11">
+      <ProjectList projects={projects} />
+    </div>
+  </section>
+  <section
+    class="container mx-auto px-3 md:px-24 pt-24 flex items-center justify-end flex-col gap-4 p-6 text-balance text-center md:text-left"
+  >
+    <h1 class="text-2xl">
+      Let&apos;s build <span class="font-serif italic">together</span>
+    </h1>
+    <p>Get in touch to create your dream online experience.</p>
+    <div class="flex gap-2 mb-12">
+      <a
+        href="mailto:contact@janrebolledo.com"
+        class="rounded-2xl border w-max px-4 py-3 bg-black text-white cursor-pointer"
+      >
+        Contact &rarr;
+      </a>
+    </div>
+  </section>
 </Layout>
+<script is:inline>
+  function selectPolaroid(e) {
+    console.log(e.target);
+    e.target.dataset.selected =
+      e.target.dataset.selected == "true" ? "false" : "true";
+  }
+</script>
+<style>
+  .polaroid {
+    left: 50%;
+    right: 50%;
+    top: 50%;
+    bottom: 50%;
+    transition: cubic-bezier(0, 0.7, 0.3, 1) 0.5s transform;
+  }
+
+  .polaroid[data-selected="true"] {
+    transform: translate(-50%, -50%) rotate(3deg) scale(1.3);
+  }
+
+  .polaroid[data-selected="true"]:nth-child(2) {
+    transform: translate(-50%, -50%) rotate(-5deg) scale(1.3);
+  }
+</style>

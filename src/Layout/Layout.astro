@@ -1,16 +1,16 @@
 ---
-import BaseHead from '../components/Layout/BaseHead.astro';
-import Header from '../components/Layout/Header.astro';
-import Footer from '../components/Layout/Footer.astro';
+import BaseHead from "../components/Layout/BaseHead.astro";
+import Header from "../components/Layout/Header.astro";
+import Footer from "../components/Layout/Footer.astro";
 const { title, description, media } = Astro.props.props;
 ---
 
 <!DOCTYPE html>
-<html lang='en'>
+<html lang="en">
   <head>
     <BaseHead title={title} description={description} media={media} />
   </head>
-  <body class='bg-white scroll-smooth font-medium lowercase'>
+  <body class="bg-white scroll-smooth font-medium lowercase">
     <Header />
     <slot />
     <Footer />

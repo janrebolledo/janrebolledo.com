@@ -1,36 +1,38 @@
 ---
-import { contentfulClient } from '../../lib/contentful';
-import { BLOCKS, INLINES } from '@contentful/rich-text-types';
-import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
-import type { Project } from '../../lib/contentful';
-import Layout from '../../Layout/Layout.astro';
-import List from '../../components/List.astro';
-import Media from '../../components/Media.astro';
-import Lock from '../../components/Icons/Lock.astro';
+import { contentfulClient } from "../../lib/contentful";
+import { BLOCKS, INLINES } from "@contentful/rich-text-types";
+import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
+import type { Project } from "../../lib/contentful";
+import Layout from "../../Layout/Layout.astro";
+import List from "../../components/List.astro";
+import Media from "../../components/Media.astro";
+import Lock from "../../components/Icons/Lock.astro";
 
 export async function getStaticPaths() {
   const options = {
     renderNode: {
       [BLOCKS.EMBEDDED_ASSET]: (node) =>
-        node.data.target.fields.file.contentType.includes('image')
-          ? `<img class="mx-3 lg:m-6 rounded-xl" src="https:${node.data.target.fields.file.url}" />`
+        node.data.target.fields.file.contentType.includes("image")
+          ? `<div class="px-3 lg:p-6"><img class="rounded-xl" src="https:${node.data.target.fields.file.url}" /></div>`
           : `<div class="px-3 lg:p-6"><video class="rounded-xl" muted loop playsinline><source src="${node.data.target.fields.file.url}"></video></div>`,
-      [BLOCKS.EMBEDDED_ENTRY]: (node) => node.data.target.sys.contentType.sys.id === 'embed' && `<div class="embed px-3 lg:p-6 w-full [&_*]:aspect-video [&_*]:h-auto [&_*]:rounded-xl [&_*]:w-full">${node.data.target.fields.embedCode}</div>`,
+      [BLOCKS.EMBEDDED_ENTRY]: (node) =>
+        node.data.target.sys.contentType.sys.id === "embed" &&
+        `<div class="embed px-3 lg:p-6 w-full [&_*]:aspect-video [&_*]:h-auto [&_*]:rounded-xl [&_*]:w-full">${node.data.target.fields.embedCode}</div>`,
       [BLOCKS.UL_LIST]: (node, next) =>
         `<ul class="ul">${next(node.content)}</ul>`,
     },
   };
   const { items } = await contentfulClient.getEntries<Project>({
-    content_type: 'project',
+    content_type: "project",
   });
   const pages = items.map((item) => ({
     params: { slug: item.fields.slug },
     props: {
       title: item.fields.title,
-      date: new Date(item.fields.date).toLocaleDateString('en-US', {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
+      date: new Date(item.fields.date).toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
       }),
       description: item.fields.description,
       media: item.fields.media,
@@ -46,7 +48,7 @@ export async function getStaticPaths() {
 }
 
 const { items } = await contentfulClient.getEntries<Project>({
-  content_type: 'project',
+  content_type: "project",
 });
 
 const {
@@ -71,61 +73,73 @@ const recommendedProjects = [
 ---
 
 <Layout props={Astro.props}>
-  <main class='flex flex-col gap-24'>
+  <main class="flex flex-col gap-24">
     {
       media && (
-        <div class='h-[80vh] w-full relative'>
-          <Media media={media} />
-          <div class='absolute top-0 left-0 right-0 bottom-0 flex items-end'>
-            <hgroup class='container px-3 md:px-24 mx-auto py-24 text-white'>
-              <p class=''>{type}</p>
-              <h1 class='text-4xl md:text-8xl font-bold'>{title}</h1>
+        <div class="h-[80vh] w-full relative z-0" id="project-hero">
+          <Media media={media} partiallyRounded />
+          <div class="absolute top-0 left-0 right-0 bottom-0 flex items-end">
+            <hgroup class="text-white relative w-full">
+              <div class="container px-3 md:px-24 mx-auto py-24 relative z-[15]">
+                <p class="">{type}</p>
+                <h1 class="text-4xl md:text-8xl font-bold drop-shadow-lg">
+                  {title}
+                </h1>
+              </div>
+              <div class="absolute top-0 right-0 bottom-0 left-0 progressive-blur-wrapper rounded-2xl overflow-y-hidden">
+                <div />
+                <div />
+                <div />
+                <div />
+                <div />
+                <div />
+              </div>
             </hgroup>
           </div>
         </div>
       )
     }
     <div
-      class='grid md:grid-cols-4 xl:grid-cols-5 gap-5 container mx-auto px-3 md:px-24'
+      class="grid md:grid-cols-4 xl:grid-cols-5 gap-5 container mx-auto px-3 md:px-24"
     >
-      <div class='md:col-span-3 xl:col-span-3'>
-        <h3 class='mb-6 md:mb-14 font-bold'>OVERVIEW</h3><p>{description}</p>
+      <div class="md:col-span-3 xl:col-span-3">
+        <h3 class="mb-6 md:mb-14 font-bold">OVERVIEW</h3><p>{description}</p>
       </div>
-      <div class='md:col-span-1 xl:col-span-2'>
-        <h3 class='mb-6 md:mb-14 font-bold'>DETAILS</h3>
-        <dl class='flex flex-col gap-7 text-xs'>
+      <div class="md:col-span-1 xl:col-span-2">
+        <h3 class="mb-6 md:mb-14 font-bold">DETAILS</h3>
+        <dl class="flex flex-col gap-7 text-xs">
           {
             link && (
               <>
-                <dt class='font-bold'>IN PRODUCTION</dt>
+                <dt class="font-bold">IN PRODUCTION</dt>
                 <dd>
                   <a
                     href={link}
-                    class='cursor-pointer flex flex-row items-center text-base font-semibold gap-3'
+                    class="cursor-pointer flex flex-row items-center text-base font-semibold gap-3"
                   >
-                    <img src='/icons/link.svg' class='w-4 h-4' alt='' />
+                    <img src="/icons/link.svg" class="w-4 h-4" alt="" />
                     {link}
                   </a>
                 </dd>
-                <hr class='w-full border-black' />
+                <hr class="w-full border-black" />
               </>
             )
           }
-          <dt class='font-bold'>TECHNOLOGIES</dt>
+          <dt class="font-bold">TECHNOLOGIES</dt>
           <dd>
-            <ul class='flex flex-row flex-wrap gap-1'>
+            <ul class="flex flex-row flex-wrap gap-1">
               <List list={technologies} />
             </ul>
           </dd>
-          <hr class='w-full border-black' />
-          <dt class='font-bold'>SCOPE</dt>
+          <hr class="w-full border-black" />
+          <dt class="font-bold">SCOPE</dt>
           <dd>
-            <ul class='flex flex-row flex-wrap gap-1'>
+            <ul class="flex flex-row flex-wrap gap-1">
               <List list={scope} />
             </ul>
           </dd>
-          <hr class='w-full border-black' />
-          <dt class='font-bold'>DATE</dt>
+          <hr class="w-full border-black" />
+          <dt class="font-bold">DATE</dt>
           <dd><time>{date}</time></dd>
         </dl>
       </div>
@@ -133,15 +147,15 @@ const recommendedProjects = [
 
     <article
       set:html={content}
-      class='prose prose-neutral max-w-none prose-headings:container prose-headings:px-3 prose-headings:lg:px-24 prose-p:container prose-p:mx-auto prose-p:px-3 lg:prose-p:px-24 prose-headings:mx-auto prose-blockquote:text-4xl prose-blockquote:font-bold prose-blockquote:not-italic quoteless'
-      id='content'
+      class="prose prose-neutral max-w-none prose-headings:container prose-headings:px-3 prose-headings:lg:px-24 prose-p:container prose-p:mx-auto prose-p:px-3 lg:prose-p:px-24 prose-headings:mx-auto prose-blockquote:text-4xl prose-blockquote:font-bold prose-blockquote:not-italic quoteless"
+      id="content"
     />
 
-    <section class='container px-3 md:px-24 mx-auto'>
-      <h2 class='text-xl mb-4'>
-        View <span class='font-serif italic'>More</span>
+    <section class="container px-3 md:px-24 mx-auto">
+      <h2 class="text-xl mb-4">
+        View <span class="font-serif italic">More</span>
       </h2>
-      <div class='grid gap-5 lg:grid-cols-2'>
+      <div class="grid gap-5 lg:grid-cols-2">
         {
           recommendedProjects.map((project) => (
             <a
@@ -152,17 +166,20 @@ const recommendedProjects = [
               }
               class={
                 project.fields.available
-                  ? 'relative'
-                  : 'relative cursor-not-allowed'
+                  ? "relative"
+                  : "relative cursor-not-allowed"
               }
             >
-              <div class='absolute top-0 left-0 right-0 bottom-0 p-4 xl:p-12 text-white flex flex-col justify-end bg-gradient-to-t from-black rounded-xl z-10'>
+              <div class="absolute top-0 left-0 right-0 bottom-0 p-4 xl:p-12 text-white flex flex-col justify-end bg-gradient-to-t from-black rounded-xl z-10">
                 <p>
-                  {new Date(project.fields.date).toLocaleDateString('en-US', {
-                    year: 'numeric',
+                  {new Date(project.fields.date).toLocaleDateString("en-US", {
+                    year: "numeric",
                   })}
                 </p>
-                <h4 class='font-bold text-lg flex items-center gap-1'>{project.fields.title} {!project.fields.available && <Lock className="w-5" />}</h4>
+                <h4 class="font-bold text-lg flex items-center gap-1">
+                  {project.fields.title}{" "}
+                  {!project.fields.available && <Lock className="w-5" />}
+                </h4>
               </div>
               <Media
                 media={project.fields.media}
@@ -176,7 +193,7 @@ const recommendedProjects = [
   </main>
 
   <script data-astro-rerun is:inline>
-    const videosArray = document.getElementsByTagName('video');
+    const videosArray = document.getElementsByTagName("video");
     const videos = [...videosArray];
 
     const options = {
@@ -199,6 +216,27 @@ const recommendedProjects = [
     });
   </script>
 
+  <script data-astro-rerun is:inline>
+    const projectHero = document.getElementById("project-hero");
+
+    const observerMain = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.intersectionRatio >= 0.1) {
+            header.classList.add("alt");
+          } else {
+            header.classList.remove("alt");
+          }
+        });
+      },
+      {
+        threshold: [0, 0.1], // 0 and 10% visibility
+      }
+    );
+
+    observerMain.observe(projectHero);
+  </script>
+
   <style is:global>
     .ul:has(img, video) {
       @apply px-3 lg:px-6 flex gap-5 list-none;
@@ -210,6 +248,126 @@ const recommendedProjects = [
     }
     .quoteless blockquote {
       quotes: none !important;
+    }
+
+    .alt[data-nav-open="false"],
+    .alt[data-nav-open=""] {
+      background-color: transparent;
+      backdrop-filter: none;
+      color: white;
+    }
+
+    .progressive-blur-wrapper > div {
+      height: 100%;
+      position: absolute;
+      inset: 0;
+    }
+
+    .progressive-blur-wrapper:before {
+      position: absolute;
+      inset: 0;
+      content: "";
+      z-index: 1;
+      backdrop-filter: blur(0.5px);
+      -webkit-backdrop-filter: blur(0.5px);
+      mask: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgb(0, 0, 0) 12.5%,
+        rgb(0, 0, 0) 25%,
+        rgba(0, 0, 0, 0) 37.5%
+      );
+    }
+
+    .progressive-blur-wrapper > div:nth-of-type(1) {
+      z-index: 2;
+      backdrop-filter: blur(1px);
+      -webkit-backdrop-filter: blur(1px);
+      mask: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 12.5%,
+        rgb(0, 0, 0) 25%,
+        rgb(0, 0, 0) 37.5%,
+        rgba(0, 0, 0, 0) 50%
+      );
+    }
+
+    .progressive-blur-wrapper > div:nth-of-type(2) {
+      z-index: 3;
+      backdrop-filter: blur(2px);
+      -webkit-backdrop-filter: blur(2px);
+      mask: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 25%,
+        rgb(0, 0, 0) 37.5%,
+        rgb(0, 0, 0) 50%,
+        rgba(0, 0, 0, 0) 62.5%
+      );
+    }
+
+    .progressive-blur-wrapper > div:nth-of-type(3) {
+      z-index: 4;
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      mask: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 37.5%,
+        rgb(0, 0, 0) 50%,
+        rgb(0, 0, 0) 62.5%,
+        rgba(0, 0, 0, 0) 75%
+      );
+    }
+
+    .progressive-blur-wrapper > div:nth-of-type(4) {
+      z-index: 5;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      mask: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 50%,
+        rgb(0, 0, 0) 62.5%,
+        rgb(0, 0, 0) 75%,
+        rgba(0, 0, 0, 0) 87.5%
+      );
+    }
+
+    .progressive-blur-wrapper > div:nth-of-type(5) {
+      z-index: 6;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      mask: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 62.5%,
+        rgb(0, 0, 0) 75%,
+        rgb(0, 0, 0) 87.5%,
+        rgba(0, 0, 0, 0) 100%
+      );
+    }
+
+    .progressive-blur-wrapper > div:nth-of-type(6) {
+      z-index: 7;
+      backdrop-filter: blur(32px);
+      -webkit-backdrop-filter: blur(32px);
+      mask: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 75%,
+        rgb(0, 0, 0) 87.5%,
+        rgb(0, 0, 0) 100%
+      );
+    }
+
+    .progressive-blur-wrapper:after {
+      position: absolute;
+      inset: 0;
+      content: "";
+      z-index: 8;
+      backdrop-filter: blur(64px);
+      -webkit-backdrop-filter: blur(64px);
+      mask: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 87.5%,
+        rgb(0, 0, 0) 100%
+      );
     }
   </style>
 </Layout>

@@ -1,5 +1,5 @@
-import contentful from 'contentful';
-import type { Document } from '@contentful/rich-text-types';
+import contentful from "contentful";
+import type { Document } from "@contentful/rich-text-types";
 
 export interface Project {
   title: string;
@@ -32,5 +32,5 @@ export const contentfulClient = contentful.createClient({
   accessToken: import.meta.env.DEV
     ? import.meta.env.CONTENTFUL_PREVIEW_TOKEN
     : import.meta.env.CONTENTFUL_DELIVERY_TOKEN,
-  host: import.meta.env.DEV ? 'preview.contentful.com' : 'cdn.contentful.com',
+  host: import.meta.env.DEV ? "preview.contentful.com" : "cdn.contentful.com",
 });
