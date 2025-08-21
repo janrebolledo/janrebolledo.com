@@ -16,14 +16,15 @@ export async function getStaticPaths() {
           ? `<div class="px-3 lg:p-6"><img class="rounded-xl" src="https:${node.data.target.fields.file.url}" /></div>`
           : `<div class="px-3 lg:p-6"><video class="rounded-xl" muted loop playsinline><source src="${node.data.target.fields.file.url}"></video></div>`,
       [BLOCKS.EMBEDDED_ENTRY]: (node) =>
-        node.data.target.sys.contentType.sys.id === "embed" &&
-        `<div class="embed px-3 lg:p-6 w-full [&_*]:aspect-video [&_*]:h-auto [&_*]:rounded-xl [&_*]:w-full">${node.data.target.fields.embedCode}</div>`,
+        node.data.target.sys.contentType.sys.id === "embed" ?
+        `<div class="embed px-3 lg:p-6 w-full [&_*]:aspect-video [&_*]:h-auto [&_*]:rounded-xl [&_*]:w-full">${node.data.target.fields.embedCode}</div>` :  
+        node.data.target.sys.contentType.sys.id === "grid" ? `<div class='grid grid-section gap-5 container mx-auto px-3 lg:px-24 [&_*]:px-0' style='grid-template-columns: repeat(${node.data.target.fields.numberOfColumns}, minmax(0, 1fr));'>${node.data.target.fields.cards.map(card => `<div>${documentToHtmlString(card.fields.content)}</div>`).join('')}</div>` : '' ,
       [BLOCKS.UL_LIST]: (node, next) =>
         `<ul class="ul">${next(node.content)}</ul>`,
     },
   };
   const { items } = await contentfulClient.getEntries<Project>({
-    content_type: "project",
+    content_type: "project", include: 3
   });
   const pages = items.map((item) => ({
     params: { slug: item.fields.slug },
@@ -48,7 +49,7 @@ export async function getStaticPaths() {
 }
 
 const { items } = await contentfulClient.getEntries<Project>({
-  content_type: "project",
+  content_type: "project"
 });
 
 const {
@@ -80,7 +81,7 @@ const recommendedProjects = [
           <Media media={media} partiallyRounded />
           <div class="absolute top-0 left-0 right-0 bottom-0 flex items-end">
             <hgroup class="text-white relative w-full">
-              <div class="container px-3 md:px-24 mx-auto py-24 relative z-[15]">
+              <div class="container p-3 mx-auto md:p-24 relative z-[15]">
                 <p class="">{type}</p>
                 <h1 class="text-4xl md:text-8xl font-bold drop-shadow-lg">
                   {title}
@@ -147,7 +148,7 @@ const recommendedProjects = [
 
     <article
       set:html={content}
-      class="prose prose-neutral max-w-none prose-headings:container prose-headings:px-3 prose-headings:lg:px-24 prose-p:container prose-p:mx-auto prose-p:px-3 lg:prose-p:px-24 prose-headings:mx-auto prose-blockquote:text-4xl prose-blockquote:font-bold prose-blockquote:not-italic quoteless"
+      class="prose prose-neutral max-w-none prose-headings:container prose-headings:px-3 prose-headings:lg:px-24 prose-p:container prose-p:mx-auto prose-p:px-3 lg:prose-p:px-24 prose-headings:mx-auto prose-blockquote:text-4xl prose-blockquote:font-bold prose-blockquote:not-italic quoteless prose-blockquote:text-center prose-blockquote:p-0 prose-blockquote:border-none"
       id="content"
     />
 
@@ -374,5 +375,11 @@ const recommendedProjects = [
       border-bottom-right-radius: 1rem;
       border-bottom-left-radius: 1rem;
     }
+
+    @media (max-width: 767px) {
+    .grid-section {
+        grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+    }
+  }
   </style>
 </Layout>
