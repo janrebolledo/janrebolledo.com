@@ -13,18 +13,28 @@ export async function getStaticPaths() {
     renderNode: {
       [BLOCKS.EMBEDDED_ASSET]: (node) =>
         node.data.target.fields.file.contentType.includes("image")
-          ? `<div class="px-3 lg:p-6"><img class="rounded-xl" src="https:${node.data.target.fields.file.url}" /></div>`
+          ? `<div class="px-3 lg:p-6"><img class="rounded-xl" src="https:${node.data.target.fields.file.url}" alt="${node.data.target.fields.title}" /></div>`
           : `<div class="px-3 lg:p-6"><video class="rounded-xl" muted loop playsinline><source src="${node.data.target.fields.file.url}"></video></div>`,
       [BLOCKS.EMBEDDED_ENTRY]: (node) =>
-        node.data.target.sys.contentType.sys.id === "embed" ?
-        `<div class="embed px-3 lg:p-6 w-full [&_*]:aspect-video [&_*]:h-auto [&_*]:rounded-xl [&_*]:w-full">${node.data.target.fields.embedCode}</div>` :  
-        node.data.target.sys.contentType.sys.id === "grid" ? `<div class='grid grid-section gap-5 container mx-auto px-3 lg:px-24 [&_*]:px-0' style='grid-template-columns: repeat(${node.data.target.fields.numberOfColumns}, minmax(0, 1fr));'>${node.data.target.fields.cards.map(card => `<div>${documentToHtmlString(card.fields.content)}</div>`).join('')}</div>` : '' ,
+        node.data.target.sys.contentType.sys.id === "embed"
+          ? `<div class="embed px-3 lg:p-6 w-full [&_*]:aspect-video [&_*]:h-auto [&_*]:rounded-xl [&_*]:w-full">${node.data.target.fields.embedCode}</div>`
+          : node.data.target.sys.contentType.sys.id === "grid"
+          ? `<div class='grid grid-section gap-5 container mx-auto px-3 lg:px-24 [&_*]:px-0' style='grid-template-columns: repeat(${
+              node.data.target.fields.numberOfColumns
+            }, minmax(0, 1fr));'>${node.data.target.fields.cards
+              .map(
+                (card) =>
+                  `<div>${documentToHtmlString(card.fields.content)}</div>`
+              )
+              .join("")}</div>`
+          : "",
       [BLOCKS.UL_LIST]: (node, next) =>
         `<ul class="ul">${next(node.content)}</ul>`,
     },
   };
   const { items } = await contentfulClient.getEntries<Project>({
-    content_type: "project", include: 3
+    content_type: "project",
+    include: 3,
   });
   const pages = items.map((item) => ({
     params: { slug: item.fields.slug },
@@ -37,6 +47,7 @@ export async function getStaticPaths() {
       }),
       description: item.fields.description,
       media: item.fields.media,
+      thumbnail: item.fields.thumbnail,
       content: documentToHtmlString(item.fields.content, options as any),
       technologies: item.fields.technologies,
       scope: item.fields.scope,
@@ -49,7 +60,7 @@ export async function getStaticPaths() {
 }
 
 const { items } = await contentfulClient.getEntries<Project>({
-  content_type: "project"
+  content_type: "project",
 });
 
 const {
@@ -57,6 +68,7 @@ const {
   date,
   description,
   media,
+  thumbnail,
   content,
   technologies,
   scope,
@@ -77,8 +89,8 @@ const recommendedProjects = [
   <main class="flex flex-col gap-24">
     {
       media && (
-        <div class="h-[80vh] w-full relative z-0" id="project-hero">
-          <Media media={media} partiallyRounded />
+        <div class="h-[60vh] lg:h-[80vh] w-full relative z-0" id="project-hero">
+          <Media media={media} thumbnail={thumbnail} partiallyRounded />
           <div class="absolute top-0 left-0 right-0 bottom-0 flex items-end">
             <hgroup class="text-white relative w-full">
               <div class="container p-3 mx-auto md:p-24 relative z-[15]">
@@ -240,11 +252,13 @@ const recommendedProjects = [
 
   <style is:global>
     .ul:has(img, video) {
-      @apply px-3 lg:px-6 flex gap-5 list-none;
+      @apply px-3 lg:px-6 flex gap-5 list-none flex-wrap lg:flex-nowrap;
     }
 
-    .ul:has(img, video) li img,
-    .ul:has(img, video) li div {
+    .ul li,
+    .ul img,
+    .ul video,
+    .ul div {
       @apply m-0 p-0;
     }
     .quoteless blockquote {
@@ -377,9 +391,9 @@ const recommendedProjects = [
     }
 
     @media (max-width: 767px) {
-    .grid-section {
+      .grid-section {
         grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+      }
     }
-  }
   </style>
 </Layout>
