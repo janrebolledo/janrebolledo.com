@@ -116,15 +116,15 @@ const recommendedProjects = [
       class="grid md:grid-cols-4 xl:grid-cols-5 gap-5 container mx-auto px-3 md:px-24"
     >
       <div class="md:col-span-3 xl:col-span-3">
-        <h3 class="mb-6 md:mb-14 font-bold">OVERVIEW</h3><p>{description}</p>
+        <h3 class="mb-6 md:mb-14 font-bold">Overview</h3><p>{description}</p>
       </div>
       <div class="md:col-span-1 xl:col-span-2">
-        <h3 class="mb-6 md:mb-14 font-bold">DETAILS</h3>
+        <h3 class="mb-6 md:mb-14 font-bold">Details</h3>
         <dl class="flex flex-col gap-7 text-xs">
           {
             link && (
               <>
-                <dt class="font-bold">IN PRODUCTION</dt>
+                <dt class="font-bold">In Production</dt>
                 <dd>
                   <a
                     href={link}
@@ -138,21 +138,21 @@ const recommendedProjects = [
               </>
             )
           }
-          <dt class="font-bold">TECHNOLOGIES</dt>
+          <dt class="font-bold">Technologies</dt>
           <dd>
             <ul class="flex flex-row flex-wrap gap-1">
               <List list={technologies} />
             </ul>
           </dd>
           <hr class="w-full border-black" />
-          <dt class="font-bold">SCOPE</dt>
+          <dt class="font-bold">Scope</dt>
           <dd>
             <ul class="flex flex-row flex-wrap gap-1">
               <List list={scope} />
             </ul>
           </dd>
           <hr class="w-full border-black" />
-          <dt class="font-bold">DATE</dt>
+          <dt class="font-bold">Date</dt>
           <dd><time>{date}</time></dd>
         </dl>
       </div>
