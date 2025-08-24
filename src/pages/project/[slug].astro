@@ -43,7 +43,7 @@ export async function getStaticPaths() {
       date: new Date(item.fields.date).toLocaleDateString("en-US", {
         year: "numeric",
         month: "long",
-        day: "numeric",
+        // day: "numeric",
       }),
       description: item.fields.description,
       media: item.fields.media,
@@ -124,20 +124,18 @@ const recommendedProjects = [
             {
               link && (
                 <>
-                  <div class="contents xl:flex flex-col gap-3">
-                    <a
-                      href={link}
-                      class="cursor-pointer flex flex-row items-center gap-3"
-                    >
-                      <img src="/icons/link.svg" class="w-4 h-4" alt="" />
-                      <span class="truncate">{link}</span>
-                    </a>
-                  </div>
+                  <a
+                    href={link}
+                    class="cursor-pointer flex flex-row items-center gap-3"
+                  >
+                    <img src="/icons/link.svg" class="w-4 h-4" alt="" />
+                    <span class="truncate max-w-48 md:max-w-none">{link}</span>
+                  </a>
                   <p class="text-black/50">•</p>
                 </>
               )
             }
-            <time class="text-black/50">{date}</time>
+            <time class="text-black/50 truncate">{date}</time>
           </div>
         </div>
       </div>
