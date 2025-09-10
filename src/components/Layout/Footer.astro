@@ -71,3 +71,31 @@ const today = new Date();
   }
   displayClock();
 </script>
+
+<style is:inline>
+  .signature path {
+    animation: signature cubic-bezier(0,.5,.5,1) 1.2s infinite;
+    stroke-dasharray: var(--stroke-length);
+    stroke-dashoffset: var(--stroke-length);
+    
+  }
+
+  .signature path:nth-of-type(1) {
+    --stroke-length: 346.8939514160156;
+  }
+
+  .signature path:nth-of-type(2) {
+    --stroke-length: 286.73040771484375;
+    animation-name: signaturer;
+  }
+
+  @keyframes signature {
+    0% {stroke-dashoffset: var(--stroke-length)}
+    100% {stroke-dashoffset: 0;}
+  }
+
+  @keyframes signaturer {
+    5% {stroke-dashoffset: var(--stroke-length)}
+    100% {stroke-dashoffset: 0;}
+  }
+</style>

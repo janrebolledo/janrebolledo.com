@@ -54,20 +54,18 @@ const props = {
 <Layout props={props}>
   <main>
     <section
-      class="container px-3 md:px-24 mx-auto mt-52 lg:mt-72 mb-24 flex flex-col justify-center items-center gap-4 relative"
+      class="container px-3 md:px-24 mx-auto mt-48 lg:mt-72 mb-24 flex flex-col justify-center items-center gap-4 relative"
     >
       <h1
-        class="text-4xl md:text-5xl w-full lg:w-1/2 text-balance text-center px-6 relative"
+        class="text-4xl md:text-5xl w-full lg:w-2/3 text-balance text-center px-6 relative"
       >
-        Curating experiences that people <span class="font-serif italic"
-          >feel</span
-        >
+        Jan Rebolledo is a designer & developer who curates <span class="font-serif italic">human-centered</span> experiences.
         <Image
           src={vscode}
           alt="Visual Studio Code"
           width={120}
           height={120}
-          class="absolute w-12 h-12 md:w-20 md:h-20 left-1/2 right-1/2 translate-x-28 lg:translate-x-48 top-[5rem] md:top-20 lg:top-10"
+          class="absolute w-12 h-12 md:w-20 md:h-20 left-1/2 right-1/2 translate-x-32 md:translate-x-64 translate-y-20 md:translate-y-12 lg:translate-y-12 lg:translate-x-80 top-[5rem] md:top-20 lg:top-10"
           format="webp"
           quality={100}
         />
@@ -76,7 +74,7 @@ const props = {
           alt="Figma"
           width={120}
           height={120}
-          class="absolute w-12 h-12 md:w-20 md:h-20 left-1/2 right-1/2 -translate-x-36 md:-translate-x-64 lg:-translate-x-72 -top-12 lg:-top-14"
+          class="absolute w-12 h-12 md:w-20 md:h-20 left-1/2 right-1/2 -translate-x-40 md:-translate-x-72 translate-y-4 md:-translate-y-12 lg:-translate-x-96 -top-12 lg:-top-14"
           format="webp"
           quality={100}
         />
@@ -151,7 +149,7 @@ const props = {
         class="w-full lg:w-2/5 flex flex-row items-end lg:items-center justify-between mb-12"
       >
         <h2 class="text-3xl w-full text-start lg:w-auto">Selected Works</h2>
-        <p class="text-right text-neutral-500">2021 &mdash; Present</p>
+        <p class="text-right text-neutral-500 w-max whitespace-nowrap">2021 &mdash; Present</p>
       </hgroup>
     </div>
     <div class="container px-3 md:px-24 mx-auto flex flex-col gap-11">
